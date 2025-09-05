@@ -1,0 +1,32 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ t('qr.header') }}</h1>
+
+    <div class="columns is-centered">
+        <div class="column">
+            <div class="box bm--card-equal-height ">
+                <div class="box-content">
+                    <p class="title is-4">{{ t('qr.box_title') }}</p>
+                    <p>
+                        <b>{{ t('qr.box_body_1') }}</b> <br><br>
+                       {{ t('qr.box_body_2') }}<br>
+                        <br>
+                        <!-- Es posible configurar un horario de cartas desde la <a>página de configuración</a>, en el menú lateral. -->
+                        <br>
+                        <br>
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div class="column">
+            <div class="box has-text-centered bm--card-equal-height ">
+                <div class="box-content">
+
+                    <ngx-qrcode id="qrDiv" elementType="url" [value]="qrUrl" errorCorrectionLevel="Q"></ngx-qrcode>
+                    <a [href]="qrImage" download="qr-menu"><button id="download" class="button is-success"
+                            (click)="downloadClick()">{{ t('general.download') }}</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

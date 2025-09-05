@@ -1,0 +1,175 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ isEditing ? t('menu.edit') : t('menu.create') }}</h1>
+    <div class="field is-5">
+        <label class="label">{{ t('menu.name') }}</label>
+        <div class="control">
+            <input class="input" type="text" [placeholder]="t('menu.namePlaceholder')" [(ngModel)]="menu.name">
+        </div>
+    </div>
+
+    <div cdkDropList (cdkDropListDropped)="onSectionDrop($event, menu)">
+        <div class="box p-t-sm m-t-lg section-box" *ngFor="let section of menu.sections" cdkDrag>
+            <div class="field">
+                <label class="label m-t-md m-b-lg" *ngIf="!sectionNameIsEditing(section)">
+                    {{ section.name }}
+                    <span (click)="onNameEditClick(section)" class="m-l-md is-clickable">
+                        <fa-icon [icon]="faEdit"></fa-icon>
+                    </span>
+                </label>
+                <label class="label" *ngIf="sectionNameIsEditing(section)">{{ t('menu.sectionName') }}</label>
+                <div *ngIf="sectionNameIsEditing(section)" class="control">
+                    <input #input class="input" type="text" [placeholder]="t('menu.sectionPlaceholder')"
+                        [(ngModel)]="section.name" (blur)="sectionNameEditFinished(section)"
+                        (keyup.enter)="sectionNameEditFinished(section)">
+                </div>
+            </div>
+            <button class="button is-secondary is-secondary-hover m-r-md" (click)="toggleModal(section)">
+                <span class="icon is-small">
+                    <fa-icon [icon]="faAdd"></fa-icon>
+                </span>
+                <span>{{ t('menu.addDish') }}</span>
+            </button>
+
+            <button class="button is-danger" *ngIf="menu.sections.length > 1" (click)="deleteSection(section)">
+                <span class="icon is-small">
+                    <fa-icon [icon]="faDelete"></fa-icon>
+                </span>
+                <span>{{ t('menu.sectionDelete') }}</span>
+            </button>
+
+            <div class="box box-no-shadow m-t-md" *ngIf="section.dishes.length > 0">
+                <div class="columns" class="box-title m-t-xxs">
+                    <div class="column is-1 has-text-centered is-hidden-mobile">
+                        <span>{{ t('menu.order') }}</span>
+                    </div>
+                    <div class="column">
+                        {{ t('menu.dish') }}
+                    </div>
+                    <div class="column">
+                        {{ t('menu.description') }}
+                    </div>
+                    <div class="column is-1 has-text-centered">
+                        {{ t('general.delete') }}
+                    </div>
+                </div>
+                <div cdkDropList (cdkDropListDropped)="onDrop($event, section)">
+                    <div class="columns" *ngFor="let dish of section.dishes" cdkDrag class="example-box">
+                        <div class="column is-1 has-text-centered is-hidden-mobile">
+                            <span class="icon is-small">
+                                <fa-icon [icon]="faSort">
+                                </fa-icon>
+                            </span>
+                        </div>
+                        <div class="column">
+                            {{ dish.name }}
+                        </div>
+                        <div class="column">
+                            <span [innerHTML]="dish.description"></span>
+                        </div>
+                        <div class="column is-1 has-text-centered">
+                            <span class="icon is-small">
+                                <fa-icon [icon]="faDelete" class="is-clickable" (click)="deleteDish(section.id, dish.id)">
+                                </fa-icon>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <button class="button is-primary m-b-md m-t-md" (click)="addSection()">
+        <span class="icon is-small">
+            <fa-icon [icon]="faAdd"></fa-icon>
+        </span>
+        <span>{{ t('menu.sectionAdd') }}</span>
+    </button>
+
+    <div class="field m-t-md">
+        <input class="is-checkradio" id="allergenUndeclared" type="checkbox" [checked]="isUndeclared()"
+            name="allergenUndeclared" (change)="onUndeclaredClick($event)">
+        <label for="allergenUndeclared">{{ t('menu.noAllergens') }}</label>
+    </div>
+
+    <p style="color: salmon;">{{ errorMessage }}</p>
+    <button class="button is-primary has-text-weight-medium m-t-md m-b-md m-r-xl" [class.is-loading]="isSaving"
+        (click)="onSaveClick()">
+        <span class="icon is-small">
+            <fa-icon [icon]="faSave"></fa-icon>
+        </span>
+        <span>{{ t('general.save') }}</span>
+    </button>
+
+    <button *ngIf="isEditing" class="button is-danger has-text-weight-medium m-t-md m-b-md"
+        [class.is-loading]="isDeleting" (click)="onDeleteMenuClick()">
+        <span class="icon is-small">
+            <fa-icon [icon]="faDelete"></fa-icon>
+        </span>
+        <span>{{ t('general.delete') }}</span>
+    </button>
+
+    <div #dishModal class="modal">
+        <div class="modal-background" (click)="closeModal($event)"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ t('menu.sectionDishes') }}</p>
+                <button class="delete" aria-label="Cerrar" (click)="closeModal($event)"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="field m-t-md" *ngIf="dishes.length > 0">
+                    <input id="switchRoundedDefault" type="checkbox" name="switchRoundedDefault" [checked]="sortByName"
+                        class="switch is-rounded" (click)="sortDishes()">
+                    <label for="switchRoundedDefault">{{ t('general.sortAlphabetically') }}</label>
+                </div>
+                <div class="field m-t-md" *ngIf="dishes.length > 0">
+                    <input [(ngModel)]="searchDishText" placeholder="Buscar..." (keyup)="showSearchResults()" class="input table-shadow" style="width: 350px;" *ngIf="dishes.length > 0"/>
+                </div>
+                <table *ngIf="dishes.length > 0" class="table is-hoverable is-fullwidth is-striped">
+                    <thead>
+                        <th>{{ t('dish.name') }}</th>
+                        <th>{{ t('general.select') }}</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let dish of dishesTable">
+                            <td (click)="dishClick(dish)">{{ dish.name }} </td>
+                            <td class="is-narrow">
+                                <div class="field">
+                                    <input class="is-checkradio" id="exampleCheckbox{{dish.id}}" type="checkbox"
+                                        [checked]="isContained(dish)" name="exampleCheckbox{{dish.id}}"
+                                        (change)="updateDishes(dish.id, $event)">
+                                    <label for="exampleCheckbox{{dish.id}}"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p *ngIf="dishes.length == 0">{{ t('menu.noDishes') }}</p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" (click)="saveDishes()">{{ t('general.add') }}</button>
+                <button class="button" (click)="closeModal($event)">{{ t('general.cancel') }}</button>
+            </footer>
+        </div>
+    </div>
+
+
+    <div class="modal" [class.is-active]="deleteModal">
+        <div class="modal-background" (click)="deleteModal = false"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ t('menu.deleteHeader') }}</p>
+                <button class="delete" aria-label="close" (click)="deleteModal = false"></button>
+            </header>
+            <section class="modal-card-body">
+                <p [innerHTML]="t('menu.deleteBody')"></p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger m-r-lg" (click)="onModalDeleteClick()"
+                    [class.is-loading]="isDeleting">{{ t('general.delete') }}</button>
+                <button class="button m-l-lg" (click)="deleteModal = false">{{ t('general.cancel') }}</button>
+            </footer>
+        </div>
+    </div>
+
+    
+</ng-container>

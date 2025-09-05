@@ -1,0 +1,107 @@
+@import "~src/variables";
+
+.card {
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
+    &.hoverable {
+        border-radius: 0.3em;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        &:hover {
+            box-shadow: 0 0.5em 1em -0.125em rgba(hsl(0, 0%, 4%), 0.25), 0 0px 0 1px rgba(hsl(0, 0%, 4%), 0.02);
+            cursor: pointer;
+        }
+
+        &.active {
+            background-color: $primary;
+        }
+    }
+}
+
+.card-image {
+    justify-content: center;
+}
+
+.card-content {
+    padding-top: 0;
+    padding-bottom: 0.6em;
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+}
+
+.content {
+    font-size: 13px;
+}
+
+.is-80x80 {
+    width: 80px;
+    height: 80px;
+}
+
+.is-checkradio[type="checkbox"] + label {
+    padding: 0;
+    padding-left: 3em;
+}
+
+/* preview carta */
+
+.dish-result-icon {
+    width: 2em;
+    height: 2em;
+}
+
+.is-2-image {
+    width: 2.5em;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.menu-alter {
+    color: rgb(255, 139, 6);
+}
+
+.menu-danger {
+    color: red;
+}
+
+.v-text-middle {
+    vertical-align: middle;
+}
+
+.comment-preview {
+    background-image: url("~src/assets/comentario_adicional_bg.png");
+    background-repeat: no-repeat;
+    background-size: 25em auto;
+    position: relative;
+    width: 25em;
+    height: 27em;
+    text-align: center;
+    margin: 0 auto;
+
+    table {
+        width: 348px;
+        position: absolute;
+        top: 266px;
+        left: 26px;
+
+        .td-align {
+            padding-left: 28px;
+        }
+    }
+}
+
+.is-small-text {
+    font-size: 0.9em;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+    border-color: $secondary;
+}
+
+.image-container {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.ck-balloon-panel_visible {
+    display: none !important;
+}

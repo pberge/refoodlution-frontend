@@ -1,0 +1,65 @@
+<h1 class="title">{{ isEditing ? 'Editar condimento' : 'Nuevo condimento' }}</h1>
+
+
+
+<div class="columns">
+    <div class="column is-5">
+        <div class="field">
+            <label class="label">Nombre</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Nombre del condimento" [(ngModel)]="seasoning.name">
+            </div>
+        </div>
+
+        <div class="field is-5 m-t-lg">
+            <label class="label">Ingredientes (opcional)</label>
+            <div class="control">
+                <input class="input m-b-md" type="tags" placeholder="Ingrediente" #ingredientsInput
+                    (keyup.enter)="onEnterInput(ingredientsInput.value); ingredientsInput.value=''"
+                    (blur)="onEnterInput(ingredientsInput.value); ingredientsInput.value=''"
+                    (keypress)="onCommaPressInput($event, ingredientsInput)">
+                <span *ngFor="let ingredient of seasoning.ingredients"
+                    class="tag m-l-sm m-t-sm is-medium is-secondary is-light">{{ ingredient | titleCaseWord}}<button
+                        class="delete is-small" (click)="deleteIngredient(ingredient)"></button></span>
+                <!--p class="m-t-md" *ngIf="seasoning.ingredients.length > 2"><b>Sugerencia de alérgenos: </b>Gluten, Lactosa, Lácteos </p-->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="m-t-lg m-b-lg">
+    <label class="label p-b-md">Selecciona los alérgenos</label>
+    <div class="columns is-multiline is-variable is-2 p-r-md">
+        <div class="column is-narrow" *ngFor="let allergen of allergens">
+            <div class="card hoverable" [class.active]="seasoning.hasAllergen(allergen)"
+                (click)="onCardClick(allergen)">
+                <div class="card-image is-flex">
+                    <figure class="image is-80x80">
+                        <img src="assets/allergens/image_{{ allergen | lowercase }}.png"
+                            alt="{{ getAllergenName(allergen) }}" class="not-dragable">
+                    </figure>
+                </div>
+                <div class="card-content has-text-centered">
+                    <div class="content">
+                        {{getAllergenName(allergen)}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="columns">
+    <div class="column is-narrow">
+        <button class="button is-primary" [class.is-loading]="isSaving" (click)="onSaveClick()">
+            <span class="icon is-small">
+                <fa-icon [icon]="faSave"></fa-icon>
+            </span>
+            <span>Guardar</span>
+        </button>
+    </div>
+    <div class="column m-t-sm" [class]="'has-text-'+result.status" *ngIf="result.status !== 'hidden'">
+        <fa-icon [icon]="result.status == 'success' ? faCheck : faCross"></fa-icon> {{ result.message }}
+    </div>
+</div>

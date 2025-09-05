@@ -1,0 +1,63 @@
+<ng-container *transloco="let t">
+    <section class="bg-image hero is-fullheight">
+        <div class="hero-body">
+            <div class="box half-width">
+
+                <p class="title is-4 m-b-md">{{ t('login.recover_header') }}</p>
+
+
+                <div *ngIf="hash.length == 0">
+                    {{ t('login.recover_body') }}
+                    <div class="field m-t-md">
+                        <label class="label">{{ t('login.emailPlaceholder') }}</label>
+                        <div class="control p-r-xl">
+                            <input class="input" type="email" name="email" [placeholder]=" t('login.emailPlaceholder')" [(ngModel)]="email"
+                                [class.is-danger]="inputError" (keyup.enter)="onEnviarClick()">
+                        </div>
+                    </div>
+
+                    <div class="column m-t-md" [class]="'has-text-'+result.status" *ngIf="result.status !== 'hidden'">
+                        <fa-icon [icon]="result.status == 'success' ? faCheck : faCross"></fa-icon><span class="m-l-md"
+                            [innerHTML]="result.message"></span>
+                    </div>
+
+                    <div class="field m-t-lg">
+                        <nav class="level">
+                            <!-- TODO: Fer el router un click per comprovar el login -->
+                            <button type="button" class="button is-light is-fullwidth m-r-md" (click)="onVolverClick()">
+                                {{ t('general.back') }}
+                            </button>
+                            <button type="button" class="button is-primary is-fullwidth m-l-md"
+                                [class.is-loading]="isLoading" (click)="onEnviarClick()"
+                                *ngIf="result.status != 'success'">
+                                {{ t('general.send') }}
+                            </button>
+                        </nav>
+                    </div>
+
+                </div>
+
+                <div *ngIf="hash.length !== 0">
+
+                    <div class="field m-t-lg">
+                        <label class="label">{{ t('login.newPassword') }}</label>
+                        <div class="control">
+                            <input class="input" type="password" name="password" [placeholder]=" t('login.password')"
+                                [(ngModel)]="password" [class.is-danger]="inputError" (keyup.enter)="onPasswordClick()">
+                        </div>
+                    </div>
+
+                    <div class="column m-t-md" [class]="'has-text-'+result.status" *ngIf="result.status !== 'hidden'">
+                        <fa-icon [icon]="result.status == 'success' ? faCheck : faCross"></fa-icon> <span class="m-l-md"
+                            [innerHTML]="result.message"></span>
+                    </div>
+
+                    <button type="button" class="button is-primary is-fullwidth m-t-lg" [class.is-loading]="isLoading"
+                        (click)="onPasswordClick()">
+                        {{ t('general.save') }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

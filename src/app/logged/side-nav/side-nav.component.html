@@ -1,0 +1,246 @@
+<!-- TODO Quan es crei el component amb l'enrutador pel menu, cal eliminar el bottom padding de la columna pq no quedin els 0.75em en blanc. -->
+<ng-container *transloco="let t">
+    <nav id="hamb-menu" class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" [routerLink]="['/dashboard']">
+                <img src="assets/logo_refoodlution_white.png" alt="Refoodlution">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" (click)="onHambClick()">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div class="navbar-menu" [class.is-active]="isHambActive">
+            <div class="navbar-start">
+                
+                <a class="navbar-item">
+                  <div class="dropdown centered" [class.is-active]="isDropdownActive" (click)="onRestDropdownClick()">
+                        <div class="dropdown-trigger">
+                            <button class="button is-primary is-primary-hover is-fullwidth" aria-haspopup="true"
+                                aria-controls="dropdown-menu">
+                                <span>{{ getRestaurantName() }}</span>
+                                <span class="icon is-small">
+                                    <fa-icon [icon]="faAngleDown"></fa-icon>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                            <div class="dropdown-content">
+                                <a *ngFor="let rest of restaurants" class="dropdown-item" (click)="onRestaurantClick(rest.id)"
+                                    [class.is-active]="getCurrentRestaurant() === rest.id">
+                                    {{ rest.name }}
+                                </a>
+                                <hr class="dropdown-divider">
+                                <a class="dropdown-item" (click)="onAddRestaurantClick()">
+                                    <fa-icon [icon]="faAdd" class="m-r-sm"></fa-icon> {{ t('restaurant.add') }}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a class="navbar-item" [routerLink]="['/dashboard']" routerLinkActive="is-active">
+                    <span class="icon is-medium">
+                        <fa-icon [icon]="faHome"></fa-icon>
+                    </span>
+                    {{ t('sideMenu.home') }}
+                </a>
+
+                <a class="navbar-item" [routerLink]="['/dish']" routerLinkActive="is-active">
+                    <span class="icon is-medium">
+                        <fa-icon [icon]="faDish"></fa-icon>
+                    </span>
+                    {{ t('sideMenu.dish') }}
+                </a>
+
+                <a class="navbar-item" [routerLink]="['/menu']" routerLinkActive="is-active">
+                    <span class="icon is-medium">
+                        <fa-icon [icon]="faMenu"></fa-icon>
+                    </span>
+                    {{ t('sideMenu.menu') }}
+                </a>
+                <a class="navbar-item" [routerLink]="['/translation']" routerLinkActive="is-active">
+                    <span class="icon is-medium">
+                        <fa-icon [icon]="faGlobe"></fa-icon>
+                    </span>
+                    {{ t('sideMenu.translations') }}
+                </a>
+                <a class="navbar-item" [routerLink]="['/qr-management']" routerLinkActive="is-active">
+                    <span class="icon is-medium">
+                        <fa-icon [icon]="faQr"></fa-icon>
+                    </span>
+                    {{ t('sideMenu.qr') }}
+                </a>
+                <a class="navbar-item" [routerLink]="['/configuration']" routerLinkActive="is-active">
+                    <span class="icon is-medium">
+                        <fa-icon [icon]="faConfig"></fa-icon>
+                    </span>
+                    {{ t('sideMenu.settings') }}
+                </a>
+                <a class="navbar-item" (click)="logout()">
+                    <span class="icon is-medium">
+                        <fa-icon [icon]="faExit"></fa-icon>
+                    </span>
+                    {{ t('general.logout') }}
+                </a>
+            </div>
+        </div>
+
+</nav>
+<div class="content-gran">
+    <div id="sideMenu">
+        <aside class="menu">
+            <figure class="image container is-256x256">
+                <a [routerLink]="['/dashboard']"><img src="assets/logo_refoodlution_white.png"></a>
+            </figure>
+
+
+
+            <div class="dropdown centered" [class.is-active]="isDropdownActive" (click)="onRestDropdownClick()">
+                <div class="dropdown-trigger">
+                    <button class="button is-primary is-primary-hover is-fullwidth" aria-haspopup="true"
+                        aria-controls="dropdown-menu">
+                        <span>{{ getRestaurantName() }}</span>
+                        <span class="icon is-small">
+                            <fa-icon [icon]="faAngleDown"></fa-icon>
+                        </span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                        <a *ngFor="let rest of restaurants" class="dropdown-item" (click)="onRestaurantClick(rest.id)"
+                            [class.is-active]="getCurrentRestaurant() === rest.id">
+                            {{ rest.name }}
+                        </a>
+                        <hr class="dropdown-divider">
+                        <a class="dropdown-item" (click)="onAddRestaurantClick()">
+                            <fa-icon [icon]="faAdd" class="m-r-sm"></fa-icon> {{ t('restaurant.add') }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <p class="menu-label">
+               {{ t('sideMenu.general') }}
+            </p>
+            <ul class="menu-list m-b-lg">
+                <li>
+                    <a [routerLink]="['/dashboard']" routerLinkActive="is-active">
+                        <span class="icon is-medium">
+                            <fa-icon [icon]="faHome"></fa-icon>
+                        </span>
+                        {{ t('sideMenu.home') }}
+                    </a>
+                </li>
+                <!--li>
+                    <a [routerLink]="['/seasoning']" routerLinkActive="is-active">
+                        <span class="icon is-medium">
+                            <fa-icon [icon]="faSeasoning"></fa-icon>
+                        </span>
+                        Salsas y condimentos
+                    </a>
+                </li-->
+                    <li>
+                        <a [routerLink]="['/dish']" routerLinkActive="is-active">
+                            <span class="icon is-medium">
+                                <fa-icon [icon]="faDish"></fa-icon>
+                            </span>
+                            {{ t('sideMenu.dish') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/menu']" routerLinkActive="is-active">
+                            <span class="icon is-medium">
+                                <fa-icon [icon]="faMenu"></fa-icon>
+                            </span>
+                            {{ t('sideMenu.menu') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/translation']" routerLinkActive="is-active">
+                            <span class="icon is-medium">
+                                <fa-icon [icon]="faGlobe"></fa-icon>
+                            </span>
+                            {{ t('sideMenu.translations') }}
+                        </a>
+                    </li>
+                    <!--li (mouseover)="isMouseOver(true)" (mouseout)="isMouseOver(false)">
+                    <a [routerLink]="['/translation']">
+                        <span class="icon is-medium">
+                            <fa-icon [icon]="faGlobe"></fa-icon>
+                        </span>
+                        Traducciones
+                        <fa-icon [icon]="traduccionesIcon" class="float-right p-r-md"></fa-icon>
+                    </a>
+                    <ul [style.display]="translationDisplay">
+                        <li>
+                            <a [routerLink]="['/translation/list']" routerLinkActive="is-active">
+                                <span class="icon is-medium">
+                                    <fa-icon [icon]="faLanguage"></fa-icon>
+                                </span>
+                                Listado
+                            </a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/translation/configuration']" routerLinkActive="is-active">
+                                <span class="icon is-medium">
+                                    <fa-icon [icon]="faFlag"></fa-icon>
+                                </span>
+                                Configuración
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </li-->
+                    <li>
+                        <a [routerLink]="['/qr-management']" routerLinkActive="is-active">
+                            <span class="icon is-medium">
+                                <fa-icon [icon]="faQr"></fa-icon>
+                            </span>
+                            {{ t('sideMenu.qr') }}
+                        </a>
+                    </li>
+
+                </ul>
+                <p class="menu-label">
+                    {{ t('sideMenu.settings_title') }}
+                </p>
+                <ul class="menu-list">
+
+                    <li>
+                        <a [routerLink]="['/configuration']" routerLinkActive="is-active">
+                            <span class="icon is-medium">
+                                <fa-icon [icon]="faConfig"></fa-icon>
+                            </span>
+                            {{ t('sideMenu.settings') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/admin']" routerLinkActive="is-active" *ngIf="isAdmin()">
+                            <span class="icon is-medium">
+                                <fa-icon [icon]="faConfig"></fa-icon>
+                            </span>
+                            {{ t('sideMenu.admin') }}
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="logout()">
+                            <span class="icon is-medium">
+                                <fa-icon [icon]="faExit"></fa-icon>
+                            </span>
+                            {{ t('general.logout') }}
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+        <div id="content">
+            <router-outlet (activate)="onActivate($event)"></router-outlet>
+        </div>
+    </div>
+</ng-container>

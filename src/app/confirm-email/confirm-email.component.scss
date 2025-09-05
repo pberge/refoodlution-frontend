@@ -1,0 +1,40 @@
+@import "~src/variables";
+
+.bg-image {
+  background-image: url("/assets/login_bg.jpg");
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.half-width {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.center-half {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.label.required:after {
+  color: #d00;
+  content: "*";
+  position: relative;
+  margin-left: 5px;
+  top: -2px;
+}
+
+@media screen and (min-width: 769px), print {
+  .field-label {
+    flex-grow: 2; /* overwrites previous value of 1 */
+  }
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+  border-color: $secondary;
+}

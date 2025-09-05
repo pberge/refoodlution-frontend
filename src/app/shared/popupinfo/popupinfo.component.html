@@ -1,0 +1,12 @@
+<ng-container *transloco="let t">
+
+    <div class="">
+        <div class="has-text-centered guardAlert" id="popup">
+          <img *ngIf="img" src="{{img}}"/>
+          <p class="is-size-3">{{t(title)}}</p>
+          <p class="is-size-4">{{t(description)}}</p>
+          <button *ngIf="buttonText" class="accept" style="buttonStyle" (click)="buttonClick()">{{t(buttonText)}}</button>
+        </div>
+    </div>
+
+</ng-container>

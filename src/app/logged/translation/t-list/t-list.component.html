@@ -1,0 +1,97 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ t('translation.header') }}</h1>
+    <p>{{ t('translation.editTranslation') }}. </p>
+
+    <div class="is-flex space-evenly m-t-xl">
+
+        <div class="lang-container">
+            <p class="is-size-5">{{ t('translation.avalilableLang') }}</p>
+            <div cdkDropList #availableList="cdkDropList" cdkDropListSortingDisabled [cdkDropListData]="langAvailable"
+                [cdkDropListConnectedTo]="[selectedList]" class="lang-list"
+                (cdkDropListDropped)="drop($event, 'delete')">
+                <div class="lang-box" *ngFor="let item of langAvailable" cdkDrag>
+                    {{ t('languages.'+item.code) }}
+                </div>
+            </div>
+        </div>
+
+        <div class="lang-container">
+            <p class="is-size-5">{{ t('translation.selectedLang') }}</p>
+            <div cdkDropList #selectedList="cdkDropList" cdkDropListSortingDisabled [cdkDropListData]="langSelected"
+                [cdkDropListConnectedTo]="[availableList]" class="lang-list" (cdkDropListDropped)="drop($event, 'add')">
+                <div class="lang-box" *ngFor="let item of langSelected" cdkDrag>
+                    {{ t('languages.'+item.code) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box" *ngIf="langSelected.length > 0">
+
+        <div class="tabs is-boxed is-centered">
+            <ul>
+                <li [class.is-active]="editingSection == 'dish'" (click)="onEditDishClick()">
+                    <a>
+                        <span class="icon is-small">
+                            <fa-icon [icon]="faDish"></fa-icon>
+                        </span>
+                        <span>{{ t('sideMenu.dish') }}</span>
+                    </a>
+                </li>
+                <li [class.is-active]="editingSection == 'menu'" (click)="onEditSectionClick()">
+                    <a>
+                        <span class="icon is-small">
+                            <fa-icon [icon]="faMenu"></fa-icon>
+                        </span>
+                        <span>{{ t('sideMenu.menu') }}/{{ t('sideMenu.sections') }}</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="columns is-multiline">
+            <div class="column" *ngFor="let lang of langSelected">
+                <button class="button is-fullwidth" (click)="selectLang(lang)"
+                    [ngClass]="{'is-primary is-primary-hover': isSelectedLang(lang) }">
+                    <span>{{ t('languages.'+lang.code) }}</span>
+                </button>
+            </div>
+        </div>
+
+        <ng-container *ngIf="editingSection == 'dish'">
+            <div *ngIf=" transDishes.length == 0">
+                {{ t('dish.noDishes') }}
+            </div>
+            <div style="display:flex;align-items: center;">
+                <input [(ngModel)]="searchText" placeholder="Buscar..." (keyup)="showSearchResults()" class="input table-shadow" style="width: 350px;" *ngIf="transDishes.length > 0"/>
+                <button class="column is-narrow btn-invisible" (click)="onTranslateAllClick()" style="margin-left:auto" [disabled]="dishLoading">
+                    <a class="button">
+                        <span style="padding-right: 1em;">{{ t('translation.translateAll') }}</span>  <fa-icon [icon]="faLanguage" size="2x"></fa-icon>
+                    </a>
+                </button>
+            </div>
+            <div *ngIf="dishLoading" class="spinner-container">
+                <div class="spinner"></div>
+                <p>{{ t('translation.loadingTranslation') }}</p>
+            </div>
+            <div class="m-t-lg" *ngFor="let dish of transDishesTable">
+                <app-t-item-dish [dish]="dish" [lang]="currentLang.code" [isLoading]="dishLoading"></app-t-item-dish>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="editingSection == 'menu'">
+            <p class="title is-6">{{ t('sideMenu.menu') }}</p>
+            <div *ngIf="transMenus.length == 0" class="m-l-md">
+                {{ t('menu.noMenu') }}
+            </div>
+            <app-t-item-string class="m-t-md" *ngFor="let menu of transMenus" [item]="menu" [lang]="currentLang.code"
+                [isLoading]="menuLoading"></app-t-item-string>
+            <p class="title is-6 m-t-lg">{{ t('sideMenu.sections') }}</p>
+            <div *ngIf="transSections.length == 0" class="m-l-md">
+                {{ t('menu.noSection') }}
+            </div>
+            <app-t-item-string class="m-t-md" *ngFor="let section of transSections" [item]="section"
+                [lang]="currentLang.code" [isLoading]="sectionLoading"></app-t-item-string>
+        </ng-container>
+    </div>
+</ng-container>

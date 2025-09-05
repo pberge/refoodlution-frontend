@@ -1,0 +1,29 @@
+@import "~src/variables";
+
+@media screen and (min-width: 769px), print {
+    .field-label {
+        flex-grow: 2; /* overwrites previous value of 1 */
+    }
+}
+
+.label.required:after {
+    color: #d00;
+    content: "*";
+    position: relative;
+    margin-left: 5px;
+    top: -2px;
+}
+
+.under-link {
+    color: $primary-hover;
+    text-decoration: underline;
+
+
+    &:hover {
+        color: $primary;
+    }
+}
+
+.button {
+    min-width: 15em;
+}

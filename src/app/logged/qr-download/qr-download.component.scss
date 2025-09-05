@@ -1,0 +1,17 @@
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  
+.bm--card-equal-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bm--card-equal-height .card-footer {
+  margin-top: auto;
+}

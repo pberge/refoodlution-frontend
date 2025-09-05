@@ -1,0 +1,145 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ t('restaurant.add') }}</h1>
+
+    <p>{{ t('restaurant.new_b1') }}</p>
+    <p [innerHTML]=" t('restaurant.new_b2')"></p>
+
+
+    <div class="columns">
+        <div class="column is-7 m-t-lg">
+            <form [formGroup]="restaurantForm">
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label required">Nombre restaurante</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" name="name" formControlName="name" type="text" placeholder="Nombre"
+                                    autofocus [class.is-danger]="name.invalid && name.touched && name.dirty">
+                                <div *ngIf="name.invalid && name.touched && name.dirty" class="has-text-danger">
+                                    <p *ngIf="name.errors.required">
+                                        Se necesita el nombre del restaurante.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label required">Calle</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" name="address" formControlName="address" type="text"
+                                    placeholder="Calle" autofocus
+                                    [class.is-danger]="address.invalid && address.touched && address.dirty">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label required">Ciudad</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" name="city" formControlName="city" type="text" placeholder="Ciudad"
+                                    [class.is-danger]="city.invalid && city.touched && city.dirty">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label required">Código postal</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" name="zipCode" formControlName="zipCode" type="text"
+                                    placeholder="C. P." autofocus
+                                    [class.is-danger]="zipCode.invalid && zipCode.touched && zipCode.dirty">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label required">País</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" name="country" formControlName="country" type="text"
+                                    placeholder="País" autofocus
+                                    [class.is-danger]="country.invalid && country.touched && country.dirty">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label">Teléfono de contacto</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <input class="input" name="phone" formControlName="phone" type="tel"
+                                    placeholder="Teléfono" autofocus
+                                    [class.is-danger]="phone.invalid && phone.touched && phone.dirty">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                        <label class="label required">Tipo de restaurante</label>
+                    </div>
+                    <div class="field-body">
+                        <div class="field">
+                            <div class="control">
+                                <div class="select" [class.is-danger]="type.invalid && type.touched && type.dirty">
+                                    <select formControlName="type">
+                                        <option [ngValue]="''" disabled hidden>Elije una opción</option>
+                                        <option [ngValue]="'restaurante'">Restaurante</option>
+                                        <option [ngValue]="'bar'">Bar</option>
+                                        <option [ngValue]="'bar-restaurante'">Bar-Restaurante</option>
+                                        <option [ngValue]="'hotel'">Hotel</option>
+                                        <option [ngValue]="'otro'">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="columns">
+                <div class="column is-narrow m-t-xl m-l-lg">
+                    <button class="button is-primary has-text-weight-medium" [class.is-loading]="isSaving"
+                        (click)="onSaveClick()">
+                        <span class="icon is-small">
+                            <fa-icon [icon]="faSave"></fa-icon>
+                        </span>
+                        <span>Añadir</span>
+                    </button>
+                </div>
+                <div class="column m-t-xl" [class]="'has-text-'+result.status" *ngIf="result.status !== 'hidden'">
+                    <fa-icon [icon]="result.status == 'success' ? faCheck : faCross"></fa-icon> {{ result.message }}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</ng-container>

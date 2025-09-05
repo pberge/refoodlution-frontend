@@ -1,0 +1,114 @@
+<ng-container *transloco="let t">
+    <div class="box has-text-centered" style="padding:3em !important;" *ngIf="!confirmedEmail">
+        <p *ngIf="!oldRestaurant" class="is-size-3" style="margin-bottom: 2em;">{{t('dashboard.welcome')}}</p>
+        <p *ngIf="oldRestaurant" class="is-size-3" style="margin-bottom: 2em;">{{t('dashboard.oldRestaurantTitle')}}</p>
+        <p *ngIf="!oldRestaurant" class="is-size-4" style="margin-bottom: 1em;">{{t('dashboard.noConfirmedEmail1')}}</p>
+        <p *ngIf="!oldRestaurant" class="is-size-5" style="margin-bottom: 1em;">{{ t('dashboard.noConfirmedEmail2') }}</p>
+        <p *ngIf="oldRestaurant" class="is-size-4" style="margin-bottom: 1em;">{{t('dashboard.noConfirmedEmail1OldRestaurant')}}</p>
+        <p *ngIf="oldRestaurant" class="is-size-5" style="margin-bottom: 1em;">{{ t('dashboard.noConfirmedEmail2OldRestaurant') }}</p>
+    </div>
+
+
+
+    <div *ngIf="confirmedEmail">
+        <div class="columns">
+            <div class="column">
+                <h1 class="title">{{ getRestName() }}</h1>
+            </div>
+            <div class="column has-text-right m-r-md">
+
+                <span class="icon m-r-sm">
+                    <fa-icon [icon]="faMail" size="lg" class="m-l-md"></fa-icon>
+                </span>
+
+                <a href="mailto:info@refoodlution.com" class="has-text-dark">
+                    {{ t('dashboard.contact') }}<br>
+                    info@refoodlution.com</a>
+
+            </div>
+        </div>
+
+        <app-popupinfo 
+            *ngIf="paymentDataAlert"
+            [title]="paymentDataAlertTitle"
+            [description]="paymentDataAlertDescription"
+            [buttonText]="paymentDataAlertButtonText"
+            [buttonClick]="paymentDataAlertButtonClick"
+        ></app-popupinfo>
+
+        <app-popupinfo 
+            *ngIf="creditCardExpired"
+            [title]="creditCardExpiredTitle"
+            [description]="creditCardExpiredDescription"
+            [buttonText]="creditCardExpiredButtonText"
+            [buttonClick]="creditCardExpiredButtonClick"
+        ></app-popupinfo>
+
+        <app-popupinfo 
+            *ngIf="creditCardExpirySoon"
+            [title]="creditCardExpirySoonTitle"
+            [description]="creditCardExpirySoonDescription"
+            [buttonText]="creditCardExpirySoonButtonText"
+            [buttonClick]="creditCardExpirySoonButtonClick"
+        ></app-popupinfo>
+
+        <app-popupinfo 
+            *ngIf="autoRenewCheck"
+            [title]="autoRenewalCheckTitle"
+            [description]="autoRenewalCheckDescription"
+            [buttonText]="autoRenewalCheckButtonText"
+            [buttonClick]="autoRenewalCheckButtonClick"
+        ></app-popupinfo>
+
+        <div class="columns is-vcentered header-border">
+            <div class="column is-one-third has-text-centered">
+                <p class="is-size-4">{{ t('dashboard.step') }} 1</p>
+                <img src="assets/dashboard/icon_dish.png" class="header-image m-t-sm not-dragable">
+                <p i18n class="m-t-sm is-size-6">{{ t('dashboard.st_1') }}</p>
+            </div>
+            <div class="column is-one-third has-text-centered">
+                <p class="is-size-4">{{ t('dashboard.step') }} 2</p>
+                <img src="assets/dashboard/icon_menu.png" class="header-image m-t-sm not-dragable">
+                <p class="m-t-sm is-size-6">{{ t('dashboard.st_2') }}</p>
+            </div>
+            <div class="column is-one-third has-text-centered">
+                <p class="is-size-4">{{ t('dashboard.step') }} 3</p>
+                <img src="assets/dashboard/icon_qr.png" class="header-image m-t-sm not-dragable">
+                <p class="m-t-sm is-size-6">{{ t('dashboard.st_3') }}</p>
+            </div>
+        </div>
+        <div class="columns p-t-lg">
+            <div class="column">
+                <div class="card bm--card-equal-height is-clickable is-rounded-table" (click)="vistaPrevia()">
+                    <div class="card-content">
+                        <h1 class="title">{{ t('dashboard.preview_header') }}</h1>
+                        <!--p>Carta activa actualmente: Menú mediodía.</p-->
+                        <p>{{ t('dashboard.preview_body_1') }}<br>{{ t('dashboard.preview_body_2') }}</p>
+                        <div class="center m-t-lg">
+                            <img style="width: 300px;" src="assets/dashboard/image_preview.png"
+                                [alt]="t('dashboard.alt_img')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <div class="card bm--card-equal-height is-rounded-table">
+                    <div class="card-content">
+                        <h1 class="title">{{ t('dashboard.tuto_header') }}</h1>
+                        <p>{{ t('dashboard.tuto_body') }}</p>
+                        <div class="center">
+                            <figure class="image m-t-xl is-size-3">
+                                <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Kcbgo9VfcnY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <!--iframe width="500" height="275" src="https://www.youtube-nocookie.com/embed/FvrKFmWCv0o"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe-->
+                                
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

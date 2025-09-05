@@ -1,0 +1,42 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ t('translation.configHeader') }}</h1>
+
+    <p>{{ t('translation.defaultLang') }}</p>
+    <p [innerHTML]="t('translation.configBody')"></p>
+
+    <div>
+        <div class="select m-t-lg is-flex-center">
+            <select [(ngModel)]="userLang.base">
+                <option [value]="''" disabled hidden>{{ t('restaurant.nonOption') }}</option>
+                <option *ngFor="let lang of languages" [value]="lang.code">
+                    {{ 'languages.'+lang.code | transloco | titlecase }}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div class="box m-t-md" *ngIf="userLang.base != ''">
+        <p>{{ t('translation.chooseLang') }}: </p>
+        <div *ngFor="let lang of languages" class="m-t-md">
+            <div class="field" *ngIf="lang.code != userLang.base">
+                <input class="is-checkradio" [id]="lang.code+'_check'" type="checkbox" [name]="lang.code+'_check'" (change)="onLangClick(lang, $event)">
+                <label [for]="lang.code+'_check'"> {{ 'languages.'+lang.code | transloco | titlecase }}</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column is-narrow m-t-md">
+            <button class="button is-primary has-text-weight-medium " [class.is-loading]="isSaving" *ngIf="userLang.base != ''" (click)="onSaveClick()">
+                <span class="icon is-small">
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </span>
+                <span>{{ t('general.finish')}}</span>
+            </button>
+        </div>
+        <div class="column m-t-md" [class]="'has-text-'+result.status" *ngIf="result.status !== 'hidden'">
+            <fa-icon [icon]="result.status == 'success' ? faCheck : faCross"></fa-icon> {{ result.message }}
+        </div>
+    </div>
+
+</ng-container>

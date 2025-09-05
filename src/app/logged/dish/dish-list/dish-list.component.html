@@ -1,0 +1,58 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ t('sideMenu.dish') }}</h1>
+    <button class="button is-primary m-b-lg" (click)="onAddClick()">
+        <span class="icon is-small">
+            <fa-icon [icon]="faAdd"></fa-icon>
+        </span>
+        <span>{{ t('dish.create') }}</span>
+    </button>
+
+    <div class="box has-text-centered" *ngIf="dishes.length == 0">
+        <p class="is-size-5">{{ t('dish.noDishes') }}</p>
+    </div>
+
+    <div class="field m-t-md" *ngIf="dishes.length > 0">
+        <input id="switchRoundedDefault" type="checkbox" name="switchRoundedDefault" [checked]="sortByName"
+            class="switch is-rounded" (click)="sortDishes()">
+        <label for="switchRoundedDefault">{{ t('general.sortAlphabetically') }}</label>
+    </div>
+    
+    <input [(ngModel)]="searchText" placeholder="Buscar..." (keyup)="showSearchResults()" class="input table-shadow" style="width: 350px;" *ngIf="dishes.length > 0"/>
+
+    <div class="table-container table-shadow is-rounded-table m-t-lg" *ngIf="dishes.length > 0">
+        <table class="table is-hoverable is-fullwidth is-striped">
+            <thead>
+                <th>{{ t('dish.name') }}</th>
+                <th data-tooltip="Tooltip Text">{{ t('dish.allergen_header_plural') }}</th>
+                <th class="has-text-centered">{{ t('dish.price') }}</th>
+                <!--th data-tooltip="Test">Activo</th-->
+                <th class="has-text-centered">{{ t('general.actions') }}</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dish of dishesTable">
+                    <td>{{dish.name}}</td>
+                    <td>
+                        <span *ngFor="let allergen of dish.allergens; last as isLast">
+                            {{ 'allergens.' + allergen.acronym | transloco }}<span *ngIf="!isLast">,</span>
+                        </span>
+                    </td>
+                    <td *ngIf="dish.price > 0" class="has-text-centered">{{ dish.price }} {{ dish.currency }}</td>
+                    <td *ngIf="dish.price == 0" class="has-text-centered">-</td>
+                    <!--td class="center">
+                    <span class="icon is-small">
+                        <fa-icon [class]="dish.active ? 'is-active' : 'is-not-active'" [icon]="faActive"></fa-icon>
+                    </span>
+                </td-->
+                    <td style="white-space: nowrap;" class="has-text-centered">
+                        <span class="icon is-small m-r-md is-clickable">
+                            <fa-icon [icon]="faEdit" (click)="editDish(dish)"></fa-icon>
+                        </span>
+                        <span class="icon is-small is-clickable">
+                            <fa-icon [icon]="faDelete" (click)="deleteDish(dish)"></fa-icon>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-container>

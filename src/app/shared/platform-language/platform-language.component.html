@@ -1,0 +1,21 @@
+<ng-container *transloco="let t">
+    <div class="dropdown" [class.is-up]="isUp" [class.is-active]="isDropdownLanguageClicked"
+        (click)="isDropdownLanguageClicked = !isDropdownLanguageClicked" (blur)="isDropdownLanguageClicked = false">
+        <div class="dropdown-trigger">
+            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                <span>{{ getCurrentName() }}</span>
+                <span class="icon is-small">
+                    <fa-icon [icon]="isUp ? faAngleUp : faAngleDown "></fa-icon>
+                </span>
+            </button>
+        </div>
+        <div class="dropdown-menu" id="dropdown-menu" role="menu">
+            <div class="dropdown-content">
+                <a class="dropdown-item" *ngFor="let lang of availableLanguages" (click)="setActiveLang(lang)">
+                    {{ getLangName(lang) }}
+                </a>
+
+            </div>
+        </div>
+    </div>
+</ng-container>

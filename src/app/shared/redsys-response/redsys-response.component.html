@@ -1,0 +1,23 @@
+<div class="box m-t-md">
+    <div class="has-text-centered m-t-md" [class]="response == 'ok' ? 'has-text-success' : 'has-text-danger'">
+        <fa-icon [icon]="response === 'ok' ? faSuccess : faTimesCircle" size="4x"></fa-icon>
+    </div>
+    <p class="has-text-centered m-t-md">
+        <span *ngIf="response == 'ok'">
+            Proceso realizado correctamente.
+        </span>
+
+        <span *ngIf="response == 'ko'">
+            Ha habido un error al realizar el pago.
+        </span>
+    </p>
+
+    <div class="has-text-centered">
+        <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

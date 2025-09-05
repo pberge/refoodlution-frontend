@@ -1,0 +1,15 @@
+
+<div class="columns is-vcentered" *ngIf="item.originalValue.length > 0">
+    <div class="column is-2">
+        <label class="label">{{ item.originalValue }}</label>
+    </div>
+    <div class="column is-narrow" (click)="onTranslateClick()">
+        <a class="button">
+            <fa-icon [icon]="faLanguage" size="2x"></fa-icon>
+        </a>
+    </div>
+    <div class="column">
+        <input class="input is-fullwidth" type="text" [(ngModel)]="item.value" [class]="valueClass"
+            (blur)="onValueChange()" [disabled]="isLoading">
+    </div>
+</div>

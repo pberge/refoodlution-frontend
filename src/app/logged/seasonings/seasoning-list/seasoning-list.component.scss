@@ -1,0 +1,24 @@
+.centered {
+    position: fixed; /* or absolute */
+    top: 40%;
+    left: 40%;
+  }
+
+  
+.is-active {
+  color: hsl(141, 53%, 53%);
+}
+
+.is-not-active {
+  color: hsl(348, 86%, 61%);
+}
+
+td.center { 
+  text-align: center;
+  align-items: center;
+}
+
+.is-vertical-center {
+  align-items: center;
+}
+

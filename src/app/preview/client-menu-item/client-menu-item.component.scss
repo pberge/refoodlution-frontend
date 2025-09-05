@@ -1,0 +1,273 @@
+@import "~src/variables.scss";
+
+
+
+input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+
+.tab {
+    width: 100%;
+    color: $secondary;
+    overflow: hidden;
+    &-label {
+        display: flex;
+        justify-content: space-between;
+        padding: 1em;
+        background: rgba(0, 0, 0, 0.03);
+        font-weight: bold;
+        cursor: pointer;
+
+        /* Icon */
+        &::after {
+            content: "\276F";
+            transform: rotate(90deg);
+            margin-right: 0.75em;
+            text-align: center;
+            transition: all 0.25s;
+        }
+    }
+    &-content {
+        max-height: 0;
+        padding: 0 1em;
+        color: $secondary;
+        background: white;
+        transition: all 0.25s;
+    }
+    &-close {
+        display: flex;
+        justify-content: flex-end;
+        padding: 1em;
+        font-size: 0.75em;
+        background: $secondary;
+        cursor: pointer;
+    }
+
+    &.is-style-5 .section {
+        background-color: white;
+        font-family: "nobu-title";
+        text-transform: uppercase;
+    }
+
+
+    &.is-style-6 .section {
+        background-color: white;
+        color: #dbb194;
+        font-family: "butler";
+        font-weight: bold;
+        text-transform: uppercase;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        &::after {
+            margin-left: 15px;
+        }
+    }
+
+    &.is-style-7 .section {
+        background-color: white;
+        align-items: center;
+        justify-content: center;
+        
+        &::after {
+            margin-left: 15px;
+        }
+    }
+
+    &.is-style-8 .section {
+        background-color: white;
+        font-family: "rosewood";
+        text-transform: uppercase;
+        color: #3c5c6c;
+    }
+    
+    &.is-style-9 .section {
+        background-color: white;
+        font-family: "tradegotic";
+        text-transform: uppercase;
+        color: #cc3322;
+    }
+
+     
+    &.is-style-10 .section {
+        background-color: white;
+        font-family: "metropolis";
+        text-transform: uppercase;
+        font-weight: bold;
+        color: #3e5057;
+    }
+
+    &.is-style-11 .section {
+        background-color: white;
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+    }
+
+    &.is-style-12 .section {
+        background-color: white;
+        font-family: "Panton";
+    }
+
+    &.is-style-13 .section {
+        background-color: white;
+        font-family: "leelawad";
+        color: #0070C0;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3em;    
+        
+        &::after {
+            margin-left: 15px;
+        }   
+    }
+
+    &.is-style-14 .section {
+        color: $capbocolor;
+        font-size: 1em;
+        justify-content: center;
+        background-color: transparent;  
+        
+        &::after {
+            margin-left: 15px;
+        }   
+    }
+
+    &.is-style-15 .section {
+        color: $lonautic;
+        font-size: 1em;
+        background-color: #40887c24;
+        font-family: 'Courier New', Courier, monospace;
+        
+        &::after {
+            margin-left: 15px;
+        }   
+
+        
+    }
+
+    &.is-style-15 table {
+        margin-bottom:0;
+    }
+
+    &.is-style-16 .section {
+        
+        font-size: 1em;
+        font-family: 'montserratalternate';
+        
+        &::after {
+            margin-left: 15px;
+        }   
+
+        
+    }
+
+    &.is-style-17 .section {
+        
+        font-size: 1em;
+        font-family: 'ivymodesemibold';
+        letter-spacing: 2px;
+        
+        &::after {
+            margin-left: 15px;
+        }   
+
+        
+    }
+
+   
+
+    &.is-style-18 .section {
+        
+        font-size: 1em;
+        font-family: 'ivymodesemibold';
+        letter-spacing: 2px;
+        
+        &::after {
+            margin-left: 15px;
+        }   
+
+        
+    }
+
+    &.is-style-19 .section {
+        
+        font-size: 1em;
+        font-family: 'ivymodesemibold';
+        letter-spacing: 2px;
+        
+        &::after {
+            margin-left: 15px;
+        }   
+
+        
+    }
+
+
+    &.is-style-17 {
+        background-color: $vitobeprimary;
+        color: $vitobetext;
+
+    }
+
+    @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        /* Safari desktop y móvil */
+        &.is-style-17 {
+         height: 57px;
+         
+        }
+    }
+    }
+}
+
+.tab:not(:last-child) {
+    .separator {
+        &.is-style-15 {
+            display: block !important;
+            text-align: center;
+
+            img {
+                width: 100px;
+            }
+        }
+    }
+}
+
+.tab {
+    .separator {
+        display:none;
+    }
+}
+
+
+// :checked
+input:checked {
+    + .tab-label {
+        &::after {
+            transform: rotate(-90deg);
+        }
+    }
+    ~ .tab-content {
+        max-height: 100%;
+    }
+}
+
+.bg-image.is-style-4 {
+    background: url("/assets/preview/casam_bg.jpg");
+    background-size: 100% auto;
+}
+
+.is-style-4 {
+    background: none;
+}
+
+
+.is-style-17 {
+    background-color: $vitobeprimary;
+
+    td {
+        color: $vitobetext !important;
+    }
+}

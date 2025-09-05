@@ -1,0 +1,38 @@
+<ng-container *ngIf="!isPdfMenu()" >
+    <div class="bg-image" [class]="'is-style-' + menu.style">
+        <div class="tab" [class]="'is-style-' + menu.style" *ngFor="let section of menu.sections" >
+            <input type="checkbox" id="{{ section.id }}" [(ngModel)]="section.isOpen" checked >
+            
+            <label class="tab-label section" for="{{ section.id }}" >{{ section.name }}</label>
+            <div class="tab-content" [class]="'is-style-' + menu.style" *ngIf="section.isOpen">
+                <table class="table is-fullwidth" [class]="'is-style-' + menu.style">
+                    <tbody>
+                        <tr *ngIf="menu.id == 2075 || menu.id == 1773">
+                            <td  style="width:60%;border:none;padding:5px;" [class]="'is-style-' + menu.style + '-title'"> </td>
+                            <td  style="width:10%;border:none;font-size: 12px;padding:5px;text-align: center;" [class]="'is-style-' +  menu.style + '-title'">{{section.dishes[0].priceTitle1}}</td>
+                            <td  style="width:20%;border:none;font-size: 12px;padding:5px;text-align: center;" [class]="'is-style-' +  menu.style + '-title'">{{section.dishes[0].priceTitle2}}</td>
+                            <td  style="width:10%;border:none;font-size: 12px;padding:5px;" [class]="'is-style-' +  menu.style + '-title'">{{section.dishes[0].priceTitle3}}</td>
+                        </tr>
+                        <tr *ngIf="menu.id == 2077 || menu.id == 2078">
+                            <td  style="width:70%;border:none;padding:5px;" [class]="'is-style-' + menu.style + '-title'"> </td>
+                            <td  style="width:10%;border:none;font-size: 12px;padding:5px;text-align: center;" [class]="'is-style-' +  menu.style + '-title'">{{section.dishes[0].priceTitle1}}</td>
+                            <td  style="width:20%;border:none;font-size: 12px;padding:5px;text-align: center;" [class]="'is-style-' +  menu.style + '-title'">{{section.dishes[0].priceTitle2}}</td>
+                        </tr>
+                        <tr app-client-menu-row *ngFor="let dish of section.dishes" [newDish]="dish"
+                        [userAllergens]="currentUserAllergens" [hideDishes]="hideDishes"
+                        [noAllergens]="menu.allergenUndeclared" [style]="menu.style" [menu]="menu.id"></tr>
+                    </tbody>
+                </table>
+                <div [class]="'separator is-style-' + menu.style">
+                    <img src="\assets\preview\LoNauticDecorator.jpeg"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="isPdfMenu()">
+    <p *ngIf="pdfError.length != 0" class="has-text-centered m-t-xl">
+        {{ pdfError }}</p>
+    <pdf-viewer *ngIf="pdfError.length == 0" [src]='getPdf()' [fit-to-page]="true">
+    </pdf-viewer>
+</ng-container>

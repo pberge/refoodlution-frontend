@@ -1,0 +1,28 @@
+<ng-container *transloco="let t">
+    <div class="mobile-view bg-image p-b-md" [style.background-image]="'url('+getHeader()+')'">
+
+        <div class="has-text-centered" style="height: 180px; max-height: 180px">
+            <img src="assets/preview/logo/{{restId}}.png" alt="">
+        </div>
+
+        <span class="buttons-aligned">
+            <span></span>
+            <span class="select is-white m-r-lg m-t-md" *ngIf="languages.length > 1">
+                <select class="custom-select" (change)="onLanguageClick($event.target.value)">
+                    <option value="" disabled selected hidden>{{ t('preview.language') }}</option>
+                    <option *ngFor="let lang of languages" [value]="lang.code">
+                        {{ 'languages.'+lang.code | transloco | titlecase }}</option>
+                </select>
+            </span>
+        </span>
+        <div class="container p-t-md">
+            <div *ngFor="let menu of menus" class="custom-box has-text-centered is-clickable hoverable is-vcentered"
+                (click)="redirect(menu)">
+                <div>
+                    <fa-icon size="2x" [icon]="getIcon(menu.defaultName)"></fa-icon><br>
+                    <p [class]="'m-t-md is-style-' + menu.style">{{menu.name}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

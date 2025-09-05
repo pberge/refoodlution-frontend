@@ -1,0 +1,136 @@
+@import "~src/variables.scss";
+
+@media screen and (min-width: 769px), print {
+  .field-label {
+    flex-grow: 2; /* overwrites previous value of 1 */
+  }
+}
+
+.space-evenly { 
+  justify-content: space-evenly; 
+}
+
+.fake-body {
+  background-color: $body_background;
+  height: 90vh;
+}
+.center-screen {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.lang-container {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 25px 25px 0;
+    display: inline-block;
+    vertical-align: top;
+  }
+  
+  .lang-list {
+    border: solid 1px #ccc;
+    min-height: 180px;
+    max-height: 400px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+    display: block;
+    overflow-y: scroll;
+    margin-top: 1em;
+  }
+  
+  .lang-box {
+    padding: 15px 20px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: block;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .cdk-drag-preview {
+    box-sizing: border-box;
+    border-radius: 4px;
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+                0 8px 10px 1px rgba(0, 0, 0, 0.14),
+                0 3px 14px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .cdk-drag-placeholder {
+    opacity: 0;
+  }
+  
+  .cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+  
+  .lang-box:last-child {
+    border: none;
+  }
+  
+  .lang-list.cdk-drop-list-dragging .lang-box:not(.cdk-drag-placeholder) {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+  }
+
+  
+.box-title {
+    padding: 5px;
+    border-bottom: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background: white;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.lang-box.cdk-drag-disabled {
+    background: #ccc;
+    cursor: default;
+  }
+
+  .box-no-shadow {
+    box-shadow: none;
+    border: 0.5px solid #ccc;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ccc;
+  border-top-color: #fed03d;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.btn-invisible {
+  background-color: white;
+  border:none;
+}

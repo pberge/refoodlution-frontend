@@ -1,0 +1,346 @@
+<ng-container *transloco="let t">
+  <script> bulmaSteps.attach(); </script>
+  <section class="hero is-fullheight bg-image">
+    <div class="hero-body">
+      <div class="container">
+
+        <h1 class="title is-1 has-text-white">{{ t('login.title') }}</h1>
+
+        <div class="box half-width">
+          <div class="steps m-t-md" id="stepsDemo">
+            <div class="step-item" [class.is-active]="pas === 1" [class.is-completed]="pas > 1">
+              <div class="step-marker">1</div>
+              <div class="step-details">
+                <p class="step-title">{{ t('login.header_1') }}</p>
+              </div>
+            </div>
+            <div class="step-item" [class.is-active]="pas === 2" [class.is-completed]="pas > 2">
+              <div class="step-marker">2</div>
+              <div class="step-details">
+                <p class="step-title">{{ t('login.header_2') }}</p>
+              </div>
+            </div>
+            <div class="step-item" [class.is-active]="pas === 3">
+              <div class="step-marker">3</div>
+              <div class="step-details">
+                <p class="step-title">{{ t('login.header_3') }}</p>
+              </div>
+            </div>
+
+            <div class="steps-content">
+              <div class="step-content has-text-centered center-half" [class.is-active]="pas === 1">
+                <form [formGroup]="registerForm">
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('login.email') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="email" formControlName="email" id="email_up" type="email"
+                            [placeholder]="t('login.emailPlaceholder')" autofocus data-validate="require"
+                            [class.is-danger]="email.invalid && email.touched && email.dirty">
+                          <div *ngIf="email.invalid && email.touched && email.dirty" class="has-text-danger">
+                            <p *ngIf="email.errors.required">
+                              {{ t('error.requiredEmail') }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('login.password') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icon has-icon-right">
+                          <input formControlName="password" class="input" type="password" name="password" id="password"
+                            [placeholder]="t('login.password')"
+                            [class.is-danger]="(registerForm.errors?.pwdMatch === false || password.invalid) && pwdConfirm.touched && pwdConfirm.dirty && password.touched && password.dirty">
+                          <div *ngIf="password.invalid && password.touched && password.dirty" class="has-text-danger">
+                            <p *ngIf="password.errors.required">
+                              {{ t('error.requiredPwd') }}
+                            </p>
+                            <p *ngIf="password.errors.minlength">
+                              {{ t('error.pwdLength') }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label">{{ t('login.pwdConfirm') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control has-icon has-icon-right">
+                          <input formControlName="pwdConfirm" class="input" type="password" name="pwdConfirm"
+                            id="pwdConfirm" [placeholder]="t('login.pwdConfirm')" required
+                            [class.is-danger]="registerForm.errors?.pwdMatch === false && pwdConfirm.touched && pwdConfirm.dirty && password.touched && password.dirty">
+                          <div
+                            *ngIf="registerForm.errors?.pwdMatch === false && pwdConfirm.touched && pwdConfirm.dirty && password.touched && password.dirty"
+                            class="alert has-text-danger">
+                            {{ t('error.pwdMatch') }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+              </div>
+
+              <div class="step-content has-text-centered center-half" [class.is-active]="pas === 2">
+                <form [formGroup]="restaurantForm">
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.name') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="name" formControlName="name" type="text"
+                            [placeholder]="t('restaurant.name')" autofocus
+                            [class.is-danger]="name.invalid && name.touched && name.dirty">
+                          <div *ngIf="name.invalid && name.touched && name.dirty" class="has-text-danger">
+                            <p *ngIf="name.errors.required">
+                              {{ t('error.restName') }}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.address') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="address" formControlName="address" type="text"
+                            [placeholder]="t('restaurant.address')" autofocus
+                            [class.is-danger]="address.invalid && address.touched && address.dirty">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.city') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="city" formControlName="city" type="text"
+                            [placeholder]="t('restaurant.city')"
+                            [class.is-danger]="city.invalid && city.touched && city.dirty">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.zipCode') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="zipCode" formControlName="zipCode" type="text"
+                            [placeholder]="t('restaurant.zipPlaceholder')" autofocus
+                            [class.is-danger]="zipCode.invalid && zipCode.touched && zipCode.dirty">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--<div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.country') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="country" formControlName="country" type="text"
+                            [placeholder]="t('restaurant.country')" autofocus
+                            [class.is-danger]="country.invalid && country.touched && country.dirty">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                -->
+
+                <div class="field is-horizontal">
+                  <div class="field-label is-normal">
+                    <label class="label required">{{ t('restaurant.country') }}</label>
+                  </div>
+                  <div class="field-body">
+                    <div class="field">
+                      <div class="control">
+                        <div class="select" [class.is-danger]="country.invalid && country.touched && country.dirty">
+                          <select formControlName="country">
+                            <option *ngFor="let country of countries" [ngValue]="country.es_name" >{{ country.es_name }}</option>
+                          </select>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.phoneContact') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="phone" formControlName="phone" type="tel"
+                            [placeholder]="t('restaurant.phone')">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.type') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <div class="select" [class.is-danger]="type.invalid && type.touched && type.dirty">
+                            <select formControlName="type">
+                              <option [ngValue]="null" disabled hidden>{{ t('restaurant.nonOption') }}</option>
+                              <option [ngValue]="'restaurante'">{{ t('restaurant.restaurant') }}</option>
+                              <option [ngValue]="'bar'">{{ t('restaurant.bar') }}</option>
+                              <option [ngValue]="'bar-restaurante'">{{ t('restaurant.bar-restaurant') }}</option>
+                              <option [ngValue]="'hotel'">{{ t('restaurant.hotel') }}</option>
+                              <option [ngValue]="'otro'">{{ t('restaurant.other') }}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.company_name') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="company" formControlName="company" type="text"
+                            [placeholder]="t('restaurant.company_name')">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.nif') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="companyId" formControlName="companyId" type="text"
+                            [placeholder]="t('restaurant.nif')">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.company_address') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="companyAddress" formControlName="companyAddress" type="text"
+                            [placeholder]="t('restaurant.company_address')">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label required">{{ t('restaurant.subscription_plan') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <div class="select" [class.is-danger]="type.invalid && type.touched && type.dirty">
+                            <select formControlName="subscriptionPlan">
+                              <option [ngValue]="null" disabled hidden>{{ t('restaurant.nonOption') }}</option>
+                              <option [ngValue]="4">{{ t('pricing.basic_title') }}</option>
+                              <option [ngValue]="6">{{ t('pricing.advanced_title') }}</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="field is-horizontal">
+                    <div class="field-label is-normal">
+                      <label class="label">{{ t('login.promo') }}</label>
+                    </div>
+                    <div class="field-body">
+                      <div class="field">
+                        <div class="control">
+                          <input class="input" name="promo" formControlName="promo" type="text" placeholder=""
+                            (blur)="onPromoBlur()">
+                          <div *ngIf="promoStatus !== 'hidden'"
+                            [class]="promoStatus === 'success' ? 'has-text-success' : 'has-text-danger'">
+                            {{ promoMessage }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="has-text-danger" *ngIf="restaurantForm.invalid && restSubmited">
+                    {{ t('error.requiredFields') }}
+                  </div>
+                </form>
+              </div>
+
+
+              <div class="step-content has-text-centered" [class.is-active]="pas === 3">
+                <h1 class="title is-4">{{ t('result.signupSuccess') }}</h1>
+              </div>
+            </div>
+
+            <div class="has-text-danger" style="margin: 0 auto;" *ngIf="errorMessage.length > 0">
+              {{ errorMessage }}
+            </div>
+
+            <div class="steps-actions">
+              <div class="steps-action" *ngIf="pas !== 3">
+                <button class="button is-light"
+                  (click)="onPreviousClick()">{{ pas === 1 ? t('general.back') : t('general.previous') }}</button>
+              </div>
+              <div class="steps-action">
+                <button class="button is-light" [class.is-loading]="isLoading"
+                  (click)="onNextClick()">{{ pas !== 3 ? t('general.next') : t('general.finish') }}</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+</ng-container>

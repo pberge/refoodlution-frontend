@@ -1,0 +1,67 @@
+<ng-container *transloco="let t">
+    <div class="columns is-vcentered">
+        <div class="column is-3">
+            <label class="label">{{ dish.originalName }}</label>
+        </div>
+        <div class="column is-narrow" (click)="onTranslateClick('name')">
+            <a class="button">
+                <fa-icon [icon]="faLanguage" size="2x"></fa-icon>
+            </a>
+        </div>
+        <div class="column">
+            <input class="input is-fullwidth" type="text" [(ngModel)]="dish.name" [class]="nameClass" (blur)="onValueChange('name')" [disabled]="isLoading">
+        </div>
+    </div>
+    <div class="columns is-vcentered" *ngIf="dish.originalDescription.length > 0">
+        <div class="column is-3">
+            <label class="label">{{ dish.originalDescription }} </label>
+        </div>
+        <div class="column is-narrow" (click)="onTranslateClick('description')">
+            <a class="button">
+                <fa-icon [icon]="faLanguage" size="2x"></fa-icon>
+            </a>
+        </div>
+        <div class="column">
+            <textarea class="textarea" type="text" rows="4" [placeholder]="t('dish.description')" [class]="descriptionClass" [(ngModel)]="dish.description" (blur)="onValueChange('description')" [disabled]="isLoading"></textarea>
+        </div>
+    </div>
+    <div class="columns is-vcentered" *ngIf="dish.priceTitle">
+        <div class="column is-3">
+            <label class="label">{{ dish.originalPriceTitle }} </label>
+        </div>
+        <div class="column is-narrow" (click)="onTranslateClick('priceTitle')">
+            <a class="button">
+                <fa-icon [icon]="faLanguage" size="2x"></fa-icon>
+            </a>
+        </div>
+        <div class="column">
+            <input class="textarea" type="text" rows="4" [placeholder]="t('dish.priceTitle')" [class]="priceTitleClass" [(ngModel)]="dish.priceTitle" (blur)="onValueChange('priceTitle')" [disabled]="isLoading"/>
+        </div>
+    </div>
+    <div class="columns is-vcentered" *ngIf="dish.priceTitle2">
+        <div class="column is-3">
+            <label class="label">{{ dish.originalPriceTitle2 }} </label>
+        </div>
+        <div class="column is-narrow" (click)="onTranslateClick('priceTitle2')">
+            <a class="button">
+                <fa-icon [icon]="faLanguage" size="2x"></fa-icon>
+            </a>
+        </div>
+        <div class="column">
+            <input class="textarea" type="text" rows="4" [placeholder]="t('dish.priceTitle2')" [class]="priceTitle2Class" [(ngModel)]="dish.priceTitle2" (blur)="onValueChange('priceTitle2')" [disabled]="isLoading"/>
+        </div>
+    </div>
+    <div class="columns is-vcentered" *ngIf="dish.priceTitle3">
+        <div class="column is-3">
+            <label class="label">{{ dish.originalPriceTitle3 }} </label>
+        </div>
+        <div class="column is-narrow" (click)="onTranslateClick('priceTitle3')">
+            <a class="button">
+                <fa-icon [icon]="faLanguage" size="2x"></fa-icon>
+            </a>
+        </div>
+        <div class="column">
+            <input class="textarea" type="text" rows="4" [placeholder]="t('dish.priceTitle3')" [class]="priceTitle3Class" [(ngModel)]="dish.priceTitle3" (blur)="onValueChange('priceTitle3')" [disabled]="isLoading"/>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,31 @@
+<ng-container *transloco="let t">
+    <div class="columns">
+        <div class="column">
+            <input [(ngModel)]="searchText" placeholder="Buscar..." (keyup)="showSearchResults()" class="search-input"/>
+            <div class="table-container table-shadow is-rounded-table m-t-lg" *ngIf="users.length > 0">
+                <table class="table is-hoverable is-fullwidth is-striped">
+                    <thead>
+                        <th>{{ t('users.id') }}</th>
+                        <th>{{ t('users.email') }}</th>
+                        <th >{{ t('users.created_at') }}</th>
+                        <th >{{ t('users.email_confirmed') }}</th>
+                        <th >{{ t('users.actions') }}</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of usersTable">
+                            <td>{{user.id}}</td>
+                            <td>{{user.email}}</td>
+                            <td>{{user.created_at}}</td>
+                            <td>{{user.emailConfirmed}}</td>
+                            <td>
+                                <a ><fa-icon [icon]="faCog" (click)="changeUserStatus(user)" title="Canviar estado"></fa-icon></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+</ng-container>

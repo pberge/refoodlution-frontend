@@ -1,0 +1,62 @@
+<ng-container *transloco="let t">
+    <div class="columns">
+        <div class="column">
+            <input [(ngModel)]="searchText" placeholder="Buscar..." (keyup)="showSearchResults()" class="search-input"/>
+            <div class="table-container table-shadow is-rounded-table m-t-lg" *ngIf="restaurants.length > 0" >
+                <table class="table is-hoverable is-fullwidth is-striped">
+                    <thead>
+                        <th>{{ t('restaurants.idRestaurant') }}</th>
+                        <th>{{ t('restaurants.name') }}</th>
+                        <th>{{ t('restaurants.idUser') }}</th>
+                        <th>{{ t('restaurants.email') }}</th>
+                        <th>{{ t('restaurants.phone') }}</th>
+                        <th>{{ t('restaurants.created_at') }}</th>
+                        <th>{{ t('restaurants.email_confirmed') }}</th>
+                        <th>{{ t('restaurants.type') }}</th>
+                        <th >{{ t('restaurants.paymentType') }}</th>
+                        <th >{{ t('restaurants.creditCardExpiry') }}</th>
+                        <th >{{ t('restaurants.address') }}</th>
+                        <th >{{ t('restaurants.city') }}</th>
+                        <th >{{ t('restaurants.subscription_plan') }}</th>
+                        <th >{{ t('restaurants.subscription_end') }}</th>
+                        <th >{{ t('restaurants.lastPaymentDate') }}</th>
+                        <th >{{ t('restaurants.lastPaymentAmount') }}</th>
+                        <th >{{ t('restaurants.creditCardExpiryEmailSend') }}</th>
+                        <th >{{ t('restaurants.autoRewnalCheckEmailSend') }}</th>
+                        <th >{{ t('restaurants.oldRestaurant') }}</th>
+                        <th >{{ t('restaurants.active') }}</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let restaurant of restaurantsTable">
+                            <td>{{restaurant.idRestaurant}}</td>
+                            <td>{{restaurant.name}}</td>
+                            <td>{{restaurant.idUser}}</td>
+                            <td>{{restaurant.email}}</td>
+                            <td>{{restaurant.phone}}</td>
+                            <td>{{restaurant.created_at}}</td>                       
+                            <td>{{restaurant.emailConfirmed}}</td>
+                            <td>{{restaurant.type}}</td>
+                            <td>{{restaurant.paymentType}}</td>
+                            <td>{{restaurant.creditCardExpiry}}</td>
+                            <td>{{restaurant.address}}</td>
+                            <td>{{restaurant.city}}</td>
+                            <td>{{restaurant.subscription_plan}}</td>
+                            <td>{{restaurant.subscription_end}}</td>
+                            <td>{{restaurant.lastPaymentDate}}</td>
+                            <td>{{restaurant.lastPaymentAmount}}</td>
+                            <td>{{restaurant.creditCardExpiryEmailSend}}</td>
+                            <td>{{restaurant.autoRewnalCheckEmailSend}}</td>
+                            <td>{{restaurant.oldRestaurant}}</td>
+                            <div class="checkbox-wrapper-3" >
+                                <input type="checkbox" [id]="restaurant.idRestaurant" [checked]="restaurant.active" [(ngModel)]="restaurant.active" (change)="changeRestaurantStatus(restaurant, $event)" ngDefaultControl/>
+                                <label [for]="restaurant.idRestaurant" class="toggle"><span></span></label>
+                            </div>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+
+</ng-container>

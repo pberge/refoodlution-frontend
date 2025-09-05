@@ -1,0 +1,58 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ t('menu.pdf_title') }}</h1>
+    <div class="field is-5">
+        <label class="label">{{ t('menu.name') }}</label>
+        <div class="control">
+            <input class="input" type="text" [placeholder]="t('menu.namePlaceholder')" [(ngModel)]="menu.name"
+                [class]="valueClass" (blur)="setMenuName()">
+        </div>
+    </div>
+
+    <input style="display: none;" type="file" accept="application/pdf" (change)="onFileChanged($event)" #fileInput>
+
+    <button class="button is-primary m-t-md m-r-md" (click)="fileInput.click()"
+        [class.is-loading]="pdfUploading">
+        <span class="icon is-small">
+            <fa-icon [icon]="faPdf"></fa-icon>
+        </span>
+        <span>{{ getPdfButtonText() }}</span>
+    </button>
+    
+    <div class="column m-t-md" [class]="'has-text-'+result.status">
+        <span *ngIf="result.status !== 'hidden'">
+            <fa-icon [icon]="result.status == 'success' ? faCheck : faCross"></fa-icon> {{ result.message }}
+        </span>
+    </div>
+
+    <div style="min-height: 150px;">
+        <p *ngIf="pdfError.length != 0" class="has-text-centered m-t-xl">
+            {{ pdfError }}</p>
+        <pdf-viewer *ngIf="pdfError.length == 0 && pdf != undefined" [src]='getPdf()' [fit-to-page]="true">
+        </pdf-viewer>
+        <br>
+    </div>
+    <div class="button is-danger m-t-md" (click)="onDeleteMenuClick()">
+        <fa-icon [icon]="faDelete"></fa-icon> <span class="m-l-md">{{t('general.delete') }}
+            {{ t('menu.singular') | lowercase }}</span>
+    </div>
+
+
+
+    <div class="modal" [class.is-active]="deleteModal">
+        <div class="modal-background" (click)="deleteModal = false"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ t('menu.deleteHeader') }}</p>
+                <button class="delete" aria-label="close" (click)="deleteModal = false"></button>
+            </header>
+            <section class="modal-card-body">
+                <p [innerHTML]="t('menu.deleteBody')"></p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger m-r-lg" (click)="onModalDeleteClick()"
+                    [class.is-loading]="isDeleting">{{ t('general.delete') }}</button>
+                <button class="button m-l-lg" (click)="deleteModal = false">{{ t('general.cancel') }}</button>
+            </footer>
+        </div>
+    </div>
+</ng-container>

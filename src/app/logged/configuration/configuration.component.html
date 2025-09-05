@@ -1,0 +1,250 @@
+<ng-container *transloco="let t">
+    
+    <h1 class="title">{{ t('config.title') }}</h1>
+    <app-popupinfo 
+        *ngIf="paymentDataAlert"
+        [title]="paymentDataAlertTitle"
+        [description]="paymentDataAlertDescription"
+    ></app-popupinfo>
+
+    <div class="box box-padding">
+        <h2 class="title">{{ t('restaurant.restaurant')}}</h2>
+
+        <form [formGroup]="restaurantForm">
+            <div class="columns">
+                <div class="column is-3">
+                    <div class="field">
+                        <label class="label required">{{ t('restaurant.name')}}</label>
+                        <div class="control m-l-md">
+                            <input class="input" name="name" formControlName="name" type="text"
+                                [placeholder]="t('restaurant.namePlaceholder')" autofocus
+                                [class.is-danger]="name.invalid && name.touched && name.dirty">
+                            <div *ngIf="name.invalid && name.touched && name.dirty" class="has-text-danger">
+                                <p *ngIf="name.errors.required">
+                                    {{ t('error.restName')}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="field">
+                        <label class="label required">{{ t('restaurant.address')}}</label>
+                        <div class="control m-l-md">
+                            <input class="input" name="address" formControlName="address" type="text"
+                                [placeholder]="t('restaurant.address')" autofocus
+                                [class.is-danger]="address.invalid && address.touched && address.dirty">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-3">
+                    <div class="field">
+                        <label class="label required">{{ t('restaurant.city')}}</label>
+                        <div class="control m-l-md">
+                            <input class="input" name="city" formControlName="city" type="text"
+                                [placeholder]="t('restaurant.city')"
+                                [class.is-danger]="city.invalid && city.touched && city.dirty">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="field">
+                        <label class="label required">{{ t('restaurant.zipCode')}}</label>
+                        <div class="control m-l-md">
+                            <input class="input" name="zipCode" formControlName="zipCode" type="text"
+                                [placeholder]="t('restaurant.zipPlaceholder')" autofocus
+                                [class.is-danger]="zipCode.invalid && zipCode.touched && zipCode.dirty">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="field">
+                        <label class="label required">{{ t('restaurant.country')}}</label>
+                        <div class="control m-l-md">
+                            <div class="select" [class.is-danger]="country.invalid && country.touched && country.dirty">
+                                <select formControlName="country">
+                                    <option *ngFor="let country of countries" [ngValue]="country.es_name" >{{ country.es_name }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="columns">
+                <div class="column is-3">
+                    <div class="field">
+                        <label class="label">{{ t('restaurant.phoneContact')}}</label>
+                        <div class="control m-l-md">
+                            <input class="input" name="phone" formControlName="phone" type="tel"
+                                [placeholder]="t('restaurant.phone')" autofocus
+                                [class.is-danger]="phone.invalid && phone.touched && phone.dirty">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column is-3">
+                    <div class="field">
+                        <label class="label required">{{ t('restaurant.type')}}</label>
+                        <div class="control m-l-md">
+                            <div class="select" [class.is-danger]="type.invalid && type.touched && type.dirty">
+                                <select formControlName="type">
+                                    <option [ngValue]="''" disabled hidden>{{ t('restaurant.nonOption')}}</option>
+                                    <option [ngValue]="'restaurante'">{{ t('restaurant.restaurant')}}</option>
+                                    <option [ngValue]="'bar'">{{ t('restaurant.bar')}}</option>
+                                    <option [ngValue]="'bar-restaurante'">{{ t('restaurant.bar-restaurant')}}
+                                    </option>
+                                    <option [ngValue]="'hotel'">{{ t('restaurant.hotel')}}</option>
+                                    <option [ngValue]="'otro'">{{ t('restaurant.other')}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <!--div class="field is-5 m-t-lg">
+            <label class="label">Cambiar contraseña</label>
+            <div class="control">
+                <input class="input is-3" type="password" placeholder="Contraseña antigua" [(ngModel)]="oldPwd">
+                <input class="input is-3 m-t-md" type="password" placeholder="Contraseña nueva" [(ngModel)]="newPwd">
+            </div>
+        </div-->
+
+        <div class="m-t-lg">
+            <label class="label m-t-lg">{{ t('config.menu_image_header') }}</label>
+            <p>{{ t('config.menu_image_s1') }}</p>
+            <p>{{ t('config.menu_image_s2') }}</p>
+            <p>(640 × 360)</p>
+            <div class="image-container m-t-md m-l-md" *ngIf="img !== undefined"
+                [style.background-image]="'url('+getHeader()+')'"></div>
+            <input style="display: none;" type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput>
+
+            <button class="button is-primary m-t-md m-r-md m-l-md" (click)="fileInput.click()"
+                [class.is-loading]="imageUploading">
+                <span class="icon is-small">
+                    <fa-icon [icon]="faUpload"></fa-icon>
+                </span>
+                <span>{{ t('config.upload_image') }}</span>
+            </button>
+
+            <button class="button is-secondary is-secondary-hover m-t-md" (click)="onDeleteHeader()">
+                {{ t('config.reset_image') }}
+            </button>
+        </div>
+    </div>
+
+    <div class="box box-padding">
+        <h2 class="title">{{ t('config.account_title') }}</h2>
+    
+        <div class="m-t-lg">
+            <label class="label">{{ t('config.subscription') }}</label>
+            <p class="m-l-sm">
+                <b class="m-r-md">{{ t('config.status') }}:</b>{{ getSubscriptionText() }}
+                <span class="m-l-sm dot" [class.green]="isSubscriptionActive()" [class.red]="!isSubscriptionActive()" [class.orange]="isSubscriptionActive() == 2"></span>
+            </p>
+            <p class="m-l-sm m-t-sm"><b class="m-r-md">{{ t('config.renewal_date') }}:</b> <span
+                    *ngIf="restaurant.subscriptionEnd > 0">{{ restaurant.subscriptionEnd * 1000 | date:'d/L/y' }}</span><span
+                    *ngIf="!(restaurant.subscriptionEnd > 0)">-</span> </p>
+            <p class="m-l-sm m-t-sm"><b class="m-r-md">{{ 'Autorenovar' }}:</b><span class="m-l-sm dot"
+                    [class]="restaurant.autoRenewal ? 'green' : 'red'"></span></p>
+            <button class="button is-secondary is-secondary-hover m-l-md m-t-md"
+                (click)="onManageSubscriptionClick()">{{ t('config.manage') }}</button>
+        </div>
+
+        <div class="m-t-lg">
+            <form [formGroup]="restaurantForm">
+                <label class="label">{{ t('config.invoicing') }}</label>
+                <div class="columns">
+                    <div class="column is-3 m-l-md m-t-sm">
+                        <div class="field">
+                            <label class="label required">{{ t('restaurant.company_name') }}</label>
+                            <div class="control m-l-md">
+                                <input class="input" name="companyName" formControlName="companyName" type="text">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4 m-l-md m-t-sm">
+                        <div class="field">
+                            <label class="label required">{{ t('restaurant.nif') }} <span
+                                    class="has-text-weight-normal">- (NIF, NIE, VAT)</span></label>
+                            <div class="control m-l-md">
+                                <input class="input" name="nif" formControlName="nif"  type="text">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field m-l-md">
+                    <label class="label required">{{ t('restaurant.company_address')}}</label>
+                    <div class="control m-l-md">
+                        <input class="input" name="address" formControlName="companyAddress"  type="text" style="max-width: 49.5em;">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="box box-padding">
+        <h2 class="title">{{ t('config.language') }}</h2>
+        <div class="m-t-lg">
+            <label class="label">{{ t('config.platformLanguage') }}</label>
+            <app-platform-language [isUp]="false" (langChange)="onLangUpdate($event)"></app-platform-language>
+        </div>
+    </div>
+
+
+    <div class="columns">
+        <div class="column is-narrow m-t-md">
+            <button class="button is-primary has-text-weight-medium " [class.is-loading]="isSaving"
+                (click)="onSaveClick()">
+                <span class="icon is-small">
+                    <fa-icon [icon]="faSave"></fa-icon>
+                </span>
+                <span>{{ t('general.save')}}</span>
+            </button>
+        </div>
+        <div class="column m-t-md" [class]="'has-text-'+result.status">
+            <span *ngIf="result.status !== 'hidden'">
+                <fa-icon [icon]="result.status == 'success' ? faCheck : faCross"></fa-icon> {{ result.message }}
+            </span>
+        </div>
+        <div class="column is-narrow m-t-md is-pulled-right" *ngIf="restaurants.length > 1">
+            <button class="button is-danger has-text-weight-medium" (click)="onDeleteRestaurantClick()">
+                <span class="icon is-small">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </span>
+                <span>{{ t('config.delete_restaurant') }}</span>
+            </button>
+        </div>
+    </div>
+
+
+    <div class="modal" [class.is-active]="deleteModal">
+        <div class="modal-background" (click)="deleteModal = false"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ t('config.delete_modal_header') }}</p>
+                <button class="delete" aria-label="close" (click)="deleteModal = false"></button>
+            </header>
+            <section class="modal-card-body">
+                <p>{{ t('config.delete_modal_b1') }}</p>
+                <p><b>{{ t('config.delete_modal_b2') }}</b></p>
+                <br>
+                <p>{{ t('config.delete_modal_b3') }}</p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-danger m-r-lg" (click)="onDeleteConfirm()"
+                    [class.is-loading]="isDeleting">{{ t('general.delete') }}</button>
+                <button class="button m-l-lg" (click)="deleteModal = false">{{ t('general.cancel') }}</button>
+            </footer>
+        </div>
+    </div>
+</ng-container>

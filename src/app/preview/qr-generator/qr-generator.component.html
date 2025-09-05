@@ -1,0 +1,12 @@
+<ng-container *transloco="let t">
+    <div class="column">
+        <div class="box has-text-centered bm--card-equal-height ">
+            <div class="box-content">
+
+                <ngx-qrcode id="qrDiv" elementType="url" [value]="qrUrl" errorCorrectionLevel="Q"></ngx-qrcode>
+                <a [href]="qrImage" download="qr-menu"><button id="download" class="button is-success"
+                        (click)="downloadClick()">{{ t('general.download') }}</button></a>
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,54 @@
+@import "~src/variables.scss";
+
+
+#previewImage {
+    max-width: 50%;
+    display:block;
+    margin:auto;
+}
+
+.bm--card-equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+ }
+
+ .bm--card-equal-height .card-footer {
+    margin-top: auto;
+ }
+
+ .center {
+    text-align: center;
+}
+
+.header-image {
+    max-width: 7em;
+    max-height: 7em;
+}
+
+.header-blau {
+    color:#90a9c3;
+}
+
+.header-border {
+    border: .075em solid $secondary-hover;
+    border-radius: .9em;
+    margin: 0;
+}
+
+.big-box {
+   padding-top: 2em;
+   padding-bottom: 2em;
+   text-align: center;  
+   vertical-align: middle;
+    &.hoverable {
+        border-radius: .3em;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        &:hover {
+            box-shadow: 0 0.5em 1em -0.125em rgba(hsl(0, 0%, 4%), 0.25), 0 0px 0 1px rgba(hsl(0, 0%, 4%), 0.02);
+            cursor: pointer;
+        }
+
+    }
+    
+}

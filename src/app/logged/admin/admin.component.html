@@ -1,0 +1,45 @@
+<ng-container *transloco="let t">
+    <div class="columns">
+        <div class="column">
+            <h1 class="title">{{ t('admin.title') }}</h1>
+        </div>
+        <div class="column has-text-right m-r-md">
+
+            <span class="icon m-r-sm">
+                <fa-icon [icon]="faMail" size="lg" class="m-l-md"></fa-icon>
+            </span>
+
+            <a href="mailto:info@refoodlution.com" class="has-text-dark">
+                {{ t('dashboard.contact') }}<br>
+                info@refoodlution.com</a>
+
+        </div>
+    </div>
+
+    <div style="margin-bottom:1em;display: none;">
+        <button class="button is-primary is-primary-hover " style="padding:1em;" (click)="sendEmailToOldRestaurants()">Mails confirmación</button>
+    </div>
+
+    <!-- tabs -->
+    <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">
+        
+        <!--<input type="radio" name="pcss3t" checked  id="tab1"class="tab-content-first">
+        <label for="tab1"><i class="icon-bolt"></i>Clientes</label>
+        -->
+        <input type="radio" name="pcss3t" checked id="tab1"class="tab-content-first">
+        <label for="tab2"><i class="icon-bolt"></i>Restaurantes</label>
+        
+        <ul style="height: calc(100vh - 200px);">
+            <!--<li class="tab-content tab-content-first typography">
+                <app-adminusers></app-adminusers>
+            </li>
+        -->
+            <li class="tab-content tab-content-first typography" style="height:100%;">
+                <app-adminrestaurants></app-adminrestaurants>
+            </li>
+        </ul>
+    </div>
+    <!--/ tabs -->
+    
+
+</ng-container>

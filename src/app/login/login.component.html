@@ -1,0 +1,62 @@
+<ng-container *transloco="let t">
+    <section class="bg-image hero is-fullheight">
+        <div class="hero-head">
+
+        </div>
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title white myriad has-text-centered">
+                    RE<span class="myriad-bold">FOOD</span>LUTION
+                </h1>
+                <div class="columns is-centered">
+                    <div class="column is-5-tablet is-4-desktop is-3-widescreen m-t-lg">
+
+                        <form (ngSubmit)="onLoginClick(loginForm)" #loginForm="ngForm" class="box">
+                            <div class="field">
+                                <label for="" class="label">{{ t('login.email') }}</label>
+                                <div class="control has-icons-left">
+                                    <input class="input" name="email" type="email" placeholder="rest@mail.com" required
+                                        [(ngModel)]="user.email">
+                                    <span class="icon is-small is-left">
+                                        <fa-icon [icon]="faEnvelope"></fa-icon>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label for="" class="label">{{ t('login.password') }}</label>
+                                <div class="control has-icons-left">
+                                    <input type="password" placeholder="*******" class="input" required
+                                        [(ngModel)]="user.password" name="password">
+                                    <span class="icon is-small is-left">
+                                        <fa-icon [icon]="faLock"></fa-icon>
+                                    </span>
+                                </div>
+                            </div>
+                            <!--div class="field">
+                            <label for="" class="checkbox">
+                                <input type="checkbox">
+                                Recordar
+                            </label>
+                        </div-->
+                            <div *ngIf="errorCredentials" class="has-text-danger">
+                                {{ t('error.wrongLogin') }}
+                            </div>
+                            <button type="submit" class="button is-success is-fullwidth" [class.is-loading]="isLoading">
+                                {{ t('general.login') }}
+                            </button>
+                            <div class="is-divider" data-content="O"></div>
+                            <button type="button" class="button is-primary is-fullwidth" (click)="onRegisterClick()">
+                                {{ t('general.signup') }}
+                            </button>
+
+                            <div class="has-text-centered m-t-lg">
+                                <a class="is-secondary-color underline-hover"
+                                    (click)="onRecoverClick()">{{ t('login.forgotten') }}</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</ng-container>

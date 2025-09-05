@@ -1,0 +1,106 @@
+<ng-container *ngIf="showDish">
+    <ng-container *transloco="let t">
+        <ng-container *ngIf="style == 18 " style="display:block !important;">
+            <td  style="width:60%;border:none;padding:5px;" class="name" [class]="'is-style-' + style">
+                {{ dish.name }}
+                <p style="margin: 0; font-size: 0.9em;"><span [innerHTML]="dish.description"></span></p>
+            </td>
+            <td  style="width:15%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price > 0">{{dish.price | number:'1.2':'es'}} <span>{{dish.currency}}</span></td>
+            <td  style="width:10%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price == 0"> </td>
+            <td  style="width:20%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price2 > 0">{{dish.price2 | number:'1.2':'es'}} <span>{{dish.currency}}</span></td>
+            <td  style="width:20%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price2 == 0"> </td>
+            <td  style="width:10%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price3 > 0">{{dish.price3 | number:'1.2':'es'}} <span>{{dish.currency}}</span></td>
+            <td  style="width:10%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price3 == 0"> </td>
+        </ng-container>
+        <ng-container *ngIf="style == 19 " style="display:block !important;">
+            <td  style="width:70%;border:none;padding:5px;" class="name" [class]="'is-style-' + style">
+                {{ dish.name }}
+                <p style="margin: 0; font-size: 0.9em;"><span [innerHTML]="dish.description"></span></p>
+            </td>
+            <td  style="width:15%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price > 0">{{dish.price | number:'1.2':'es'}} <span>{{dish.currency}}</span></td>
+            <td  style="width:10%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price == 0"> </td>
+            <td  style="width:20%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price2 > 0">{{dish.price2 | number:'1.2':'es'}} <span>{{dish.currency}}</span></td>
+            <td  style="width:20%;border:none;font-size: 12px;padding:5px;text-align: center;" class="is-size-7 m-t-xs price" [class]="'is-style-' + style" *ngIf="dish.price2 == 0"> </td>
+        </ng-container>
+
+        <td [class]="'is-style-' + style" [attr.colspan]="dish.photo ? '1' : '2' " *ngIf="style != 18 && style != 19">
+            <!--fa-icon [icon]="faChevronRight" *ngIf="dish.description !== ''"></fa-icon-->
+            <ng-container *ngIf="style == 6">
+                <p class="name" [class]="'is-style-' + style" *ngIf="[15835, 15836, 15834].includes(dish.id)"><b>{{dish.name | uppercase}}</b></p>
+
+                <p class="name" [class]="'is-style-' + style" *ngIf="![15835, 15836, 15834].includes(dish.id)">{{dish.name | uppercase}} <span class="price"
+                        [class]="'is-style-' + style" *ngIf="dish.price > 0">&#8212;
+                        {{ dish.price | number:'1.':'es' }}</span> </p>
+                <p class="is-size-7 m-t-xs description" [class]="'is-style-' + style" ><span [innerHTML]="dish.description"></span></p>
+            </ng-container>
+            <ng-container *ngIf="style == 12">
+                <div class="columns">
+                    <div class="column">
+                        <p class="name" [class]="'is-style-' + style">{{ dish.name }}</p>
+                        <p class="is-size-7 m-t-xs description" [class]="'is-style-' + style" ><span [innerHTML]="dish.description"></span></p>
+                    </div>
+                    <div class="column is-4">
+                        <p class="is-size-7 m-t-xs price" [class]="'is-style-' + style">
+                            <span *ngIf="dish.price > 0">{{ dish.price | number:'1.2':'es' }} <span *ngIf="style != 7">{{dish.currency}}</span><span *ngIf="style == 7">Euros</span></span>
+                        </p>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="style == 13 && dish.id != 32567">
+                <p class="name" [class]="'is-style-' + style">{{ dish.name }}</p>
+                <p class="m-t-xs description" [class]="'is-style-' + style" ><span [innerHTML]="dish.description"></span><span *ngIf="dish.description.length != 0 && dish.price > 0"> - </span>         
+                    <span class="m-t-xs price" [class]="'is-style-' + style">
+                        <span *ngIf="dish.price > 0">{{ dish.price | number:'1.':'es' }} {{dish.currency}}</span>
+                    </span>
+                </p>
+             
+            </ng-container>
+
+            <ng-container *ngIf="style == 13 && dish.id == 32567">
+                <p class="name m-t-md m-b-md is-size-5"><b>{{ dish.name }}</b></p>
+            </ng-container>
+            <ng-container *ngIf="![6, 12, 13, 18, 19].includes(style) ">
+                <p class="name" [class]="'is-style-' + style">{{ dish.name }}</p>
+                <p class="is-size-7 m-t-xs description" [class]="'is-style-' + style"><span [innerHTML]="dish.description"></span></p>
+                <p class="is-size-7 m-t-xs price" [class]="'is-style-' + style" >
+                    <span *ngIf="dish.price > 0">{{ dish.price | number:'1.2':'es' }}  <span *ngIf="style != 7">{{dish.currency}}</span><span *ngIf="style == 7">Euros</span> <span > {{dish.priceTitle1}}</span></span>
+                    <span *ngIf="dish.price2 > 0" style="margin-left:1em;margin-right:1em;vertical-align: text-bottom;">|</span><span *ngIf="dish.price2 > 0" >{{ dish.price2 | number:'1.2':'es' }} <span *ngIf="style != 7">{{dish.currency}}</span><span *ngIf="style == 7">Euros</span><span > {{dish.priceTitle2}}</span> </span>
+                    <span *ngIf="dish.price3 > 0" style="margin-left:1em;margin-right:1em;vertical-align: text-bottom;">|</span><span *ngIf="dish.price3 > 0" >{{ dish.price3 | number:'1.2':'es' }} <span *ngIf="style != 7">{{dish.currency}}</span><span *ngIf="style == 7">Euros</span> <span > {{dish.priceTitle3}}</span>  </span>
+                </p>
+            </ng-container>
+            
+
+            <p class="line-1" *ngIf="style != 18 && style != 19">
+                <span *ngIf="!noAllergens && currentUserAllergens.length > 0" class="v-text-middle m-r-sm">
+                    <img [src]="updateImage()" class="dish-result-icon" />
+                </span>
+                <span *ngIf="!noAllergens && currentUserAllergens.length > 0" [ngSwitch]="this.alert" class="is-size-7">
+                    <span *ngSwitchCase="0" class="menu-unknown">{{ t('preview.alert_0') }}</span>
+                    <span *ngSwitchCase="1" class="has-text-success">{{ t('preview.alert_1') }}</span>
+                    <span *ngSwitchCase="2">
+                        <span *ngFor="let message of messages" class="menu-alter">{{ message.allergen | transloco }}:
+                            {{ message.message | transloco }}<br></span>
+                    </span>
+                    <span *ngSwitchCase="3">
+                        <span class="menu-danger">{{ t('preview.alert_3') }}:
+                            <span *ngFor="let activator of activators; last as isLast">
+                                {{ activator | transloco }}<span *ngIf="!isLast">,</span>
+                            </span>
+                            <br>
+                        </span>
+                        <span *ngFor="let message of messages"
+                            class="menu-alter menu-alter-danger">{{ message.allergen | transloco }}:
+                            {{ message.message | transloco }}<br>
+                        </span>
+                    </span>
+                </span>
+            </p>
+        </td>
+        <td *ngIf="dish.photo && style != 18 && style != 19" class="image-td" [class]="'is-style-' + style">
+            <img class="dish-image is-pulled-right is-clickable" [src]="getPhotoURL()" (click)="onPhotoClick()">
+        </td>
+    </ng-container>
+</ng-container>
+
+<ng-image-fullscreen-view *ngIf="dish.photo && showImage" [images]="dishImage" [imageIndex]="0" [show]="showImage"
+    (close)="onClosePhoto()"></ng-image-fullscreen-view>

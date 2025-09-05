@@ -1,0 +1,77 @@
+<ng-container *transloco="let t">
+
+
+    <div class="columns" *ngIf="selectedPlan !== 0">
+        <div class="column is-3">
+            <div class="box m-l-sm">
+                <h2 class="title">{{ t('pricing.summary') }}</h2>
+                <div class="contenido">
+                    <div class="columns" *ngIf="selectedPlan !== 0">
+                        <div class="column is-7">
+                            <b>{{ getPlanName() }}</b>
+                        </div>
+                        <div class="column has-text-right">
+                            {{ getPlanPrice() }} €
+                        </div>
+                    </div>
+                    <div class="columns" *ngIf="discount != 0">
+                        <div class="column is-8 m-b-md">
+                            <b>{{ t('pricing.discount') }}</b>
+                        </div>
+                        <div class="column has-text-right m-b-md">
+                            {{ discount }} %
+                        </div>
+                    </div>
+                    <div class="columns" *ngIf="porTi">
+                        <div class="column is-7">
+                            <b>{{ t('pricing.custom_title') }}</b>
+                        </div>
+                        <div class="column has-text-right">
+                            49 €
+                        </div>
+                    </div>
+
+                    <div class="columns" *ngIf="isAndorrano">
+                        <div class="column is-7">
+                            <b>{{ t('pricing.igi') }}</b>
+                        </div>
+                        <div class="column has-text-right">
+                            {{ getIgiPrice() }} €
+                        </div>
+                    </div>
+                   
+                    <div class="columns">
+                        <div class="column is-7 m-t-lg">
+                            <b>Total</b>
+                        </div>
+                        <div class="column m-t-lg has-text-right">
+                            {{ getTotal() | number:'1.2' }} €
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div *ngIf="paymentType != 2">
+                    <button type="submit" class="button is-primary" [class.is-loading]="isLoading" (click)="onFinalizarDomiciliacioClick()" [disabled]="isFinishDisabled()">{{ getFinishText() }}</button>
+                    <button type="button" class="button is-secondary is-secondary-hover" *ngIf="initialType !== undefined && initialType !== 0"
+                        (click)="onVolverClick()">{{ t('general.back') }}</button>
+                </div>
+
+                
+                <form name="form" #form class="is-flex flex-between m-t-md contenido" [action]="getURL()" method="POST" *ngIf="paymentType == 2">
+                    <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
+                    <input type="hidden" name="Ds_MerchantParameters" [value]="key" />
+                    <input type="hidden" name="Ds_Signature" [value]="signature" />
+                    <button type="submit" class="button is-primary" [class.is-loading]="isLoading" (click)="onFinalizarCreditClick();form.submit()">{{ getContinueText() }}</button>
+                    <button type="button" class="button is-secondary is-secondary-hover" *ngIf="initialType !== undefined && initialType !== 0"
+                        (click)="onVolverClick()">{{ t('general.back') }}</button>
+
+                </form>
+                <p *ngIf="message.length > 0" class="has-text-danger m-t-md">{{ message }}</p>
+                <p *ngIf="successMessage.length > 0" class="has-text-success m-t-md">{{ successMessage }}</p>
+            </div>
+        </div>
+    </div>
+
+</ng-container>

@@ -1,0 +1,42 @@
+<ng-container *transloco="let t">
+  <div style="display: flex;align-items: center">
+    <h2 style="margin: 1em 0;font-weight: bold;">{{t('menu.timetable')}}:</h2>
+    <fa-icon *ngIf="savedToggle" [icon]="faSave" style="color: #48c774;margin-left:1em;"></fa-icon>
+  </div>
+  <!-- 🚀 Bloque de añadir fuera de la tabla -->
+  <div class="schedule-add-box">
+    <select [(ngModel)]="newScheduleDay">
+      <option *ngFor="let day of weekDaysNames" [value]="day.id">{{ t('weekDays.' + day.nom) }}</option>
+    </select>
+
+    <input type="time" [(ngModel)]="newScheduleStart" />
+    <input type="time" [(ngModel)]="newScheduleEnd" />
+
+    <button type="button" class="add-btn" (click)="addNewSchedule()">
+      <fa-icon [icon]="faPlus"></fa-icon> {{t('general.add')}}
+    </button>
+  </div>
+
+  <!-- Tabla de horarios -->
+  <div class="schedule-table">
+    <div class="schedule-header">
+      <span>{{ t('menu.day') }}</span>
+      <span>{{ t('menu.start') }}</span>
+      <span>{{ t('menu.end') }}</span>
+      <span>{{ t('menu.actions') }}</span>
+    </div>
+
+    <div *ngFor="let s of schedules; let i = index" class="schedule-row">
+      <select [(ngModel)]="s.day" (ngModelChange)="updateSchedule(i, s)">
+        <option *ngFor="let day of weekDaysNames" [value]="day.id">{{ t('weekDays.' + day.nom) }}</option>
+      </select>
+
+      <input type="time" [(ngModel)]="s.start_time" (ngModelChange)="updateSchedule(i, s)" />
+      <input type="time" [(ngModel)]="s.end_time" (ngModelChange)="updateSchedule(i, s)" />
+
+      <button (click)="deleteSchedule(i, s)" class="delete-btn">
+        <fa-icon [icon]="faDelete"></fa-icon>
+      </button>
+    </div>
+  </div>
+</ng-container>

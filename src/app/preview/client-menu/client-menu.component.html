@@ -1,0 +1,83 @@
+<ng-container *transloco="let t">
+    <div class="mobile-view">
+        <div class="main-header" [style.background-image]="'url('+getHeader()+')'">
+            <div [class]="'main-card is-style-' + selectedMenu.style">
+                <h1 [class]="'is-size-4 has-text-weight-semibold m-b-sm is-style-' + selectedMenu.style" style="white-space: pre">{{ restaurant.name }}</h1>
+                <div class="columns is-mobile is-vcentered">
+                    <div class="column is-narrow" style="padding-left: 0;">
+                        <fa-icon size="lg" [icon]="faMaps" class="m-l-md"></fa-icon>
+                    </div>
+                    <div class="column" style="padding-left: 0;">
+                        <span style="white-space: pre">{{ restaurant.address }}</span><br>
+                        {{ restaurant.zipCode }}, {{ restaurant.city }}, {{ restaurant.country }}
+                    </div>
+                </div>
+
+                <div class="tab m-t-md">
+                    <input type="checkbox" id="alergias">
+                    <div class="buttons-aligned">
+                        <span *ngIf="selectedMenu.allergenUndeclared != false"></span>
+                        <label class="tab-label selector" for="alergias" *ngIf="selectedMenu.allergenUndeclared == false">{{ t('preview.allergies') }} </label>
+                        <span class="select is-dark" *ngIf="languages.length > 1">
+                            <select class="custom-select" (change)="onLanguageClick($event.target.value)">
+                                <option value="" disabled selected hidden>{{ t('preview.language') }}</option>
+                                <option *ngFor="let lang of languages" [value]="lang.code">
+                                    {{ 'languages.'+lang.code | transloco | titlecase }}</option>
+                            </select>
+                        </span>
+                    </div>
+                    <div class="tab-content">
+                        <div id="carta">
+                            <div class="container-fluid">
+                                <div class="has-text-centered">
+                                    <ul class="list-unstyled">
+                                        <li *ngFor="let allergen of allergensList">
+                                            <div class="image-container" (click)="allergenClick($event, allergen)">
+                                                <img [src]="'assets/preview/icon_'+ allergen.toLowerCase() +'_off.png'"
+                                                    alt="" class="no-click">
+                                            </div>
+                                            <span class="m-t-md">{{ t('allergens.'+allergen) }}</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="m-t-md has-text-centered m-b-lg">
+                                <input class="is-checkradio is-small" id="hide_unable" type="checkbox"
+                                    name="hide_unable" (change)="hideDishes = !hideDishes">
+                                <label for="hide_unable" class="title is-size-6 my-label">
+                                    {{ t('preview.hideDishes') }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="noMenu" class="has-text-centered is-size-4 m-t-md m-b-md">
+            {{ t('preview.noMenu') }}
+        </div>
+        <div *ngIf="menus.length > 1" class="columns is-multiline menu-selector is-mobile has-text-centered">
+            <div class="column menu-item is-4" [class.active]="menu == selectedMenu" [class]="'is-style-' + menu.style + ' is-restaurant-' + restId + ' is-menu-' + menu.id" (click)="onMenuClick(menu)"
+                *ngFor="let menu of menus">{{menu.name}}</div>
+        </div>
+        <div *ngIf="menus.length <= 1" class="p-t-md white-bg"></div>
+        <app-client-menu-item [menu]="selectedMenu" [language]="currentLang" [userAllergens]="selectedAllergens"
+            [hideDishes]="hideDishes"></app-client-menu-item>
+
+        <div *ngIf="selectedMenu.allergenUndeclared !== false" class="p-b-xl"></div>
+
+        <!--div class="p-t-md p-b-md p-l-md p-r-md" *ngIf="selectedMenu.allergenUndeclared == false">
+        <div class="has-text-centered">
+            <fa-icon size="2x" [icon]="faWarning"></fa-icon>
+        </div>
+        <ol class="m-t-md p-l-lg">
+            <li>Puede haber contaminación cruzada.</li>
+            <li>La responsabilidad en la declaración de alérgenos recae en el restaurante.</li>
+            <li>El símbolo ? en los platos significa que no se ha hecho la declaración de alérgenos para ese plato.</li>
+        </ol>
+    </div-->
+
+    </div>
+
+</ng-container>

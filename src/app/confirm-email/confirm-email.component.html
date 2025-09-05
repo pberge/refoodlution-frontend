@@ -1,0 +1,21 @@
+<ng-container *transloco="let t">
+  <app-popupinfo 
+      *ngIf="confirmedEmail"
+      [title]="confirmedEmailTitle"
+      [description]="confirmedEmailDescription"
+      [buttonText]="confirmedEmailButtonText"
+      [buttonClick]="confirmedEmailButtonClick"
+      [img]="confirmedEmailImg"
+      [fullscreen]="true"
+      [buttonColor]="buttonColor"
+  ></app-popupinfo>
+
+  <app-popupinfo 
+      *ngIf="!confirmedEmail"
+      [title]="noConfirmedEmailTitle"
+      [description]="noConfirmedEmailDescription"
+      [img]="noConfirmedEmailImg"
+      [fullscreen]="true"
+      [buttonColor]="buttonColor"
+  ></app-popupinfo>
+</ng-container>

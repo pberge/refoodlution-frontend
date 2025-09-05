@@ -1,0 +1,110 @@
+<ng-container *transloco="let t">
+
+    <h1 class="title is-4">{{ t('pricing.change_payment') }} </h1>
+    <div class="columns">
+        <div class="column is-2"></div>
+        <!--<div class="column is-3">
+            <div class="box has-text-centered custom-box hoverable" (click)="restaurant.paymentType = 1"
+                [class.active]="isTypeSelected(1)">
+                <fa-icon [icon]="faLandmark" size="5x"></fa-icon>
+                <p class="m-t-md is-size-5">{{ t('pricing.domiciliary_payment') }}</p>
+                <p class="is-size-7 m-t-sm has-text-centered">{{ t('pricing.only_spain') }}</p>
+            </div>
+        </div>
+    -->
+        <div class="column is-2"></div>
+        <div class="column is-3">
+            <div class="box has-text-centered custom-box hoverable" (click)="onTarjetaClick();"
+                [class.active]="isTypeSelected(2)">
+                <fa-icon [icon]="faCreditCard" size="5x"></fa-icon>
+                <p class="m-t-md is-size-5">{{ t('pricing.credit_card_payment') }}</p>
+            </div>
+
+            <div class="has-text-centered">
+                <button type="submit" class="button is-primary" (click)="onChangeCreditCardClick()">{{ t('general.change') }}</button>
+            </div>
+
+            
+        </div>
+        <div class="column is-2"></div>
+    </div>
+
+    <div *ngIf="restaurant.paymentType == 1" class="box m-t-lg" style="max-width: 90%;">
+        <div class="field m-l-xl m-t-md m-b-md">
+            <label class="label required">{{ t('restaurant.bankAccount')}}</label>
+            <div class="control m-l-md">
+                <input class="input" name="numeroCuenta" type="text" minlength=24 style="max-width: 500px;"
+                    [placeholder]="t('restaurant.bankAccount')" [(ngModel)]="restaurant.bankAccount" [class.is-danger]="domiError">
+            </div>
+        </div>
+
+        <button class="button is-primary has-text-weight-medium m-t-md m-b-md m-l-xl" (click)="onDomiSaveClick()">
+            <span class="icon is-small">
+                <fa-icon [icon]="faSave"></fa-icon>
+            </span>
+            <span>{{ t('general.save') }}</span>
+        </button>
+        <p *ngIf="domiMessage.length > 0" class="has-text-success m-l-xl">{{ domiMessage }}</p>
+    </div>
+
+
+    
+    <!--
+    CANVIAR PLAN
+    <h1 class="title is-4 m-t-xl">{{ t('pricing.change_plan') }}</h1>
+    <app-pricing [currentPlan]="restaurant.subscriptionPlan" (planClick)="onPlanChange($event)"></app-pricing>
+    -->
+
+
+    <h1 class="title is-4 m-t-xl"><span *ngIf="restaurant.autoRenewal">{{ t('general.cancel') }}</span><span *ngIf="!restaurant.autoRenewal">{{ t('general.enable') }} </span> {{ t('pricing.subscription') }}</h1>
+
+    <button class="button is-danger m-b-xl m-l-md" *ngIf="restaurant.autoRenewal" (click)="cancelarSubscripcion()">{{ t('config.cancel_sub') }} </button>
+    <button class="button is-success m-b-xl m-l-md" *ngIf="!restaurant.autoRenewal" (click)="habilitarSubscripcion()">{{ t('config.enable_sub') }}</button>
+
+
+
+
+    
+    <div class="modal" [class.is-active]="showModal">
+        <div class="modal-background" (click)="onChangeCancel()"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ t('pricing.change_plan') }}</p>
+                <button class="delete" aria-label="close" (click)="onChangeCancel()"></button>
+            </header>
+            <section class="modal-card-body" [innerHTML]="getModalText()">
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-primary m-r-lg" (click)="onChangeConfirm()">{{ t('general.change') }}</button>
+                <button class="button m-l-lg" (click)="onChangeCancel()">{{ t('general.cancel') }}</button>
+                <p class="has-text-success m-l-md" *ngIf="modalMessage.length > 0">{{ modalMessage }}</p>
+            </footer>
+        </div>
+    </div>
+
+
+     
+    <div class="modal" [class.is-active]="showCardModal">
+        <div class="modal-background" (click)="onChangeCardCancel()"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ t('pricing.card_modal_title') }}</p>
+                <button class="delete" aria-label="close" (click)="onChangeCardCancel()"></button>
+            </header>
+            <section class="modal-card-body" [innerHTML]="getCardModalText()">
+            </section>
+            <footer class="modal-card-foot">
+                <!--FORM REDSYS-->
+                <form name="form" #form [action]="getURL()" method="POST" *ngIf="restaurant.paymentType == 2">
+                    <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />
+                    <input type="hidden" name="Ds_MerchantParameters" [value]="key" />
+                    <input type="hidden" name="Ds_Signature" [value]="signature" />
+                    <button type="submit" class="button is-primary" (click)="form.submit()">{{ t('general.accept') }}</button>
+                </form>
+                <button class="button m-l-lg" (click)="onChangeCardCancel()">{{ t('general.cancel') }}</button>
+                <p class="has-text-success m-l-md" *ngIf="modalMessage.length > 0">{{ modalMessage }}</p>
+            </footer>
+        </div>
+    </div>
+
+</ng-container>

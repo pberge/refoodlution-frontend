@@ -1,0 +1,344 @@
+@import "~src/variables.scss";
+
+.dish-result-icon {
+    width: 0.8em;
+    height: 0.8em;
+}
+
+.price {
+    width: 100%;
+    padding-left: 0;
+}
+
+.is-2 {
+    width: 2.5em;
+    padding-left: 0.2em;
+    padding-right: 0;
+}
+
+tr:first-child > td {
+    border: none;
+}
+
+.menu-alter {
+    color: rgb(255, 139, 6);
+
+    /** Els menu alter que no siguin els primers **/
+    ~ .menu-alter,
+    &.menu-alter-danger {
+        margin-left: 1.3rem;
+    }
+}
+
+.menu-danger {
+    color: red;
+}
+
+.menu-unknown {
+    color: #7f7e7e;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.v-text-middle {
+    vertical-align: middle;
+}
+
+.line-1 {
+    line-height: 1em;
+}
+
+td {
+    &.is-style-1 {
+        text-align: center !important;
+        border: none;
+    }
+
+    &.is-style-5, &.is-style-6, &.is-style-7, &.is-style-8, &.is-style-9,  &.is-style-10,  &.is-style-11, &.is-style-12, &.is-style-13 {
+        border: none;
+        padding-bottom: 20px;
+    }
+
+    &.is-style-6,  &.is-style-7,  &.is-style-13  {
+        text-align: center !important;
+    }
+
+    &.is-style-14 {
+        position: relative;
+        border:none;
+    }
+
+    &.is-style-15 {
+        position: relative;
+        border:none;
+    }
+
+    &.is-style-17 {
+        color: $vitobetext;
+        border:none;
+    }
+
+    &.is-style-18 {
+        color: $vitobetext;
+        border:none;
+    }
+
+    &.is-style-18-title {
+        color: $vitobetext;
+        display: flex;
+        border:none;
+    }
+
+    &.is-style-19 {
+        color: $vitobetext;
+        border:none;
+    }
+
+    &.is-style-19-title {
+        color: $vitobetext;
+        display: flex;
+        border:none;
+    }
+}
+
+.name {
+    white-space: pre-wrap;
+
+    &.is-style-4 {
+        font-family: "Candara";
+        font-weight: bold;
+    }
+
+    &.is-style-5 {
+        font-family: "nobu-name";
+    }
+
+    &.is-style-6 {
+        font-family: "butler";
+    }
+    
+    &.is-style-8 {
+        font-family: "rosewood";
+        color: #3c5c6c;
+        text-transform: uppercase;
+    }
+
+    &.is-style-9 {
+        font-family: "tradegotic";
+        text-transform: uppercase;
+    }
+
+    &.is-style-10 {
+        color: #3e5057;
+        font-family: "metropolis";
+    }
+
+    &.is-style-11 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    &.is-style-12 {
+        font-family: 'Panton';
+    }
+
+    &.is-style-13 {
+        font-family: 'leelawad';
+        font-weight: bold;
+    }
+
+    &.is-style-14 {
+        font-weight: bold;
+        color: $capbocolor;
+        text-align: center;
+    }
+
+    &.is-style-15 {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        color: $lonautic;
+    }
+
+    &.is-style-16 {
+        font-family: 'montserratalternate';
+        font-weight: bold;
+    }
+
+
+    &.is-style-17 {
+        font-family: 'nimbussans';
+        font-weight: normal;
+    }
+
+    &.is-style-18 {
+        font-family: 'nimbussans';
+        font-weight: normal;
+    }
+
+    &.is-style-19 {
+        font-family: 'nimbussans';
+        font-weight: normal;
+    }
+}
+
+.price {
+    &.is-style-4 {
+        font-family: "Candara";
+        font-weight: bold;
+    }
+
+    &.is-style-5 {
+        font-family: "nobu-name";
+    }
+    
+    &.is-style-6 {
+        font-family: "butler-normal";
+    }
+
+    &.is-style-7 {
+        font-weight: bold;
+    }
+
+    &.is-style-8 {
+        font-family: "rosewood";
+    }
+   
+    &.is-style-9 {
+        font-family: "tradegotic";
+    }
+    &.is-style-10 {
+        font-family: "metropolis";
+    }
+
+    &.is-style-11 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    &.is-style-12 {
+        font-family: 'Panton';
+        text-align: right;
+    }
+
+    &.is-style-13 {
+        font-family: 'palatino';
+        font-size: 0.85rem;
+    }
+
+    &.is-style-14 {
+        text-align: center;
+        /*font-weight: bold;
+        color: $capbocolordark;
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+        right: 1em;
+        */
+    }
+
+    &.is-style-15 {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        color: $lonautic;
+    }
+
+    &.is-style-17 {
+        font-family: 'nimbussans';
+        font-weight: normal;
+        text-align: right;
+    }
+
+    &.is-style-18 {
+        font-family: 'nimbussans';
+        font-weight: normal;
+        padding-left:0.75em;
+    }
+
+    &.is-style-19 {
+        font-family: 'nimbussans';
+        font-weight: normal;
+        padding-left:0.75em;
+    }
+        
+}
+
+.description {
+    white-space: pre-wrap;
+
+    &.is-style-4 {
+        font-family: "Candara";
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    &.is-style-5 {
+        color: #ac926c;
+        font-family: "nobu-description";
+        font-style: italic;
+    }
+
+    &.is-style-6 {
+        font-family: "butler";
+    }
+
+    &.is-style-7 {
+        font-style: italic;
+        color: #c89b76;
+    }
+
+    &.is-style-9 {
+        font-family: "tradegotic";
+    }
+
+    &.is-style-10 {
+        color: #3e5057;
+        font-family: "metropolis";
+    }
+
+    &.is-style-11 {
+        font-family: 'Times New Roman', Times, serif;
+    }
+   
+    &.is-style-12 {
+        font-family: 'Panton';
+    }
+
+    &.is-style-13 {
+        font-family: 'leelawad';
+        font-size: 0.85rem;
+    }
+
+    &.is-style-14 {
+        font-family: 'leelawad';
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    &.is-style-15 {
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+        color: $lonautic;
+    }
+
+  
+}
+
+
+.image-td {
+    &.is-style-1, &.is-style-5, &.is-style-6,  &.is-style-7,  &.is-style-8, &.is-style-9, &.is-style-10, &.is-style-11, &.is-style-12, &.is-style-13, &.is-style-14, &.is-style-15  {
+        border: none;
+    }
+}
+
+.dish-image {
+    min-width: 70px;
+    max-width: 70px;
+    min-height: 70px;    
+    max-height: 70px;    
+    border-radius: 5px;
+    object-fit: cover;
+}

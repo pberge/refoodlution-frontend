@@ -1,0 +1,157 @@
+/* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+@import "~src/variables";
+// Aqui han d'anar les variables modificades.
+
+// Menu lateral
+$menu-item-active-background-color: $secondary-hover;//hsl(171, 100%, 41%);
+$menu-item-color: white;
+$menu-item-hover-background-color: $secondary-hover;
+$menu-item-hover-color: white;
+$menu-label-color: #fff;
+$menu-item-radius: 0px;
+$menu-list-line-height: 1.75;
+
+
+$section-padding: 1rem 1.5rem;
+
+// Tabs pantalla traducciones
+$tabs-link-active-border-bottom-color: $primary;
+$tabs-link-active-color: $primary;
+$tabs-toggle-link-active-background-color: $primary;
+$tabs-toggle-link-active-border-color: $primary;
+
+// Tables generals
+//$table-row-hover-background-color:  hsl(0, 0%, 98%);
+//$table-striped-row-even-background-color: hsl(0, 0%, 98%);
+//$table-striped-row-even-hover-background-color: hsl(0, 0%, 96%);
+//$table-background-color: $body_background;
+
+
+/** Per poder posar margins i paddings via html **/
+$sizeUnit: rem;
+$marginKey: 'm';
+$paddingKey: 'p';
+$separator: '-';
+$spacing-sizes: (
+    ('none', 0),
+    ('xxs', 0.125),
+    ('xs', 0.25),
+    ('sm', 0.5),
+    ('md', 1),
+    ('lg', 2),
+    ('xl', 4),
+    ('xxl', 8),
+);
+$positions: (
+    ('t', 'top'),
+    ('r', 'right'),
+    ('b', 'bottom'),
+    ('l', 'left')
+);
+
+@function sizeValue($key, $value) {
+    @return if($key == 'none', 0, $value + $sizeUnit);
+}
+
+@each $spacing-size in $spacing-sizes {
+    $sizeKey: nth($spacing-size, 1);
+    $sizeValue: nth($spacing-size, 2);
+    .#{$marginKey}#{$separator}#{$sizeKey} {
+        margin: sizeValue($sizeKey, $sizeValue);
+    }
+    .#{$paddingKey}#{$separator}#{$sizeKey} {
+        padding: sizeValue($sizeKey, $sizeValue);
+    }
+    @each $position in $positions {
+        $posKey: nth($position, 1);
+        $posValue: nth($position, 2);
+        .#{$marginKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+            margin-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+        }
+        .#{$paddingKey}#{$separator}#{$posKey}#{$separator}#{$sizeKey} {
+            padding-#{$posValue}: sizeValue($sizeKey, $sizeValue);
+        }
+    }
+}
+
+/** Fi margins i paddings **/
+
+@import 'bulma';
+@import '~bulma-extensions';
+
+@font-face {
+    font-family: myriad;
+    src: url(assets/font/MYRIADPRO-REGULAR.OTF) format("opentype");
+}
+
+@font-face {
+    font-family: myriad-bold;
+    src: url(assets/font/MYRIADPRO-SEMIBOLD.OTF) format("opentype");
+}
+
+body {
+    background-color: $body_background;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+                user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+}
+
+.table-shadow {
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0px 0 1px rgba(10, 10, 10, 0.02);
+}
+
+.is-clickable {
+    cursor: pointer;
+}
+
+.not-dragable {
+    user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.is-rounded-table {
+    border-radius: 6px;
+}
+
+
+.columns:last-child {
+    margin-bottom: 0;
+}
+
+.is-secondary {
+    background-color: $secondary;
+    color: white;
+}
+
+button:active.is-secondary, button:focus.is-secondary {
+    color: white !important;
+}
+
+.is-secondary.is-light, .is-secondary-hover:hover {
+    background-color: $secondary-hover !important;
+    color: white !important;
+}
+
+.is-secondary-color {
+    color: $secondary;
+}
+
+.is-primary-hover:hover {
+    background-color: $primary-hover !important;
+}
+
+.flex-between {
+    justify-content: space-between;
+}

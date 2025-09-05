@@ -1,0 +1,91 @@
+.box.content {
+  min-width: 15em;
+  min-height: 10em;
+}
+
+.button {
+  align-self: flex-end;
+}
+
+.flex-end {
+  align-items: flex-end;
+}
+
+.is-gray {
+  color: gray;
+}
+
+.shaker-1 {
+  animation-name: keyframes1;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 10%;
+  cursor: grab;
+}
+
+.shaker-2 {
+  animation-name: keyframes2;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  transform-origin: 30% 5%;
+  cursor: grab;
+}
+
+.modal-visibility {
+  .modal-card {
+    width: 700px !important;
+  }
+
+}
+
+.visibility-btn {
+  transition: background-color 0.2s, color 0.2s;
+
+  &:hover {
+    background-color: #f0f0f0; // lleuger canvi de fons
+    color: #3273dc; // color blau subtil per cridar l’atenció
+  }
+}
+
+.helpButton {
+  border: none;
+  border-radius: 50%;
+  color: white;
+  background-color: #fed03d;
+  margin-right: 0.5em;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.helpComponent {
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  background-color: #fed03d;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+@keyframes keyframes1 {
+  0% {
+    transform: rotate(-1deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    transform: rotate(1.5deg);
+    animation-timing-function: ease-out;
+  }
+}
+
+@keyframes keyframes2 {
+  0% {
+    transform: rotate(1deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    transform: rotate(-1.5deg);
+    animation-timing-function: ease-out;
+  }
+}

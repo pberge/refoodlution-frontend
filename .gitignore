@@ -1,0 +1,67 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+# /dist
+/tmp
+/out-tsc
+# Only exists if Bazel was run
+/bazel-out
+
+# dependencies
+/node_modules
+
+# profiling files
+chrome-profiler-events*.json
+speed-measure-plugin*.json
+
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+src/assets/allergens_old/image_ac.png
+src/assets/allergens_old/image_ae.png
+src/assets/allergens_old/image_af.png
+src/assets/allergens_old/image_am.png
+src/assets/allergens_old/image_an.png
+src/assets/allergens_old/image_ap.png
+src/assets/allergens_old/image_as.png
+src/assets/allergens_old/image_au.png
+src/assets/allergens_old/image_aw.png
+src/assets/allergens_old/image_ay.png
+src/assets/allergens_old/image_bc.png
+src/assets/allergens_old/image_bm.png
+src/assets/allergens_old/image_fm.png
+src/assets/allergens_old/image_fr.png
+src/assets/allergens_old/image_ml.png
+src/assets/allergens_old/image_nl.png
+src/assets/allergens_old/image_so.png
+src/assets/allergens_old/image_um.png
+src/assets/allergens_old/image_ve.png
+src/assets/allergens_old/image_vg.png
+src/environment.ts

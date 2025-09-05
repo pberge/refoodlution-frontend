@@ -1,0 +1,40 @@
+@import '~src/variables';
+
+.card {
+    padding-right: .7em;
+     padding-left: .7em;
+    &.hoverable {
+        border-radius: .3em;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        &:hover {
+            box-shadow: 0 0.5em 1em -0.125em rgba(hsl(0, 0%, 4%), 0.25), 0 0px 0 1px rgba(hsl(0, 0%, 4%), 0.02);
+            cursor: pointer;
+        }
+
+        &.active {
+           background-color: $primary;
+           //color: white;
+        }
+    }
+    
+}
+
+.card-image {
+    justify-content: center;
+}
+
+.card-content {
+    padding-top: 0;
+    padding-bottom: .6em;
+    padding-left: .6em;
+    padding-right: .6em;
+}
+
+.content {
+    font-size: 13px;
+}
+
+.is-80x80 {
+     width: 80px;
+    height: 80px;
+}

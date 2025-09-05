@@ -1,0 +1,519 @@
+@import '~src/variables.scss';
+
+@media screen and (min-width: 769px), print {
+    .mobile-view {
+        max-width: 500px;
+    }
+}
+
+.mobile-view {
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.main-header {
+    //background-color: $secondary;
+    //background: url('/assets/preview/bg_header.jpg');
+    padding-top: 1.5em;
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-color: rgb(229, 232, 234);
+
+    .logo-image{
+        display: block;
+        margin: auto;
+        max-height: 150px;
+        max-width: 80%;
+        padding-bottom: 1em;
+    }
+}
+
+.main-card {
+    margin-top: 9em;
+    background-color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 1em;
+    padding-bottom: 0;
+
+    &.is-style-15 {
+        background-color:$lonautic;
+        color:white;
+        padding-bottom:1em;
+
+        &-label {
+            color: #2d373c;
+        }
+    }
+
+    &.is-style-16 {
+        padding-bottom:1em;
+        background-color:$cafe;
+
+        &-label {
+            color: #2d373c;
+        }
+    }
+
+    &.is-style-17 {
+        padding-bottom:1em;
+        background-color: $vitobeprimary;
+        font-family: "nimbussans";
+
+        &-label {
+            color: $vitobetext;
+        }
+    }
+
+    
+}
+
+
+.main-header:has(> .main-card.is-style-17 ) ~ .white-bg {
+     background-color: $vitobeprimary;
+}
+
+.main-header:has(> .main-card.is-style-17 ) ~ .p-b-xl {
+     background-color: $vitobeprimary;
+}
+
+
+
+.main-card > h1 {
+    &.is-style-15 {
+        color: white;
+        font-size: 1em;
+        background-color: transparent;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    &.is-style-16 {
+        background-color: transparent;
+        font-family: 'montserratalternate';
+    }
+
+    &.is-style-17 {
+        background-color: transparent;
+        font-family: 'ivymodesemibold';
+    }
+}
+
+
+
+.is-style-15 {
+    font-family: 'Courier New', Courier, monospace;
+
+    label {
+        color:$lonautic;
+        font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    }
+
+    #carta {
+        padding: 1em;
+        border-radius:5px;
+    }
+}
+
+.is-style-16 {
+    font-family: 'prestigeelite';
+    text-transform: capitalize;
+    color:black;
+
+    label {
+        font-family: 'montserratalternate';
+    }
+
+    #carta {
+        padding: 1em;
+        border-radius:5px;
+        background-color: $cafe;
+    }
+
+    .custom-select {
+        font-family: 'montserratalternate';
+        margin-bottom:1em;
+    }
+
+}
+
+.is-style-17 {
+    font-family: 'ivymoderegular';
+    color:$vitobetext;
+
+    label {
+        font-family: 'nimbussans';
+        color: $vitobeprimary;
+    }
+
+    p {
+        color: $vitobetext;
+    }
+
+    td {
+        color: $vitobetext !important;
+    }
+
+    #carta {
+        padding: 1em;
+        border-radius:5px;
+        background-color: $vitobeprimary;
+        font-family: 'nimbussans';
+
+        li {
+            font-size: .9rem;
+            display: inline-block;
+            width: 7em;
+            height: 8em;
+            margin: .25em .25em;
+            line-height: 2em;
+            cursor: pointer;
+            
+            &:active {
+                -webkit-transform: scale(1.08);
+                -moz-transform: scale(1.08);
+                -ms-transform: scale(1.08);
+                -o-transform: scale(1.08);
+                transform: scale(1.08);
+            }
+            
+            .image-container {
+                width: 5em;
+                height: 5em;
+                margin: .25em auto;
+                border: 0.05em solid $secondary;            
+                -webkit-border-radius: 7em;
+                border-radius: 7em;
+                
+                img {
+                    max-width: 3em;
+                    max-height: 3em;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                &.active {
+                    background-color: #FF3EB5;
+                    border-color: #FF3EB5;
+                    color: #f3f0e8;
+                }
+            }
+
+            
+        }
+
+        .title {
+            color: $vitobetext;
+        }
+    }
+
+    .custom-select {
+        font-family: 'nimbussans';
+        color:#572D2D;
+        border-color: #572D2D;
+        margin-bottom:1em;
+    }
+
+    .custom-select::after {
+        border-color:#572D2D !important;
+    }
+
+    .tab {
+        height: fit-content;
+    }
+
+}
+
+
+
+#carta {
+    background-color: #fff;
+
+    li {
+        font-size: .9rem;
+        display: inline-block;
+        width: 7em;
+        height: 8em;
+        margin: .25em .25em;
+        line-height: 2em;
+        cursor: pointer;
+        
+        &:active {
+            -webkit-transform: scale(1.08);
+            -moz-transform: scale(1.08);
+            -ms-transform: scale(1.08);
+            -o-transform: scale(1.08);
+            transform: scale(1.08);
+        }
+        
+        .image-container {
+            width: 5em;
+            height: 5em;
+            margin: .25em auto;
+            border: 0.05em solid $secondary;            
+            -webkit-border-radius: 7em;
+            border-radius: 7em;
+            
+            img {
+                max-width: 3em;
+                max-height: 3em;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            &.active {
+                background-color: $primary;
+                border-color: $primary;
+            }
+        }
+    }
+}
+
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+
+.no-click {
+    pointer-events: none;
+}
+
+.my-label::before, .my-label::after {
+    margin-top: .35em;
+}
+
+.tab {
+    input {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    width: 100%;
+    overflow: hidden;
+
+    &-label {
+        display: flex;
+        justify-content: space-between;
+        padding: .5em;
+        padding-left: 1em;
+        font-weight: bold;
+        cursor: pointer;
+
+        /* Icon */
+        &::after {
+            content: "\276F";
+            transform: rotate(90deg);
+            margin-right: .5em;
+            text-align: center;
+            transition: all .25s;
+            margin-left: 1em;
+        }
+    }
+
+    &-label.selector {
+        background-color: #eceff2;
+        border-radius: 10px;
+    }
+
+    &-content {
+        max-height: 0;  
+        transition: max-height 0.25s ease-out;
+        margin-top: 1em;
+        display: none;
+    }
+
+    &.custom-selector {
+        color:#572D2D;
+    }
+}
+
+// :checked
+input:checked {
+    + div .tab-label {
+        &::after {
+            transform: rotate(-90deg);
+        }
+    }
+    ~ .tab-content {
+        max-height: 100%;
+        transition: max-height 2s ease-in;
+        display: block;
+    }
+}
+
+
+.custom-select {
+    border-radius: 10px;
+    background-color: #eceff2;
+    border: 0;
+    font-weight: bold;
+    font-size: 1em;
+    color: #4a4a4a;
+    padding-left: 1em;
+
+    &:active, &:focus {
+        box-shadow: none !important;
+    }
+}
+
+.select {
+    vertical-align: baseline;
+}
+
+.buttons-aligned {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu-selector {
+    background-color: white;
+    margin: 0;
+
+    .menu-item.active { 
+        border-bottom: .2em solid $primary;
+
+        &.is-style-5 {
+            border-color: #ac926c;
+        }
+
+        &.is-style-6 {
+            border-color: #dbb194;
+        }
+
+        &.is-style-7 {
+            border-color: #093b63;
+        }
+       
+        &.is-style-8, &.is-restaurant-447 {
+            border-color: #3c5c6c;
+        }
+
+        &.is-style-9, &.is-restaurant-452 {
+            border-color: #cc3322;
+        }
+       
+        &.is-style-10, &.is-restaurant-246 {
+            border-color: #3e5057;
+        }
+
+        &.is-style-11, &.is-restaurant-484 {
+            border-color: #2d373c;
+        }
+
+        &.is-style-12, &.is-restaurant-53 {
+            border-color: #2d373c;
+        }
+
+        &.is-style-13 /*, &.is-restaurant-316*/ {
+            border-color: #0070C0;
+        }
+
+        &.is-style-14 /*, &.is-restaurant-316*/ /*CAP BO*/ {
+            border-color: $capbocolordark;
+        }
+
+        &.is-style-15 /*, &.is-restaurant-316*/ /*CAP BO*/ {
+            border-color: $lonautic;
+            font-weight: bold;
+        }
+
+        &.is-style-16 /*CAFFE*/ {
+            font-family: 'montserratalternate';
+            border-color: black;
+            font-weight: bold;
+        }
+
+        &.menu-item.is-style-17 /*VI TO BE*/ {
+            font-family: 'nimbussans';
+            border-color: $vitobetext;
+            font-weight: bold;
+        }
+    }
+
+    .menu-item.is-style-6 {
+        font-family: "butler";
+    }
+
+    .menu-item.is-style-8, .menu-item.is-restaurant-447  {
+        font-family: "rosewood";
+    }
+    
+    .menu-item.is-style-9, .menu-item.is-restaurant-452  {
+        font-family: "tradegotic";
+    }
+
+    .menu-item.is-style-10, .menu-item.is-restaurant-246  {
+        font-family: "metropolis";
+        color: #3e5057;
+    }
+
+    .menu-item.is-style-11, .menu-item.is-restaurant-484  {
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .menu-item.is-menu-1155 {
+        font-weight: bold;
+    }
+
+    .menu-item.is-style-12, .menu-item.is-restaurant-53  {
+        font-family: 'Panton';
+    }
+
+    .menu-item.is-style-13 /*, .menu-item.is-restaurant-316*/  {
+        font-family: 'leelawad';
+    }
+
+    .menu-item.is-style-14  {
+       color: $capbocolor; 
+    }
+
+    .menu-item.is-style-15 {
+        color: $lonautic; 
+    }
+
+    .menu-item.is-style-16 {
+        background-color: $cafe; 
+        font-family: 'montserratalternate';
+        font-size: 1em;
+    }
+
+    .menu-item.is-style-17 {
+        background-color: $vitobeprimary; 
+        font-family: 'nimbussans';
+        font-size: 1em;
+    }
+
+    .menu-item.is-style-18 {
+        background-color: $vitobeprimary; 
+        font-family: 'nimbussans';
+        font-size: 1em;
+        text-transform: none;
+    }
+
+    .menu-item.is-style-19 {
+        background-color: $vitobeprimary; 
+        font-family: 'nimbussans';
+        font-size: 1em;
+        text-transform: none;
+    }
+}
+
+.menu-selector:has(> .menu-item.is-style-17) {
+    background-color: $vitobeprimary; 
+}
+
+.white-bg {
+    background-color: white;
+}
+
+.is-style-17 {
+    background-color: $vitobeprimary;
+
+    &.white-bg {
+        background-color: $vitobeprimary;
+    }
+}

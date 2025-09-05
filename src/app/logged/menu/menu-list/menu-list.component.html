@@ -1,0 +1,85 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ t('menu.header') }}</h1>
+
+    <p>{{ t('menu.body') }}</p>
+    <button class="button is-primary m-b-lg m-t-lg m-r-md" (click)="onCreateClick()">
+        <span class="icon is-small">
+            <fa-icon [icon]="faAdd"></fa-icon>
+        </span>
+        <span>{{ t('menu.create') }}</span>
+    </button>
+    <button class="button m-b-lg m-t-lg" (click)="onSortClick()" [ngClass]="isSorting ? 'is-success' : 'is-info'">
+        <span class="icon is-small">
+            <fa-icon [icon]="isSorting ? faSave : faSort"></fa-icon>
+        </span>
+        <span>
+            {{ !isSorting ? t('general.sort') : t('general.save') }}
+        </span>
+    </button>
+
+    <div class="box has-text-centered" *ngIf="menus.length == 0">
+        <p class="is-size-5">{{ t('menu.noMenu') }}</p>
+    </div>
+
+
+    <div *ngIf="!isSorting" class="columns is-multiline">
+        <div *ngFor="let menu of menus" class="column is-3">
+            <app-menu-item [menu]="menu"></app-menu-item>
+        </div>
+    </div>
+
+    <div class="box box-no-shadow m-t-md" *ngIf="menus.length > 0 && isSorting">
+        <div class="columns" class="box-title m-t-xxs">
+            <div class="column is-1 has-text-centered is-hidden-mobile">
+                <span>{{ t('menu.order') }}</span>
+            </div>
+            <div class="column">
+                {{ t('menu.name') }}
+            </div>
+        </div>
+        <div cdkDropList (cdkDropListDropped)="onDrop($event)">
+            <div class="columns" *ngFor="let menu of menus" cdkDrag class="example-box">
+                <div class="column is-1 has-text-centered is-hidden-mobile">
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faSort">
+                        </fa-icon>
+                    </span>
+                </div>
+                <div class="column">
+                    {{ menu.name }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" [class.is-active]="menuTypeModal">
+        <div class="modal-background" (click)="menuTypeModal = false"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ t('menu.select_type') }}</p>
+                <button class="delete" aria-label="close" (click)="menuTypeModal = false"></button>
+            </header>
+            <section class="modal-card-body">
+
+                <div class="columns">
+                    <div class="column">
+                        <div class="box custom-box has-text-centered is-clickable hoverable is-vcentered"
+                            (click)="onCreateNormalClick()">
+                            <fa-icon size="3x" [icon]="faMenu"></fa-icon><br>
+                            {{ t('menu.normal')}}
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="box custom-box has-text-centered  is-clickable hoverable is-vcentered"
+                            (click)="onCreatePdfClick()">
+                            <fa-icon size="3x" [icon]="faFilePdf"></fa-icon><br>
+                            {{ t('menu.withPdf')}}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    
+</ng-container>

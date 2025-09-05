@@ -1,0 +1,330 @@
+<ng-container *transloco="let t">
+    <h1 class="title">{{ isEditing ?  t('dish.edit') : t('dish.create')}}</h1>
+
+
+    <div class="columns">
+        <div class="column is-5">
+            <div class="field">
+                <label class="label">{{ t('dish.name') }}</label>
+                <div class="control">
+                    <input class="input" type="text" [placeholder]="t('dish.namePlaceholder')" [(ngModel)]="dish.name">
+                </div>
+            </div>
+
+            <div class="field m-t-md">
+                <label class="label">{{ t('dish.description') }} ({{ t('general.optional') }})</label>
+                <div class="control">
+                    <!--<textarea class="textarea" type="text" rows="4" [placeholder]="t('dish.description')"
+                        [(ngModel)]="dish.description"></textarea>-->
+                    <textarea #editor class="textarea" type="text" rows="4" [placeholder]="t('dish.description')"
+                    [(ngModel)]="dish.description"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <label class="label">{{ t('dish.price') }} ({{ t('general.optional') }})</label>
+    <div class="columns" style="align-items: center;">
+        <div class="column is-2">
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input" type="text" placeholder="0" [(ngModel)]="dish.price" (blur)="checkPrice()">
+                </div>
+                <p class="control">
+                    <span class="select secondary-arrow">
+                        <select [(ngModel)]="dish.currency" (change)="setDefaultCurrency($event.target.value)">
+                            <option *ngFor="let currency of currencies"> {{ currency }}</option>
+                        </select>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="column is-2">
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Título" [(ngModel)]="dish.priceTitle1" >
+                </div>
+            </div>
+        </div>
+
+        <input class="is-checkradio" id="price2_declaration" type="checkbox" name="price2_declaration"
+            [checked]="dish.variablePrices == true" (change)="onPrice2Click()">
+        <label for="price2_declaration">{{ t('dish.variablePrices') }}</label>
+    </div>
+
+    <div *ngIf="isPrice2Enabled()">
+        <label class="label">{{ t('dish.price2') }} ({{ t('general.optional') }})</label>
+        <div class="columns" >
+            
+            <div class="column is-2">
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="0" [(ngModel)]="dish.price2" (blur)="checkPrice2()">
+                    </div>
+                    <p class="control">
+                        <span class="select secondary-arrow">
+                            <select [(ngModel)]="dish.currency" (change)="setDefaultCurrency($event.target.value)">
+                                <option *ngFor="let currency of currencies"> {{ currency }}</option>
+                            </select>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="column is-2">
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Título" [(ngModel)]="dish.priceTitle2" >
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <label class="label">{{ t('dish.price3') }} ({{ t('general.optional') }})</label>
+        <div class="columns" >
+            
+            <div class="column is-2">
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="0" [(ngModel)]="dish.price3" (blur)="checkPrice3()">
+                    </div>
+                    <p class="control">
+                        <span class="select secondary-arrow">
+                            <select [(ngModel)]="dish.currency" (change)="setDefaultCurrency($event.target.value)">
+                                <option *ngFor="let currency of currencies"> {{ currency }}</option>
+                            </select>
+                        </span>
+                    </p>
+                </div>
+            </div>
+            <div class="column is-2">
+                <div class="field has-addons">
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Título" [(ngModel)]="dish.priceTitle3" >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <label class="label m-t-md">{{ t('dish.photo') }} ({{ t('general.optional') }})</label>
+
+    <div class="image-container m-t-md m-l-md" *ngIf="img !== undefined">
+        <img class="image-container" [src]="getImage()">
+    </div>
+    <input style="display: none;" type="file" accept="image/*" (change)="onFileChanged($event)" #fileInput>
+
+    <button *ngIf="img == undefined" class="button is-primary m-t-md m-r-md m-l-md" (click)="fileInput.click()"
+        [class.is-loading]="imageUploading">
+        <span class="icon is-small">
+            <fa-icon [icon]="faUpload"></fa-icon>
+        </span>
+        <span>{{ t('config.upload_image') }}</span>
+    </button>
+
+    <button class="button is-danger m-t-md" *ngIf="img != undefined" (click)="onDeleteImage()">
+        <fa-icon [icon]="faDelete"></fa-icon>
+        <span class="m-l-md">{{ t('general.delete') }} {{ t('dish.photo') | lowercase }}</span>
+    </button>
+
+
+    <!--button class="button is-primary m-t-md" (click)="toggleModal(undefined)">
+    <span class="icon is-small">
+        <fa-icon [icon]="faAdd"></fa-icon>
+    </span>
+    <span>Añadir condimento</span>
+</button-->
+
+
+    <div class="field m-t-lg">
+        <input class="is-checkradio" id="allergen_declaration" type="checkbox" name="allergen_declaration"
+            [checked]="dish.allergenDeclared == false" (change)="onNoDeclarationClick()">
+        <label for="allergen_declaration">{{ t('dish.undeclared') }}</label>
+    </div>
+
+
+    <!--div class="table-container table-shadow m-t-lg m-b-lg" *ngIf="dish.seasonings.length > 0">
+    <table class="table is-hoverable is-fullwidth is-striped">
+        <thead>
+            <th>Platos añadidos</th>
+            <th>Ingredientes</th>
+            <th class="is-narrow">Eliminar</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let seasoning of dish.seasonings">
+                <td>{{ seasoning.name }}</td>
+                <td>{{ seasoning.ingredients }}</td>
+                <td>
+                    <span class="icon is-small">
+                        <fa-icon [icon]="faDelete" class="is-clickable" (click)="deleteSeasoning(seasoning)">
+                        </fa-icon>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div-->
+
+    <div class="m-t-lg" *ngIf="isDeclarationEnabled()">
+        <label class="label">{{ t('dish.allergens_title') }}</label>
+        <div class="field m-t-sm">
+            <input class="is-checkradio" id="allergen_free" type="checkbox" name="allergen_free"
+                [checked]="dish.allergenFree" (change)="onNoAllergenClick()">
+            <label for="allergen_free">{{ t('dish.allergens_free') }}</label>
+        </div>
+        <div class="columns is-multiline is-variable is-2 p-r-md p-t-md">
+            <div class="column is-narrow" *ngFor="let allergen of allergens">
+                <div class="card hoverable" [class.active]="dish.hasAllergen(allergen)" (click)="onCardClick(allergen)">
+                    <div class="card-image is-flex">
+                        <figure class="image is-80x80">
+                            <img src="assets/allergens/image_{{ allergen | lowercase }}.png"
+                                [alt]=" t('allergens.' + allergen) " class="not-dragable">
+                        </figure>
+                    </div>
+                    <div class="card-content has-text-centered">
+                        <div class="content">
+                            {{ t('allergens.' + allergen) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="field m-t-lg" *ngIf="dish.allergens.length > 0">
+
+        <div class="columns">
+            <div class="column is-7">
+                <label class="label">{{ t('dish.comment_header') }}</label>
+                {{ t('dish.comment_body') }}
+                <table class="table m-t-md is-fullwidth is-rounded-table">
+                    <thead>
+                        <th>{{ t('dish.allergen_header') }}</th>
+                        <th>{{ t('dish.message') }}</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let allergen of dish.allergens; let i = index">
+                            <td>
+                                <span class="m-l-sm m-t-md">{{ t('allergens.' + allergen.acronym) }}</span>
+                            </td>
+                            <td>
+                                <div class="dropdown" [class.is-active]="isClicked[i]"
+                                    (click)="isClicked[i] = !isClicked[i]" (blur)="isClicked[i] = false">
+                                    <div class="dropdown-trigger">
+                                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                                            <span>{{ t('dish.' + (allergen | allergenMessage)) }}</span>
+                                            <span class="icon is-small">
+                                                <fa-icon [icon]="faAngleDown"></fa-icon>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                        <div class="dropdown-content">
+                                            <a (click)="allergen.message = 0; updateAlert()" class="dropdown-item">
+                                                {{ t('dish.m_0') }}
+                                            </a>
+                                            <a (click)="allergen.message = 1; updateAlert()" class="dropdown-item">
+                                                {{ t('dish.m_1') }}
+                                            </a>
+                                            <a (click)="allergen.message = 2; updateAlert()" class="dropdown-item">
+                                                {{ t('dish.m_2') }}
+                                            </a>
+                                            <a (click)="allergen.message = 3; updateAlert()" class="dropdown-item">
+                                                {{ t('dish.m_3') }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="column">
+                <b>{{ t('dish.preview_header') }}</b>
+                <p class="m-t-sm">{{ t('dish.allergens_title') }}</p>
+                <div class="comment-preview">
+                    <table class="table m-t-md">
+                        <tbody>
+                            <tr>
+                                <td class="v-text-middle td-align">
+                                    {{ dish.name.length == 0 ? t('error.dishName') : dish.name | titleCaseWord}}<br>
+                                    <span class="menu-danger" *ngIf="activators.length > 0">{{ t('preview.alert_3') }}:
+                                        <span *ngFor="let activator of activators; last as isLast">
+                                            {{ activator | transloco }}<span *ngIf="!isLast">,</span>
+                                        </span>
+                                        <br>
+                                    </span>
+                                    <span *ngFor="let message of messages"
+                                        class="menu-alter menu-alter-danger">{{ message.allergen | transloco }}:
+                                        {{ message.message | transloco }}<br>
+                                    </span>
+                                </td>
+                                <td class="v-text-middle is-2-image">
+                                    <img [src]="updateImage()" class="dish-result-icon" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="columns">
+        <div class="column is-narrow m-t-md">
+            <button class="button is-primary has-text-weight-medium " [class.is-loading]="isSaving"
+                (click)="onSaveClick()">
+                <span class="icon is-small">
+                    <fa-icon [icon]="faSave"></fa-icon>
+                </span>
+                <span>{{ t('general.save') }}</span>
+            </button>
+        </div>
+        <div class="column m-t-md" [class]="'has-text-'+result.status" *ngIf="result.status !== 'hidden'">
+            <fa-icon [icon]="result.status == 'success' ? faCheck : faCross"></fa-icon> {{ result.message }}
+        </div>
+    </div>
+
+
+    <!--div #seasoningModal class="modal">
+    <form #dishForm="ngForm" (ngSubmit)="saveModal()">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">Condimentos</p>
+                <button class="delete" aria-label="Cerrar" (click)="toggleModal($event)"></button>
+            </header>
+            <section class="modal-card-body">
+                <table *ngIf="seasonings.length > 0" class="table is-hoverable is-fullwidth is-striped">
+                    <thead>
+                        <th>Nombre</th>
+                        <th>Seleccionar</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let seasoning of seasonings">
+                            <td (click)="seasoningClick(seasoning)">{{ seasoning.name }} </td>
+                            <td class="is-narrow">
+                                <div class="field">
+                                    <input class="is-checkradio" id="exampleCheckbox{{seasoning.id}}" type="checkbox"
+                                        [checked]="isContained(seasoning)" name="exampleCheckbox{{seasoning.id}}"
+                                        (change)="seasoningClick(seasoning)">
+                                    <label for="exampleCheckbox{{seasoning.id}}"></label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p *ngIf="seasonings.length == 0">¡Ups! Parece que no hay condimentos añadidos a la plataforma.</p>
+            </section>
+            <footer class="modal-card-foot">
+                <button class="button is-success" type="submit">Guardar</button>
+            </footer>
+        </div>
+    </form>
+</div-->
+
+</ng-container>

@@ -1,0 +1,61 @@
+<ng-container *transloco="let t">
+    <div class="box content">
+
+        <div style="display: flex;justify-content: space-between;">
+            <p class="title is-4" style="margin-bottom:0;">{{ menu.name }} <fa-icon class="is-pulled-right is-gray" [icon]="faPdf" *ngIf="menu.style == 2"></fa-icon></p>
+            <button class="button is-small is-light visibility-btn" 
+                    (click)="toggleModalVisibility()" 
+                    [title]="t('menu.visibilityConfig')"
+                    [ngClass]="{'is-info': (selectedDays.length || schedules.length)}">
+                <fa-icon [icon]="faEye"></fa-icon>
+            </button>
+
+        </div>
+
+        <div class="is-flex flex-between flex-end m-t-xl">
+            <button class="button" [ngClass]="menu.active ? 'is-success' : 'is-danger'" (click)="onActivateClick()">
+                {{ menu.active ? t('menu.active') : t('menu.inactive')}}
+            </button>
+
+            <button class="button" (click)="onEditClick()">{{ t('general.edit') }}</button>
+            
+        </div>
+
+
+        <!--button class="m-t-md button is-danger" >Inactivo</!--button-->
+
+    </div>
+
+    <div #dishModalVisibility class="modal modal-visibility">
+        <div class="modal-background" (click)="closeModalVisibility($event)"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{{ t('menu.visibilityConfig') }}</p>
+                <button class="helpButton" (click)="toggleHelp()" [title]="t('general.help')"><fa-icon [icon]="faHelp"></fa-icon></button>
+                <button class="delete" aria-label="Cerrar" (click)="closeModalVisibility($event)"></button>
+            </header>
+            <section class="modal-card-body">
+                <div
+                    *ngIf="showHelp"
+                    class="helpComponent mt-8 p-3 border border-blue-300 bg-blue-50 rounded text-sm ">
+                    <h3 style="font-weight: 600; margin-bottom: 0.75rem;">{{t('menu.helpTitle')}}</h3>
+                    <ul style="list-style-type: disc; padding-left: 1.5rem; margin: 0; color: #374151; line-height: 1.5; margin-bottom: 0;">
+                        <li style="margin-bottom: 5px">{{ t('menu.helpContent1') }}</li>
+                        <li style="margin-bottom: 5px">{{ t('menu.helpContent2') }}</li>
+                        <li style="margin-bottom: 5px">{{ t('menu.helpContent3') }}</li>
+                        <li style="margin-bottom: 5px">{{ t('menu.helpContent4') }}</li>
+                    </ul>
+                </div>
+                <app-day-selector [(selectedDays)]="selectedDays" (selectedDaysChange)="saveConfigVisibility()"></app-day-selector> 
+                <app-schedule-selector [(menuId)]="menu.id" [(schedules)]="menu.schedules" (schedulesChange)="saveSchedules($event)"></app-schedule-selector>
+            </section>
+            <footer class="modal-card-foot">
+                <!--
+                <button class="button is-success" (click)="saveConfigVisibility()">{{ t('general.save') }}</button>
+                <button class="button" (click)="closeModalVisibility($event)">{{ t('general.cancel') }}</button>
+                -->
+            </footer>
+        
+        </div>
+    </div>
+</ng-container>

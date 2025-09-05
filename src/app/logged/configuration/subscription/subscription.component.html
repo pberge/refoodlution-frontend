@@ -1,0 +1,47 @@
+<ng-container *transloco="let t">
+
+    <div class="m-t-md">
+        <div class="columns">
+            <div class="column is-2"></div>
+            <!--
+            <div class="column is-3">
+                <div class="box has-text-centered custom-box hoverable" (click)="restaurant.paymentType = 1" [class.active]="isTypeSelected(1)">
+                    <fa-icon [icon]="faLandmark" size="5x"></fa-icon>
+                    <p class="m-t-md is-size-5">{{ t('pricing.domiciliary_payment') }}</p>
+                    <p class="is-size-7 m-t-sm has-text-centered">{{ t('pricing.only_spain') }}</p>
+                </div>
+            </div>
+        -->
+            <div class="column is-2"></div>
+            <div class="column is-3">
+                <div class="box has-text-centered custom-box hoverable" (click)="restaurant.paymentType = 2" [class.active]="isTypeSelected(2)">
+                    <fa-icon [icon]="faCreditCard" size="5x"></fa-icon>
+                    <p class="m-t-md is-size-5">{{ t('pricing.credit_card_payment') }} </p>
+                </div>
+            </div>
+            <div class="column is-2"></div>
+        </div>
+    </div>
+
+    <div *ngIf="restaurant.paymentType == 1" class="box m-t-lg" style="max-width: 90%;">
+        <div class="field m-l-xl m-t-md m-b-md">
+            <label class="label required">{{ t('restaurant.bankAccount')}}</label>
+            <div class="control m-l-md">
+                <input class="input" name="numeroCuenta" type="text" minlength=24 style="max-width: 500px;"
+                    [placeholder]="t('restaurant.bankAccount')" [(ngModel)]="restaurant.bankAccount" >
+            </div>
+        </div>
+    </div>
+
+    <div class="m-t-lg" *ngIf="restaurant.paymentType != 0">
+        <app-pricing [currentPlan]="restaurant.subscriptionPlan" (planClick)="onPlanClick($event)" (timeClick)="onPlanClick($event)"></app-pricing>
+    </div>
+
+    <div class="m-t-lg"></div>
+    <app-checkout [selectedPlan]="selectedPlan" [porTi]="porTi" [isMonthly]="isMonthly" [paymentType]="restaurant.paymentType" [account]="restaurant.bankAccount"></app-checkout>
+    <div *ngIf="restaurant.autoRenewal" class="is-pulled-right has-text-right">
+        <button class="button is-danger is-small" (click)="onCancelarSuscripcionClick()">{{ t('config.cancel_sub') }}</button>
+        <p *ngIf="cancelationMessage" class="has-text-success">{{ t('config.canceled_sub') }}</p>
+    </div>
+
+</ng-container>

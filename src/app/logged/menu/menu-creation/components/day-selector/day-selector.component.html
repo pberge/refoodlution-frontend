@@ -1,0 +1,21 @@
+<ng-container *transloco="let t">
+  <div class="days-selector-card">
+    <div style="display: flex;">
+      <h2>{{t('menu.selectDaysTitle')}}</h2>
+      <fa-icon *ngIf="savedToggle" [icon]="faSave" style="color: #48c774;margin-left:1em;"></fa-icon>
+    </div>
+
+    <div class="days-toggle">
+      <button
+        *ngFor="let day of weekDaysNames"
+        type="button"
+        [class.active]="selectedDays.includes(day.id)"
+        (click)="toggleDay(day.id, !selectedDays.includes(day.id))"
+      >
+        {{ t('weekDays.' + day.nom) }}
+      </button>
+    </div>
+
+    <!--<p class="info-text">{{t('menu.selectDaysInfo')}}</p>-->
+  </div>
+</ng-container>

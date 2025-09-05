@@ -1,0 +1,51 @@
+@media screen and (min-width: 769px), print {
+  .field-label {
+    flex-grow: 2; /* overwrites previous value of 1 */
+  }
+}
+
+.image-container {
+  height: 10.5em;
+  width: 500px;
+  background-color: white;
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-color: rgb(229, 232, 234);
+
+  .logo-image {
+    display: block;
+    margin: auto;
+    max-height: 150px;
+    max-width: 80%;
+  }
+}
+
+.box-padding {
+  padding: 2em 3em;
+}
+
+.dot {
+  height: 11px;
+  width: 11px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+
+  &.green {
+    background-color: #2ecc71;
+  }
+  
+  &.red {
+    background-color: #e74c3c;
+  }
+  
+  &.orange {
+    background-color: #ffa600;
+  }
+
+}
+
+.guardAlert {
+  background-color: #fed03d;
+}

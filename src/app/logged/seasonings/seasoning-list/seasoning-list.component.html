@@ -1,0 +1,39 @@
+<h1 class="title">Salsas y condimentos</h1>
+<p>En este apartado podrás añadir salsas y condimentos que utilices en varios platos para añadirlos más rapidamente al crear los platos.</p>
+<button class="button is-primary m-t-lg m-b-lg" (click)="onAddClick()">
+    <span class="icon is-small">
+        <fa-icon [icon]="faAdd"></fa-icon>
+    </span>
+    <span>Crear condimento</span>
+</button>
+<div class="table-container table-shadow is-rounded-table">
+    <table class="table is-hoverable is-fullwidth is-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Ingredientes</th>
+            <th data-tooltip="Tooltip Text">Alérgenos</th>
+            <!--th data-tooltip="Test">Activo</th-->
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let seasoning of seasonings">
+                <td>{{ seasoning.name }}</td>
+                <td>{{ seasoning.ingredients.join(', ') | titleCaseWord }}</td>
+                <td>{{ getAllergensByName(seasoning).join(', ') | titleCaseWord }}</td>
+                <!--td class="center">
+                    <span class="icon is-small">
+                        <fa-icon [class]="seasoning.active ? 'is-active' : 'is-not-active'" [icon]="faActive"></fa-icon>
+                    </span>
+                </td-->
+                <td style="white-space: nowrap;">
+                    <span class="icon is-small m-r-md is-clickable">
+                        <fa-icon [icon]="faEdit" (click)="editSeasoning(seasoning)"></fa-icon>
+                    </span>
+                    <span class="icon is-small is-clickable">
+                        <fa-icon [icon]="faDelete" (click)="deleteSeasoning(seasoning)"></fa-icon>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

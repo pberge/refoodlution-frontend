@@ -1,0 +1,20 @@
+@import "~src/variables";
+
+.plan-item {
+    background: transparent !important;
+}
+
+.plan-footer > button {
+    
+    background-color: $primary;
+
+    &.is-active {
+        background-color: $secondary;
+    }
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
