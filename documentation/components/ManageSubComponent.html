@@ -1,0 +1,1789 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend-rest documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend-rest documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ManageSubComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/logged/configuration/manage-sub/manage-sub.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-manage-sub</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./manage-sub.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./manage-sub.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#domiError" >domiError</a>
+                            </li>
+                            <li>
+                                <a href="#domiMessage" >domiMessage</a>
+                            </li>
+                            <li>
+                                <a href="#faCreditCard" >faCreditCard</a>
+                            </li>
+                            <li>
+                                <a href="#faLandmark" >faLandmark</a>
+                            </li>
+                            <li>
+                                <a href="#faSave" >faSave</a>
+                            </li>
+                            <li>
+                                <a href="#key" >key</a>
+                            </li>
+                            <li>
+                                <a href="#modalMessage" >modalMessage</a>
+                            </li>
+                            <li>
+                                <a href="#restaurant" >restaurant</a>
+                            </li>
+                            <li>
+                                <a href="#selectedPlan" >selectedPlan</a>
+                            </li>
+                            <li>
+                                <a href="#showCardModal" >showCardModal</a>
+                            </li>
+                            <li>
+                                <a href="#showModal" >showModal</a>
+                            </li>
+                            <li>
+                                <a href="#signature" >signature</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cancelarSubscripcion" >cancelarSubscripcion</a>
+                            </li>
+                            <li>
+                                <a href="#getCardModalText" >getCardModalText</a>
+                            </li>
+                            <li>
+                                <a href="#getKey" >getKey</a>
+                            </li>
+                            <li>
+                                <a href="#getModalText" >getModalText</a>
+                            </li>
+                            <li>
+                                <a href="#getSignature" >getSignature</a>
+                            </li>
+                            <li>
+                                <a href="#getURL" >getURL</a>
+                            </li>
+                            <li>
+                                <a href="#habilitarSubscripcion" >habilitarSubscripcion</a>
+                            </li>
+                            <li>
+                                <a href="#isTypeSelected" >isTypeSelected</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeCancel" >onChangeCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeCardCancel" >onChangeCardCancel</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeConfirm" >onChangeConfirm</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeCreditCardClick" >onChangeCreditCardClick</a>
+                            </li>
+                            <li>
+                                <a href="#onDomiSaveClick" >onDomiSaveClick</a>
+                            </li>
+                            <li>
+                                <a href="#onPlanChange" >onPlanChange</a>
+                            </li>
+                            <li>
+                                <a href="#onTarjetaClick" >onTarjetaClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(restaurantService: <a href="../injectables/RestaurantService.html" target="_self">RestaurantService</a>, subscriptionService: <a href="../injectables/SubscriptionService.html" target="_self">SubscriptionService</a>, router: Router, translocoService: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>restaurantService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RestaurantService.html" target="_self" >RestaurantService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>subscriptionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SubscriptionService.html" target="_self" >SubscriptionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cancelarSubscripcion"></a>
+                    <span class="name">
+                        <span ><b>cancelarSubscripcion</b></span>
+                        <a href="#cancelarSubscripcion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cancelarSubscripcion()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCardModalText"></a>
+                    <span class="name">
+                        <span ><b>getCardModalText</b></span>
+                        <a href="#getCardModalText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCardModalText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getKey"></a>
+                    <span class="name">
+                        <span ><b>getKey</b></span>
+                        <a href="#getKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getKey()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getModalText"></a>
+                    <span class="name">
+                        <span ><b>getModalText</b></span>
+                        <a href="#getModalText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getModalText()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSignature"></a>
+                    <span class="name">
+                        <span ><b>getSignature</b></span>
+                        <a href="#getSignature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getSignature()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getURL"></a>
+                    <span class="name">
+                        <span ><b>getURL</b></span>
+                        <a href="#getURL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getURL()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="habilitarSubscripcion"></a>
+                    <span class="name">
+                        <span ><b>habilitarSubscripcion</b></span>
+                        <a href="#habilitarSubscripcion"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>habilitarSubscripcion()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTypeSelected"></a>
+                    <span class="name">
+                        <span ><b>isTypeSelected</b></span>
+                        <a href="#isTypeSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isTypeSelected(type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeCancel"></a>
+                    <span class="name">
+                        <span ><b>onChangeCancel</b></span>
+                        <a href="#onChangeCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeCancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeCardCancel"></a>
+                    <span class="name">
+                        <span ><b>onChangeCardCancel</b></span>
+                        <a href="#onChangeCardCancel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeCardCancel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeConfirm"></a>
+                    <span class="name">
+                        <span ><b>onChangeConfirm</b></span>
+                        <a href="#onChangeConfirm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeConfirm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeCreditCardClick"></a>
+                    <span class="name">
+                        <span ><b>onChangeCreditCardClick</b></span>
+                        <a href="#onChangeCreditCardClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeCreditCardClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onDomiSaveClick"></a>
+                    <span class="name">
+                        <span ><b>onDomiSaveClick</b></span>
+                        <a href="#onDomiSaveClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onDomiSaveClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onPlanChange"></a>
+                    <span class="name">
+                        <span ><b>onPlanChange</b></span>
+                        <a href="#onPlanChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onPlanChange(value: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTarjetaClick"></a>
+                    <span class="name">
+                        <span ><b>onTarjetaClick</b></span>
+                        <a href="#onTarjetaClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTarjetaClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="domiError"></a>
+                    <span class="name">
+                        <span ><b>domiError</b></span>
+                        <a href="#domiError"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="domiMessage"></a>
+                    <span class="name">
+                        <span ><b>domiMessage</b></span>
+                        <a href="#domiMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faCreditCard"></a>
+                    <span class="name">
+                        <span ><b>faCreditCard</b></span>
+                        <a href="#faCreditCard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faCreditCard</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faLandmark"></a>
+                    <span class="name">
+                        <span ><b>faLandmark</b></span>
+                        <a href="#faLandmark"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faLandmark</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faSave"></a>
+                    <span class="name">
+                        <span ><b>faSave</b></span>
+                        <a href="#faSave"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faSave</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="key"></a>
+                    <span class="name">
+                        <span ><b>key</b></span>
+                        <a href="#key"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modalMessage"></a>
+                    <span class="name">
+                        <span ><b>modalMessage</b></span>
+                        <a href="#modalMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restaurant"></a>
+                    <span class="name">
+                        <span ><b>restaurant</b></span>
+                        <a href="#restaurant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Restaurant.html" target="_self" >Restaurant</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Restaurant()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedPlan"></a>
+                    <span class="name">
+                        <span ><b>selectedPlan</b></span>
+                        <a href="#selectedPlan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showCardModal"></a>
+                    <span class="name">
+                        <span ><b>showCardModal</b></span>
+                        <a href="#showCardModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showModal"></a>
+                    <span class="name">
+                        <span ><b>showModal</b></span>
+                        <a href="#showModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signature"></a>
+                    <span class="name">
+                        <span ><b>signature</b></span>
+                        <a href="#signature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/logged/configuration/manage-sub/manage-sub.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TranslocoService } from &#x27;@ngneat/transloco&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { SubscriptionService } from &#x27;./../../../services/subscription.service&#x27;;
+import { RestaurantService } from &#x27;./../../../services/restaurant.service&#x27;;
+import { Restaurant } from &#x27;src/app/classes/restaurant&#x27;;
+import { faCreditCard, faLandmark, faSave } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { Component, OnInit, Input } from &#x27;@angular/core&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+@Component({
+  selector: &#x27;app-manage-sub&#x27;,
+  templateUrl: &#x27;./manage-sub.component.html&#x27;,
+  styleUrls: [&#x27;./manage-sub.component.scss&#x27;]
+})
+export class ManageSubComponent implements OnInit {
+
+  constructor(private restaurantService: RestaurantService, private subscriptionService: SubscriptionService, private router: Router,
+              private translocoService: TranslocoService) { }
+
+  restaurant: Restaurant &#x3D; new Restaurant();
+
+  faCreditCard &#x3D; faCreditCard;
+  faLandmark &#x3D; faLandmark;
+  faSave &#x3D; faSave;
+
+  key &#x3D; &#x27;&#x27;;
+  signature &#x3D; &#x27;&#x27;;
+
+  showModal &#x3D; false;
+  showCardModal &#x3D; false;
+  modalMessage &#x3D; &#x27;&#x27;;
+  domiMessage &#x3D; &#x27;&#x27;;
+  domiError &#x3D; false;
+
+  selectedPlan &#x3D; 0;
+
+  ngOnInit(): void {
+    this.restaurantService.getRestaurant().subscribe((rest) &#x3D;&gt; this.restaurant &#x3D; rest);
+    this.subscriptionService.getConfigurationKey().subscribe((tpvBody) &#x3D;&gt; {
+      this.key &#x3D; tpvBody.Ds_MerchantParameters;
+      this.signature &#x3D; tpvBody.Ds_Signature;
+    });
+  }
+
+
+  isTypeSelected(type) {
+    return type &#x3D;&#x3D;&#x3D; this.restaurant.paymentType;
+  }
+
+  onDomiSaveClick() {
+    if (this.restaurant.bankAccount.length &gt; 20) {
+      this.domiError &#x3D; false;
+      this.subscriptionService.putDomiciliacio({ domiciliacio: this.restaurant.bankAccount }).subscribe(() &#x3D;&gt; {
+        this.domiMessage &#x3D; &#x27;Cambios guardados&#x27;;
+        setTimeout(() &#x3D;&gt; this.domiMessage &#x3D; &#x27;&#x27;, 3000);
+      });
+    } else {
+      this.domiError &#x3D; true;
+    }
+  }
+
+  onTarjetaClick() {
+    this.restaurant.paymentType &#x3D; 2;
+  }
+
+
+  getURL() {
+    return environment.redsysURL;
+  }
+
+  getKey() {
+    return this.key;
+  }
+
+  getSignature() {
+    return this.signature;
+  }
+
+
+  onPlanChange(value: any) {
+    if (value.plan !&#x3D;&#x3D; this.selectedPlan) {
+      this.selectedPlan &#x3D; value.plan;
+      this.showModal &#x3D; true;
+    }
+  }
+
+  getModalText() {
+    if (this.restaurant.subscriptionPlan &lt; this.selectedPlan) {
+      return this.translocoService.translate(&#x27;pricing.increment_plan_modal&#x27;);
+    } else {
+      return this.translocoService.translate(&#x27;pricing.decrement_plan_modal&#x27;);
+    }
+  }
+
+  onChangeConfirm() {
+    this.subscriptionService.changePlan({ plan: this.selectedPlan }).subscribe(() &#x3D;&gt; {
+      this.modalMessage &#x3D; &#x27;Plan modificado.&#x27;;
+      setTimeout(() &#x3D;&gt; this.router.navigate([&#x27;configuration&#x27;]), 2000);
+    })
+  }
+
+  onChangeCancel() {
+    this.showModal &#x3D; false;
+  }
+
+  habilitarSubscripcion() {
+    this.subscriptionService.enable().subscribe(() &#x3D;&gt; {
+      setTimeout(() &#x3D;&gt; this.router.navigate([&#x27;configuration&#x27;]), 2000);
+    });
+  }
+
+  cancelarSubscripcion() {
+    this.subscriptionService.cancel().subscribe(() &#x3D;&gt; {
+      setTimeout(() &#x3D;&gt; this.router.navigate([&#x27;configuration&#x27;]), 2000);
+    });
+  }
+
+  onChangeCreditCardClick() {
+    this.showCardModal &#x3D; true;
+  }
+
+  onChangeCardCancel() {
+    this.showCardModal &#x3D; false;
+  }
+
+  getCardModalText() {
+    return this.translocoService.translate(&#x27;pricing.card_change_modal&#x27;)
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+
+    &lt;h1 class&#x3D;&quot;title is-4&quot;&gt;{{ t(&#x27;pricing.change_payment&#x27;) }} &lt;/h1&gt;
+    &lt;div class&#x3D;&quot;columns&quot;&gt;
+        &lt;div class&#x3D;&quot;column is-2&quot;&gt;&lt;/div&gt;
+        &lt;!--&lt;div class&#x3D;&quot;column is-3&quot;&gt;
+            &lt;div class&#x3D;&quot;box has-text-centered custom-box hoverable&quot; (click)&#x3D;&quot;restaurant.paymentType &#x3D; 1&quot;
+                [class.active]&#x3D;&quot;isTypeSelected(1)&quot;&gt;
+                &lt;fa-icon [icon]&#x3D;&quot;faLandmark&quot; size&#x3D;&quot;5x&quot;&gt;&lt;/fa-icon&gt;
+                &lt;p class&#x3D;&quot;m-t-md is-size-5&quot;&gt;{{ t(&#x27;pricing.domiciliary_payment&#x27;) }}&lt;/p&gt;
+                &lt;p class&#x3D;&quot;is-size-7 m-t-sm has-text-centered&quot;&gt;{{ t(&#x27;pricing.only_spain&#x27;) }}&lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    --&gt;
+        &lt;div class&#x3D;&quot;column is-2&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;column is-3&quot;&gt;
+            &lt;div class&#x3D;&quot;box has-text-centered custom-box hoverable&quot; (click)&#x3D;&quot;onTarjetaClick();&quot;
+                [class.active]&#x3D;&quot;isTypeSelected(2)&quot;&gt;
+                &lt;fa-icon [icon]&#x3D;&quot;faCreditCard&quot; size&#x3D;&quot;5x&quot;&gt;&lt;/fa-icon&gt;
+                &lt;p class&#x3D;&quot;m-t-md is-size-5&quot;&gt;{{ t(&#x27;pricing.credit_card_payment&#x27;) }}&lt;/p&gt;
+            &lt;/div&gt;
+
+            &lt;div class&#x3D;&quot;has-text-centered&quot;&gt;
+                &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;button is-primary&quot; (click)&#x3D;&quot;onChangeCreditCardClick()&quot;&gt;{{ t(&#x27;general.change&#x27;) }}&lt;/button&gt;
+            &lt;/div&gt;
+
+            
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;column is-2&quot;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div *ngIf&#x3D;&quot;restaurant.paymentType &#x3D;&#x3D; 1&quot; class&#x3D;&quot;box m-t-lg&quot; style&#x3D;&quot;max-width: 90%;&quot;&gt;
+        &lt;div class&#x3D;&quot;field m-l-xl m-t-md m-b-md&quot;&gt;
+            &lt;label class&#x3D;&quot;label required&quot;&gt;{{ t(&#x27;restaurant.bankAccount&#x27;)}}&lt;/label&gt;
+            &lt;div class&#x3D;&quot;control m-l-md&quot;&gt;
+                &lt;input class&#x3D;&quot;input&quot; name&#x3D;&quot;numeroCuenta&quot; type&#x3D;&quot;text&quot; minlength&#x3D;24 style&#x3D;&quot;max-width: 500px;&quot;
+                    [placeholder]&#x3D;&quot;t(&#x27;restaurant.bankAccount&#x27;)&quot; [(ngModel)]&#x3D;&quot;restaurant.bankAccount&quot; [class.is-danger]&#x3D;&quot;domiError&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;button class&#x3D;&quot;button is-primary has-text-weight-medium m-t-md m-b-md m-l-xl&quot; (click)&#x3D;&quot;onDomiSaveClick()&quot;&gt;
+            &lt;span class&#x3D;&quot;icon is-small&quot;&gt;
+                &lt;fa-icon [icon]&#x3D;&quot;faSave&quot;&gt;&lt;/fa-icon&gt;
+            &lt;/span&gt;
+            &lt;span&gt;{{ t(&#x27;general.save&#x27;) }}&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;p *ngIf&#x3D;&quot;domiMessage.length &gt; 0&quot; class&#x3D;&quot;has-text-success m-l-xl&quot;&gt;{{ domiMessage }}&lt;/p&gt;
+    &lt;/div&gt;
+
+
+    
+    &lt;!--
+    CANVIAR PLAN
+    &lt;h1 class&#x3D;&quot;title is-4 m-t-xl&quot;&gt;{{ t(&#x27;pricing.change_plan&#x27;) }}&lt;/h1&gt;
+    &lt;app-pricing [currentPlan]&#x3D;&quot;restaurant.subscriptionPlan&quot; (planClick)&#x3D;&quot;onPlanChange($event)&quot;&gt;&lt;/app-pricing&gt;
+    --&gt;
+
+
+
+    &lt;h1 class&#x3D;&quot;title is-4 m-t-xl&quot;&gt;&lt;span *ngIf&#x3D;&quot;restaurant.autoRenewal&quot;&gt;{{ t(&#x27;general.cancel&#x27;) }}&lt;/span&gt;&lt;span *ngIf&#x3D;&quot;!restaurant.autoRenewal&quot;&gt;{{ t(&#x27;general.enable&#x27;) }} &lt;/span&gt; {{ t(&#x27;pricing.subscription&#x27;) }}&lt;/h1&gt;
+
+    &lt;button class&#x3D;&quot;button is-danger m-b-xl m-l-md&quot; *ngIf&#x3D;&quot;restaurant.autoRenewal&quot; (click)&#x3D;&quot;cancelarSubscripcion()&quot;&gt;{{ t(&#x27;config.cancel_sub&#x27;) }} &lt;/button&gt;
+    &lt;button class&#x3D;&quot;button is-success m-b-xl m-l-md&quot; *ngIf&#x3D;&quot;!restaurant.autoRenewal&quot; (click)&#x3D;&quot;habilitarSubscripcion()&quot;&gt;{{ t(&#x27;config.enable_sub&#x27;) }}&lt;/button&gt;
+
+
+
+
+    
+    &lt;div class&#x3D;&quot;modal&quot; [class.is-active]&#x3D;&quot;showModal&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-background&quot; (click)&#x3D;&quot;onChangeCancel()&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-card&quot;&gt;
+            &lt;header class&#x3D;&quot;modal-card-head&quot;&gt;
+                &lt;p class&#x3D;&quot;modal-card-title&quot;&gt;{{ t(&#x27;pricing.change_plan&#x27;) }}&lt;/p&gt;
+                &lt;button class&#x3D;&quot;delete&quot; aria-label&#x3D;&quot;close&quot; (click)&#x3D;&quot;onChangeCancel()&quot;&gt;&lt;/button&gt;
+            &lt;/header&gt;
+            &lt;section class&#x3D;&quot;modal-card-body&quot; [innerHTML]&#x3D;&quot;getModalText()&quot;&gt;
+            &lt;/section&gt;
+            &lt;footer class&#x3D;&quot;modal-card-foot&quot;&gt;
+                &lt;button class&#x3D;&quot;button is-primary m-r-lg&quot; (click)&#x3D;&quot;onChangeConfirm()&quot;&gt;{{ t(&#x27;general.change&#x27;) }}&lt;/button&gt;
+                &lt;button class&#x3D;&quot;button m-l-lg&quot; (click)&#x3D;&quot;onChangeCancel()&quot;&gt;{{ t(&#x27;general.cancel&#x27;) }}&lt;/button&gt;
+                &lt;p class&#x3D;&quot;has-text-success m-l-md&quot; *ngIf&#x3D;&quot;modalMessage.length &gt; 0&quot;&gt;{{ modalMessage }}&lt;/p&gt;
+            &lt;/footer&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+
+     
+    &lt;div class&#x3D;&quot;modal&quot; [class.is-active]&#x3D;&quot;showCardModal&quot;&gt;
+        &lt;div class&#x3D;&quot;modal-background&quot; (click)&#x3D;&quot;onChangeCardCancel()&quot;&gt;&lt;/div&gt;
+        &lt;div class&#x3D;&quot;modal-card&quot;&gt;
+            &lt;header class&#x3D;&quot;modal-card-head&quot;&gt;
+                &lt;p class&#x3D;&quot;modal-card-title&quot;&gt;{{ t(&#x27;pricing.card_modal_title&#x27;) }}&lt;/p&gt;
+                &lt;button class&#x3D;&quot;delete&quot; aria-label&#x3D;&quot;close&quot; (click)&#x3D;&quot;onChangeCardCancel()&quot;&gt;&lt;/button&gt;
+            &lt;/header&gt;
+            &lt;section class&#x3D;&quot;modal-card-body&quot; [innerHTML]&#x3D;&quot;getCardModalText()&quot;&gt;
+            &lt;/section&gt;
+            &lt;footer class&#x3D;&quot;modal-card-foot&quot;&gt;
+                &lt;!--FORM REDSYS--&gt;
+                &lt;form name&#x3D;&quot;form&quot; #form [action]&#x3D;&quot;getURL()&quot; method&#x3D;&quot;POST&quot; *ngIf&#x3D;&quot;restaurant.paymentType &#x3D;&#x3D; 2&quot;&gt;
+                    &lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;Ds_SignatureVersion&quot; value&#x3D;&quot;HMAC_SHA256_V1&quot; /&gt;
+                    &lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;Ds_MerchantParameters&quot; [value]&#x3D;&quot;key&quot; /&gt;
+                    &lt;input type&#x3D;&quot;hidden&quot; name&#x3D;&quot;Ds_Signature&quot; [value]&#x3D;&quot;signature&quot; /&gt;
+                    &lt;button type&#x3D;&quot;submit&quot; class&#x3D;&quot;button is-primary&quot; (click)&#x3D;&quot;form.submit()&quot;&gt;{{ t(&#x27;general.accept&#x27;) }}&lt;/button&gt;
+                &lt;/form&gt;
+                &lt;button class&#x3D;&quot;button m-l-lg&quot; (click)&#x3D;&quot;onChangeCardCancel()&quot;&gt;{{ t(&#x27;general.cancel&#x27;) }}&lt;/button&gt;
+                &lt;p class&#x3D;&quot;has-text-success m-l-md&quot; *ngIf&#x3D;&quot;modalMessage.length &gt; 0&quot;&gt;{{ modalMessage }}&lt;/p&gt;
+            &lt;/footer&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./manage-sub.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;~src/variables&#x27;;
+
+
+.custom-box {
+    min-height: 160px;
+    &amp;.hoverable {
+        border-radius: 0.3em;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        &amp;:hover {
+            background-color: $primary;
+            box-shadow: 0 0.5em 1em -0.125em rgba(hsl(0, 0%, 4%), 0.25), 0 0px 0 1px rgba(hsl(0, 0%, 4%), 0.02);
+            cursor: pointer;
+        }
+    }
+
+    &amp;.active {
+        background-color: $primary;
+    }
+
+    &amp;.disabled {
+        color: #7a7a7a;
+        background-color: #f5f5f5
+    }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *transloco="let t">    <h1 class="title is-4">{{ t(\'pricing.change_payment\') }} </h1>    <div class="columns">        <div class="column is-2"></div>        <!--<div class="column is-3">            <div class="box has-text-centered custom-box hoverable" (click)="restaurant.paymentType = 1"                [class.active]="isTypeSelected(1)">                <fa-icon [icon]="faLandmark" size="5x"></fa-icon>                <p class="m-t-md is-size-5">{{ t(\'pricing.domiciliary_payment\') }}</p>                <p class="is-size-7 m-t-sm has-text-centered">{{ t(\'pricing.only_spain\') }}</p>            </div>        </div>    -->        <div class="column is-2"></div>        <div class="column is-3">            <div class="box has-text-centered custom-box hoverable" (click)="onTarjetaClick();"                [class.active]="isTypeSelected(2)">                <fa-icon [icon]="faCreditCard" size="5x"></fa-icon>                <p class="m-t-md is-size-5">{{ t(\'pricing.credit_card_payment\') }}</p>            </div>            <div class="has-text-centered">                <button type="submit" class="button is-primary" (click)="onChangeCreditCardClick()">{{ t(\'general.change\') }}</button>            </div>                    </div>        <div class="column is-2"></div>    </div>    <div *ngIf="restaurant.paymentType == 1" class="box m-t-lg" style="max-width: 90%;">        <div class="field m-l-xl m-t-md m-b-md">            <label class="label required">{{ t(\'restaurant.bankAccount\')}}</label>            <div class="control m-l-md">                <input class="input" name="numeroCuenta" type="text" minlength=24 style="max-width: 500px;"                    [placeholder]="t(\'restaurant.bankAccount\')" [(ngModel)]="restaurant.bankAccount" [class.is-danger]="domiError">            </div>        </div>        <button class="button is-primary has-text-weight-medium m-t-md m-b-md m-l-xl" (click)="onDomiSaveClick()">            <span class="icon is-small">                <fa-icon [icon]="faSave"></fa-icon>            </span>            <span>{{ t(\'general.save\') }}</span>        </button>        <p *ngIf="domiMessage.length > 0" class="has-text-success m-l-xl">{{ domiMessage }}</p>    </div>        <!--    CANVIAR PLAN    <h1 class="title is-4 m-t-xl">{{ t(\'pricing.change_plan\') }}</h1>    <app-pricing [currentPlan]="restaurant.subscriptionPlan" (planClick)="onPlanChange($event)"></app-pricing>    -->    <h1 class="title is-4 m-t-xl"><span *ngIf="restaurant.autoRenewal">{{ t(\'general.cancel\') }}</span><span *ngIf="!restaurant.autoRenewal">{{ t(\'general.enable\') }} </span> {{ t(\'pricing.subscription\') }}</h1>    <button class="button is-danger m-b-xl m-l-md" *ngIf="restaurant.autoRenewal" (click)="cancelarSubscripcion()">{{ t(\'config.cancel_sub\') }} </button>    <button class="button is-success m-b-xl m-l-md" *ngIf="!restaurant.autoRenewal" (click)="habilitarSubscripcion()">{{ t(\'config.enable_sub\') }}</button>        <div class="modal" [class.is-active]="showModal">        <div class="modal-background" (click)="onChangeCancel()"></div>        <div class="modal-card">            <header class="modal-card-head">                <p class="modal-card-title">{{ t(\'pricing.change_plan\') }}</p>                <button class="delete" aria-label="close" (click)="onChangeCancel()"></button>            </header>            <section class="modal-card-body" [innerHTML]="getModalText()">            </section>            <footer class="modal-card-foot">                <button class="button is-primary m-r-lg" (click)="onChangeConfirm()">{{ t(\'general.change\') }}</button>                <button class="button m-l-lg" (click)="onChangeCancel()">{{ t(\'general.cancel\') }}</button>                <p class="has-text-success m-l-md" *ngIf="modalMessage.length > 0">{{ modalMessage }}</p>            </footer>        </div>    </div>         <div class="modal" [class.is-active]="showCardModal">        <div class="modal-background" (click)="onChangeCardCancel()"></div>        <div class="modal-card">            <header class="modal-card-head">                <p class="modal-card-title">{{ t(\'pricing.card_modal_title\') }}</p>                <button class="delete" aria-label="close" (click)="onChangeCardCancel()"></button>            </header>            <section class="modal-card-body" [innerHTML]="getCardModalText()">            </section>            <footer class="modal-card-foot">                <!--FORM REDSYS-->                <form name="form" #form [action]="getURL()" method="POST" *ngIf="restaurant.paymentType == 2">                    <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1" />                    <input type="hidden" name="Ds_MerchantParameters" [value]="key" />                    <input type="hidden" name="Ds_Signature" [value]="signature" />                    <button type="submit" class="button is-primary" (click)="form.submit()">{{ t(\'general.accept\') }}</button>                </form>                <button class="button m-l-lg" (click)="onChangeCardCancel()">{{ t(\'general.cancel\') }}</button>                <p class="has-text-success m-l-md" *ngIf="modalMessage.length > 0">{{ modalMessage }}</p>            </footer>        </div>    </div></ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ckeditorComponent', 'selector': 'app-ckeditor'},{'name': 'ClientCardMenuComponent', 'selector': 'app-client-card-menu'},{'name': 'ClientMenuComponent', 'selector': 'app-client-menu'},{'name': 'ClientMenuItemComponent', 'selector': 'app-client-menu-item'},{'name': 'ClientMenuRowComponent', 'selector': '[app-client-menu-row]'},{'name': 'ConfigurationComponent', 'selector': 'app-configuration'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DaySelectorComponent', 'selector': 'app-day-selector'},{'name': 'DishCreationComponent', 'selector': 'app-dish-creation'},{'name': 'DishItemComponent', 'selector': 'app-dish-item'},{'name': 'DishListComponent', 'selector': 'app-dish-list'},{'name': 'FullPdfViewerComponent', 'selector': 'app-full-pdf-viewer'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageSubComponent', 'selector': 'app-manage-sub'},{'name': 'MenuCreationComponent', 'selector': 'app-menu-creation'},{'name': 'MenuItemComponent', 'selector': 'app-menu-item'},{'name': 'MenuListComponent', 'selector': 'app-menu-list'},{'name': 'MenuPdfComponent', 'selector': 'app-menu-pdf'},{'name': 'PlatformLanguageComponent', 'selector': 'app-platform-language'},{'name': 'PopupinfoComponent', 'selector': 'app-popupinfo'},{'name': 'PricingComponent', 'selector': 'app-pricing'},{'name': 'QrDownloadComponent', 'selector': 'app-qr-download'},{'name': 'QRGeneratorComponent', 'selector': 'qr-generator'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RedsysResponseComponent', 'selector': 'app-redsys-response'},{'name': 'RestaurantComponent', 'selector': 'app-restaurant'},{'name': 'RestaurantsComponent', 'selector': 'app-adminrestaurants'},{'name': 'ScheduleSelectorComponent', 'selector': 'app-schedule-selector'},{'name': 'SeasoningCreationComponent', 'selector': 'app-seasoning-creation'},{'name': 'SeasoningItemComponent', 'selector': 'app-seasoning-item'},{'name': 'SeasoningListComponent', 'selector': 'app-seasoning-list'},{'name': 'SideNavComponent', 'selector': 'app-side-nav'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'TConfigComponent', 'selector': 'app-t-config'},{'name': 'TItemDishComponent', 'selector': 'app-t-item-dish'},{'name': 'TItemStringComponent', 'selector': 'app-t-item-string'},{'name': 'TListComponent', 'selector': 'app-t-list'},{'name': 'UsersComponent', 'selector': 'app-adminusers'}];
+    var DIRECTIVES = [{'name': 'PwdMatchValidatorDirective', 'selector': '[appPwdMatch]'}];
+    var ACTUAL_COMPONENT = {'name': 'ManageSubComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ManageSubComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

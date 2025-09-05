@@ -1,0 +1,2075 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend-rest documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend-rest documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SideNavComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/logged/side-nav/side-nav.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-side-nav</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./side-nav.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./side-nav.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#faAdd" >faAdd</a>
+                            </li>
+                            <li>
+                                <a href="#faAngleDown" >faAngleDown</a>
+                            </li>
+                            <li>
+                                <a href="#faConfig" >faConfig</a>
+                            </li>
+                            <li>
+                                <a href="#faDish" >faDish</a>
+                            </li>
+                            <li>
+                                <a href="#faExit" >faExit</a>
+                            </li>
+                            <li>
+                                <a href="#faFlag" >faFlag</a>
+                            </li>
+                            <li>
+                                <a href="#faGlobe" >faGlobe</a>
+                            </li>
+                            <li>
+                                <a href="#faHome" >faHome</a>
+                            </li>
+                            <li>
+                                <a href="#faLanguage" >faLanguage</a>
+                            </li>
+                            <li>
+                                <a href="#faMenu" >faMenu</a>
+                            </li>
+                            <li>
+                                <a href="#faQr" >faQr</a>
+                            </li>
+                            <li>
+                                <a href="#faSeasoning" >faSeasoning</a>
+                            </li>
+                            <li>
+                                <a href="#isDropdownActive" >isDropdownActive</a>
+                            </li>
+                            <li>
+                                <a href="#isHambActive" >isHambActive</a>
+                            </li>
+                            <li>
+                                <a href="#restaurants" >restaurants</a>
+                            </li>
+                            <li>
+                                <a href="#restSubscription" >restSubscription</a>
+                            </li>
+                            <li>
+                                <a href="#traduccionesIcon" >traduccionesIcon</a>
+                            </li>
+                            <li>
+                                <a href="#translationDisplay" >translationDisplay</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getCurrentRestaurant" >getCurrentRestaurant</a>
+                            </li>
+                            <li>
+                                <a href="#getRestaurantName" >getRestaurantName</a>
+                            </li>
+                            <li>
+                                <a href="#isAdmin" >isAdmin</a>
+                            </li>
+                            <li>
+                                <a href="#isMouseOver" >isMouseOver</a>
+                            </li>
+                            <li>
+                                <a href="#logout" >logout</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onActivate" >onActivate</a>
+                            </li>
+                            <li>
+                                <a href="#onAddRestaurantClick" >onAddRestaurantClick</a>
+                            </li>
+                            <li>
+                                <a href="#onHambClick" >onHambClick</a>
+                            </li>
+                            <li>
+                                <a href="#onRestaurantClick" >onRestaurantClick</a>
+                            </li>
+                            <li>
+                                <a href="#onRestDropdownClick" >onRestDropdownClick</a>
+                            </li>
+                            <li>
+                                <a href="#translateOpen" >translateOpen</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, router: Router, restaurantService: <a href="../injectables/RestaurantService.html" target="_self">RestaurantService</a>, userService: <a href="../injectables/UserService.html" target="_self">UserService</a>, translocoService: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>restaurantService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RestaurantService.html" target="_self" >RestaurantService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserService.html" target="_self" >UserService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCurrentRestaurant"></a>
+                    <span class="name">
+                        <span ><b>getCurrentRestaurant</b></span>
+                        <a href="#getCurrentRestaurant"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCurrentRestaurant()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRestaurantName"></a>
+                    <span class="name">
+                        <span ><b>getRestaurantName</b></span>
+                        <a href="#getRestaurantName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRestaurantName()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAdmin"></a>
+                    <span class="name">
+                        <span ><b>isAdmin</b></span>
+                        <a href="#isAdmin"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isAdmin()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isMouseOver"></a>
+                    <span class="name">
+                        <span ><b>isMouseOver</b></span>
+                        <a href="#isMouseOver"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isMouseOver(isOver: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>isOver</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logout"></a>
+                    <span class="name">
+                        <span ><b>logout</b></span>
+                        <a href="#logout"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>logout()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onActivate"></a>
+                    <span class="name">
+                        <span ><b>onActivate</b></span>
+                        <a href="#onActivate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onActivate(event)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onAddRestaurantClick"></a>
+                    <span class="name">
+                        <span ><b>onAddRestaurantClick</b></span>
+                        <a href="#onAddRestaurantClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onAddRestaurantClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="138"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:138</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onHambClick"></a>
+                    <span class="name">
+                        <span ><b>onHambClick</b></span>
+                        <a href="#onHambClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onHambClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRestaurantClick"></a>
+                    <span class="name">
+                        <span ><b>onRestaurantClick</b></span>
+                        <a href="#onRestaurantClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRestaurantClick(id)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRestDropdownClick"></a>
+                    <span class="name">
+                        <span ><b>onRestDropdownClick</b></span>
+                        <a href="#onRestDropdownClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onRestDropdownClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translateOpen"></a>
+                    <span class="name">
+                        <span ><b>translateOpen</b></span>
+                        <a href="#translateOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>translateOpen()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faAdd"></a>
+                    <span class="name">
+                        <span ><b>faAdd</b></span>
+                        <a href="#faAdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faPlus</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faAngleDown"></a>
+                    <span class="name">
+                        <span ><b>faAngleDown</b></span>
+                        <a href="#faAngleDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faAngleDown</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faConfig"></a>
+                    <span class="name">
+                        <span ><b>faConfig</b></span>
+                        <a href="#faConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faCog</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faDish"></a>
+                    <span class="name">
+                        <span ><b>faDish</b></span>
+                        <a href="#faDish"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faUtensils</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faExit"></a>
+                    <span class="name">
+                        <span ><b>faExit</b></span>
+                        <a href="#faExit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faSignOutAlt</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faFlag"></a>
+                    <span class="name">
+                        <span ><b>faFlag</b></span>
+                        <a href="#faFlag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faFlag</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faGlobe"></a>
+                    <span class="name">
+                        <span ><b>faGlobe</b></span>
+                        <a href="#faGlobe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faGlobeAfrica</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faHome"></a>
+                    <span class="name">
+                        <span ><b>faHome</b></span>
+                        <a href="#faHome"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faHome</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faLanguage"></a>
+                    <span class="name">
+                        <span ><b>faLanguage</b></span>
+                        <a href="#faLanguage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faLanguage</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faMenu"></a>
+                    <span class="name">
+                        <span ><b>faMenu</b></span>
+                        <a href="#faMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faListAlt</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faQr"></a>
+                    <span class="name">
+                        <span ><b>faQr</b></span>
+                        <a href="#faQr"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faQrcode</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faSeasoning"></a>
+                    <span class="name">
+                        <span ><b>faSeasoning</b></span>
+                        <a href="#faSeasoning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faUtensilSpoon</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDropdownActive"></a>
+                    <span class="name">
+                        <span ><b>isDropdownActive</b></span>
+                        <a href="#isDropdownActive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isHambActive"></a>
+                    <span class="name">
+                        <span ><b>isHambActive</b></span>
+                        <a href="#isHambActive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restaurants"></a>
+                    <span class="name">
+                        <span ><b>restaurants</b></span>
+                        <a href="#restaurants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Restaurant.html" target="_self" >Restaurant[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restSubscription"></a>
+                    <span class="name">
+                        <span ><b>restSubscription</b></span>
+                        <a href="#restSubscription"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="traduccionesIcon"></a>
+                    <span class="name">
+                        <span ><b>traduccionesIcon</b></span>
+                        <a href="#traduccionesIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faChevronDown</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="translationDisplay"></a>
+                    <span class="name">
+                        <span ><b>translationDisplay</b></span>
+                        <a href="#translationDisplay"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;inherit&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/logged/side-nav/side-nav.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { TranslocoService } from &#x27;@ngneat/transloco&#x27;;
+import { UserService } from &#x27;./../../services/user.service&#x27;;
+import { Restaurant } from &#x27;./../../classes/restaurant&#x27;;
+import { RestaurantService } from &#x27;./../../services/restaurant.service&#x27;;
+import { AuthService } from &#x27;./../../services/auth.service&#x27;;
+import {
+  faHome, faUtensils, faUtensilSpoon, faQrcode, faCog, faSignOutAlt, faGlobeAfrica, faFlag,
+  faLanguage, faChevronDown, faChevronRight, faAngleDown, faPlus
+} from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { faListAlt } from &#x27;@fortawesome/free-regular-svg-icons&#x27;;
+import { Component, OnInit, OnDestroy } from &#x27;@angular/core&#x27;;
+import { Router, NavigationEnd } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-side-nav&#x27;,
+  templateUrl: &#x27;./side-nav.component.html&#x27;,
+  styleUrls: [&#x27;./side-nav.component.scss&#x27;]
+})
+export class SideNavComponent implements OnInit {
+
+  constructor(private authService: AuthService, private router: Router, private restaurantService: RestaurantService, 
+              private userService: UserService, private translocoService: TranslocoService) {}
+
+  faHome &#x3D; faHome;
+  faMenu &#x3D; faListAlt;
+  faDish &#x3D; faUtensils;
+  faSeasoning &#x3D; faUtensilSpoon;
+  faQr &#x3D; faQrcode;
+  faConfig &#x3D; faCog;
+  faExit &#x3D; faSignOutAlt;
+  faGlobe &#x3D; faGlobeAfrica;
+  faFlag &#x3D; faFlag;
+  faLanguage &#x3D; faLanguage;
+  traduccionesIcon &#x3D; faChevronDown;
+  faAngleDown &#x3D; faAngleDown;
+  faAdd &#x3D; faPlus;
+
+  translationDisplay &#x3D; &#x27;inherit&#x27;;
+  isHambActive &#x3D; false;
+  isDropdownActive &#x3D; false;
+
+  restaurants: Restaurant[] &#x3D; [];
+  restSubscription;
+
+  ngOnInit() {
+    this.translateOpen();
+
+    this.restaurantService.getRestaurant().subscribe(
+      rest &#x3D;&gt; this.restaurantService.set(rest)
+    );
+
+    this.restaurantService.getRestaurants().subscribe((restaurants: Restaurant[]) &#x3D;&gt; {
+      this.restaurants &#x3D; restaurants;
+    });
+
+    // si ens envien un canvi a restaurants..
+    this.restSubscription &#x3D; this.restaurantService.getRestChangeEmiter()
+      .subscribe((rest) &#x3D;&gt; {
+        // tornem a demanar el llistat de restaurants
+        this.restaurantService.getRestaurants().subscribe((restaurants: Restaurant[]) &#x3D;&gt; {
+          this.restaurants &#x3D; restaurants;
+        });
+      });
+
+    this.userService.getUserLang().subscribe((lang) &#x3D;&gt; {
+      this.translocoService.setActiveLang(lang);
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  isMouseOver(isOver: boolean) {
+    if (isOver) {
+      this.translationDisplay &#x3D; &#x27;inherit&#x27;;
+      this.traduccionesIcon &#x3D; faChevronRight;
+    } else {
+      this.translateOpen();
+      this.traduccionesIcon &#x3D; faChevronDown;
+    }
+  }
+
+  translateOpen() {
+    if (this.router.url &#x3D;&#x3D;&#x3D; &#x27;/translation/list&#x27; || this.router.url &#x3D;&#x3D;&#x3D; &#x27;/translation/configuration&#x27;) {
+      this.translationDisplay &#x3D; &#x27;inherit&#x27;;
+    } else {
+      this.translationDisplay &#x3D; &#x27;none&#x27;;
+    }
+  }
+
+  onActivate(event) {
+    this.translateOpen();
+  }
+
+  onHambClick() {
+    this.isHambActive &#x3D; !this.isHambActive;
+  }
+
+  onRestDropdownClick() {
+    this.isDropdownActive &#x3D; !this.isDropdownActive;
+  }
+
+  onRestaurantClick(id) {
+    // si el rest es diferent de l&#x27;actual
+    if (id !&#x3D;&#x3D; this.authService.getIdRestaurant()) {
+      // modifiquem el token per dir que estem tractant el restaurant acutal.
+      this.restaurantService.setRestaurant(id).subscribe(result &#x3D;&gt; {
+        if (result.token !&#x3D;&#x3D; undefined) {
+          this.authService.updateToken(result.token);
+          // demanem les dades del rest per actualitzar-lo al service.
+          this.restaurantService.getRestaurant().subscribe(
+            rest &#x3D;&gt; this.restaurantService.set(rest)
+          );
+
+          // const oldUrl &#x3D; this.router.url;
+          this.router.navigateByUrl(&#x27;/RefreshComponent&#x27;, { skipLocationChange: true }).then(() &#x3D;&gt; {
+            // this.router.navigate([oldUrl]);
+            this.router.navigate([&#x27;dashboard&#x27;]);
+        });
+        }
+      });
+    }
+  }
+
+  getCurrentRestaurant() {
+    return this.authService.getIdRestaurant();
+  }
+
+  getRestaurantName() {
+    if (this.restaurantService.get() !&#x3D;&#x3D; undefined) {
+      return this.restaurantService.get().name;
+    } else {
+      return &#x27;&#x27;;
+    }
+  }
+
+  onAddRestaurantClick() {
+    this.router.navigate([&#x27;restaurant/create&#x27;]);
+  }
+
+  isAdmin() {
+    return this.authService.isRefoodlutionAdmin()
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- TODO Quan es crei el component amb l&#x27;enrutador pel menu, cal eliminar el bottom padding de la columna pq no quedin els 0.75em en blanc. --&gt;
+&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+    &lt;nav id&#x3D;&quot;hamb-menu&quot; class&#x3D;&quot;navbar&quot; role&#x3D;&quot;navigation&quot; aria-label&#x3D;&quot;main navigation&quot;&gt;
+        &lt;div class&#x3D;&quot;navbar-brand&quot;&gt;
+            &lt;a class&#x3D;&quot;navbar-item&quot; [routerLink]&#x3D;&quot;[&#x27;/dashboard&#x27;]&quot;&gt;
+                &lt;img src&#x3D;&quot;assets/logo_refoodlution_white.png&quot; alt&#x3D;&quot;Refoodlution&quot;&gt;
+            &lt;/a&gt;
+
+            &lt;a role&#x3D;&quot;button&quot; class&#x3D;&quot;navbar-burger&quot; aria-label&#x3D;&quot;menu&quot; aria-expanded&#x3D;&quot;false&quot; (click)&#x3D;&quot;onHambClick()&quot;&gt;
+                &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+                &lt;span aria-hidden&#x3D;&quot;true&quot;&gt;&lt;/span&gt;
+            &lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;navbar-menu&quot; [class.is-active]&#x3D;&quot;isHambActive&quot;&gt;
+            &lt;div class&#x3D;&quot;navbar-start&quot;&gt;
+                
+                &lt;a class&#x3D;&quot;navbar-item&quot;&gt;
+                  &lt;div class&#x3D;&quot;dropdown centered&quot; [class.is-active]&#x3D;&quot;isDropdownActive&quot; (click)&#x3D;&quot;onRestDropdownClick()&quot;&gt;
+                        &lt;div class&#x3D;&quot;dropdown-trigger&quot;&gt;
+                            &lt;button class&#x3D;&quot;button is-primary is-primary-hover is-fullwidth&quot; aria-haspopup&#x3D;&quot;true&quot;
+                                aria-controls&#x3D;&quot;dropdown-menu&quot;&gt;
+                                &lt;span&gt;{{ getRestaurantName() }}&lt;/span&gt;
+                                &lt;span class&#x3D;&quot;icon is-small&quot;&gt;
+                                    &lt;fa-icon [icon]&#x3D;&quot;faAngleDown&quot;&gt;&lt;/fa-icon&gt;
+                                &lt;/span&gt;
+                            &lt;/button&gt;
+                        &lt;/div&gt;
+                        &lt;div class&#x3D;&quot;dropdown-menu&quot; id&#x3D;&quot;dropdown-menu&quot; role&#x3D;&quot;menu&quot;&gt;
+                            &lt;div class&#x3D;&quot;dropdown-content&quot;&gt;
+                                &lt;a *ngFor&#x3D;&quot;let rest of restaurants&quot; class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;onRestaurantClick(rest.id)&quot;
+                                    [class.is-active]&#x3D;&quot;getCurrentRestaurant() &#x3D;&#x3D;&#x3D; rest.id&quot;&gt;
+                                    {{ rest.name }}
+                                &lt;/a&gt;
+                                &lt;hr class&#x3D;&quot;dropdown-divider&quot;&gt;
+                                &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;onAddRestaurantClick()&quot;&gt;
+                                    &lt;fa-icon [icon]&#x3D;&quot;faAdd&quot; class&#x3D;&quot;m-r-sm&quot;&gt;&lt;/fa-icon&gt; {{ t(&#x27;restaurant.add&#x27;) }}
+                                &lt;/a&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/a&gt;
+
+                &lt;a class&#x3D;&quot;navbar-item&quot; [routerLink]&#x3D;&quot;[&#x27;/dashboard&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                    &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                        &lt;fa-icon [icon]&#x3D;&quot;faHome&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/span&gt;
+                    {{ t(&#x27;sideMenu.home&#x27;) }}
+                &lt;/a&gt;
+
+                &lt;a class&#x3D;&quot;navbar-item&quot; [routerLink]&#x3D;&quot;[&#x27;/dish&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                    &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                        &lt;fa-icon [icon]&#x3D;&quot;faDish&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/span&gt;
+                    {{ t(&#x27;sideMenu.dish&#x27;) }}
+                &lt;/a&gt;
+
+                &lt;a class&#x3D;&quot;navbar-item&quot; [routerLink]&#x3D;&quot;[&#x27;/menu&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                    &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                        &lt;fa-icon [icon]&#x3D;&quot;faMenu&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/span&gt;
+                    {{ t(&#x27;sideMenu.menu&#x27;) }}
+                &lt;/a&gt;
+                &lt;a class&#x3D;&quot;navbar-item&quot; [routerLink]&#x3D;&quot;[&#x27;/translation&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                    &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                        &lt;fa-icon [icon]&#x3D;&quot;faGlobe&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/span&gt;
+                    {{ t(&#x27;sideMenu.translations&#x27;) }}
+                &lt;/a&gt;
+                &lt;a class&#x3D;&quot;navbar-item&quot; [routerLink]&#x3D;&quot;[&#x27;/qr-management&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                    &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                        &lt;fa-icon [icon]&#x3D;&quot;faQr&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/span&gt;
+                    {{ t(&#x27;sideMenu.qr&#x27;) }}
+                &lt;/a&gt;
+                &lt;a class&#x3D;&quot;navbar-item&quot; [routerLink]&#x3D;&quot;[&#x27;/configuration&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                    &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                        &lt;fa-icon [icon]&#x3D;&quot;faConfig&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/span&gt;
+                    {{ t(&#x27;sideMenu.settings&#x27;) }}
+                &lt;/a&gt;
+                &lt;a class&#x3D;&quot;navbar-item&quot; (click)&#x3D;&quot;logout()&quot;&gt;
+                    &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                        &lt;fa-icon [icon]&#x3D;&quot;faExit&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/span&gt;
+                    {{ t(&#x27;general.logout&#x27;) }}
+                &lt;/a&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+&lt;/nav&gt;
+&lt;div class&#x3D;&quot;content-gran&quot;&gt;
+    &lt;div id&#x3D;&quot;sideMenu&quot;&gt;
+        &lt;aside class&#x3D;&quot;menu&quot;&gt;
+            &lt;figure class&#x3D;&quot;image container is-256x256&quot;&gt;
+                &lt;a [routerLink]&#x3D;&quot;[&#x27;/dashboard&#x27;]&quot;&gt;&lt;img src&#x3D;&quot;assets/logo_refoodlution_white.png&quot;&gt;&lt;/a&gt;
+            &lt;/figure&gt;
+
+
+
+            &lt;div class&#x3D;&quot;dropdown centered&quot; [class.is-active]&#x3D;&quot;isDropdownActive&quot; (click)&#x3D;&quot;onRestDropdownClick()&quot;&gt;
+                &lt;div class&#x3D;&quot;dropdown-trigger&quot;&gt;
+                    &lt;button class&#x3D;&quot;button is-primary is-primary-hover is-fullwidth&quot; aria-haspopup&#x3D;&quot;true&quot;
+                        aria-controls&#x3D;&quot;dropdown-menu&quot;&gt;
+                        &lt;span&gt;{{ getRestaurantName() }}&lt;/span&gt;
+                        &lt;span class&#x3D;&quot;icon is-small&quot;&gt;
+                            &lt;fa-icon [icon]&#x3D;&quot;faAngleDown&quot;&gt;&lt;/fa-icon&gt;
+                        &lt;/span&gt;
+                    &lt;/button&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;dropdown-menu&quot; id&#x3D;&quot;dropdown-menu&quot; role&#x3D;&quot;menu&quot;&gt;
+                    &lt;div class&#x3D;&quot;dropdown-content&quot;&gt;
+                        &lt;a *ngFor&#x3D;&quot;let rest of restaurants&quot; class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;onRestaurantClick(rest.id)&quot;
+                            [class.is-active]&#x3D;&quot;getCurrentRestaurant() &#x3D;&#x3D;&#x3D; rest.id&quot;&gt;
+                            {{ rest.name }}
+                        &lt;/a&gt;
+                        &lt;hr class&#x3D;&quot;dropdown-divider&quot;&gt;
+                        &lt;a class&#x3D;&quot;dropdown-item&quot; (click)&#x3D;&quot;onAddRestaurantClick()&quot;&gt;
+                            &lt;fa-icon [icon]&#x3D;&quot;faAdd&quot; class&#x3D;&quot;m-r-sm&quot;&gt;&lt;/fa-icon&gt; {{ t(&#x27;restaurant.add&#x27;) }}
+                        &lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+
+
+            &lt;p class&#x3D;&quot;menu-label&quot;&gt;
+               {{ t(&#x27;sideMenu.general&#x27;) }}
+            &lt;/p&gt;
+            &lt;ul class&#x3D;&quot;menu-list m-b-lg&quot;&gt;
+                &lt;li&gt;
+                    &lt;a [routerLink]&#x3D;&quot;[&#x27;/dashboard&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                        &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                            &lt;fa-icon [icon]&#x3D;&quot;faHome&quot;&gt;&lt;/fa-icon&gt;
+                        &lt;/span&gt;
+                        {{ t(&#x27;sideMenu.home&#x27;) }}
+                    &lt;/a&gt;
+                &lt;/li&gt;
+                &lt;!--li&gt;
+                    &lt;a [routerLink]&#x3D;&quot;[&#x27;/seasoning&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                        &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                            &lt;fa-icon [icon]&#x3D;&quot;faSeasoning&quot;&gt;&lt;/fa-icon&gt;
+                        &lt;/span&gt;
+                        Salsas y condimentos
+                    &lt;/a&gt;
+                &lt;/li--&gt;
+                    &lt;li&gt;
+                        &lt;a [routerLink]&#x3D;&quot;[&#x27;/dish&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                            &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                &lt;fa-icon [icon]&#x3D;&quot;faDish&quot;&gt;&lt;/fa-icon&gt;
+                            &lt;/span&gt;
+                            {{ t(&#x27;sideMenu.dish&#x27;) }}
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a [routerLink]&#x3D;&quot;[&#x27;/menu&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                            &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                &lt;fa-icon [icon]&#x3D;&quot;faMenu&quot;&gt;&lt;/fa-icon&gt;
+                            &lt;/span&gt;
+                            {{ t(&#x27;sideMenu.menu&#x27;) }}
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a [routerLink]&#x3D;&quot;[&#x27;/translation&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                            &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                &lt;fa-icon [icon]&#x3D;&quot;faGlobe&quot;&gt;&lt;/fa-icon&gt;
+                            &lt;/span&gt;
+                            {{ t(&#x27;sideMenu.translations&#x27;) }}
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;!--li (mouseover)&#x3D;&quot;isMouseOver(true)&quot; (mouseout)&#x3D;&quot;isMouseOver(false)&quot;&gt;
+                    &lt;a [routerLink]&#x3D;&quot;[&#x27;/translation&#x27;]&quot;&gt;
+                        &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                            &lt;fa-icon [icon]&#x3D;&quot;faGlobe&quot;&gt;&lt;/fa-icon&gt;
+                        &lt;/span&gt;
+                        Traducciones
+                        &lt;fa-icon [icon]&#x3D;&quot;traduccionesIcon&quot; class&#x3D;&quot;float-right p-r-md&quot;&gt;&lt;/fa-icon&gt;
+                    &lt;/a&gt;
+                    &lt;ul [style.display]&#x3D;&quot;translationDisplay&quot;&gt;
+                        &lt;li&gt;
+                            &lt;a [routerLink]&#x3D;&quot;[&#x27;/translation/list&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                                &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                    &lt;fa-icon [icon]&#x3D;&quot;faLanguage&quot;&gt;&lt;/fa-icon&gt;
+                                &lt;/span&gt;
+                                Listado
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+                        &lt;li&gt;
+                            &lt;a [routerLink]&#x3D;&quot;[&#x27;/translation/configuration&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                                &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                    &lt;fa-icon [icon]&#x3D;&quot;faFlag&quot;&gt;&lt;/fa-icon&gt;
+                                &lt;/span&gt;
+                                Configuración
+                            &lt;/a&gt;
+                        &lt;/li&gt;
+
+                    &lt;/ul&gt;
+
+                &lt;/li--&gt;
+                    &lt;li&gt;
+                        &lt;a [routerLink]&#x3D;&quot;[&#x27;/qr-management&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                            &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                &lt;fa-icon [icon]&#x3D;&quot;faQr&quot;&gt;&lt;/fa-icon&gt;
+                            &lt;/span&gt;
+                            {{ t(&#x27;sideMenu.qr&#x27;) }}
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+
+                &lt;/ul&gt;
+                &lt;p class&#x3D;&quot;menu-label&quot;&gt;
+                    {{ t(&#x27;sideMenu.settings_title&#x27;) }}
+                &lt;/p&gt;
+                &lt;ul class&#x3D;&quot;menu-list&quot;&gt;
+
+                    &lt;li&gt;
+                        &lt;a [routerLink]&#x3D;&quot;[&#x27;/configuration&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot;&gt;
+                            &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                &lt;fa-icon [icon]&#x3D;&quot;faConfig&quot;&gt;&lt;/fa-icon&gt;
+                            &lt;/span&gt;
+                            {{ t(&#x27;sideMenu.settings&#x27;) }}
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a [routerLink]&#x3D;&quot;[&#x27;/admin&#x27;]&quot; routerLinkActive&#x3D;&quot;is-active&quot; *ngIf&#x3D;&quot;isAdmin()&quot;&gt;
+                            &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                &lt;fa-icon [icon]&#x3D;&quot;faConfig&quot;&gt;&lt;/fa-icon&gt;
+                            &lt;/span&gt;
+                            {{ t(&#x27;sideMenu.admin&#x27;) }}
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;a (click)&#x3D;&quot;logout()&quot;&gt;
+                            &lt;span class&#x3D;&quot;icon is-medium&quot;&gt;
+                                &lt;fa-icon [icon]&#x3D;&quot;faExit&quot;&gt;&lt;/fa-icon&gt;
+                            &lt;/span&gt;
+                            {{ t(&#x27;general.logout&#x27;) }}
+                        &lt;/a&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/aside&gt;
+        &lt;/div&gt;
+        &lt;div id&#x3D;&quot;content&quot;&gt;
+            &lt;router-outlet (activate)&#x3D;&quot;onActivate($event)&quot;&gt;&lt;/router-outlet&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/ng-container&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./side-nav.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;~src/variables&quot;;
+
+.menu {
+  padding-top: 3em;
+  background-color: $secondary;
+  //background-color:hsl(0, 0%, 29%);
+  z-index: 1;
+  top: 0;
+}
+
+.columns.is-fullheight {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+
+  .column {
+    overflow-y: auto;
+  }
+}
+
+#sideMenu {
+  background-color: $secondary;
+  width: 20vw;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+#content {
+  background-color: $body_background;
+  padding: 25px;
+  padding-left: 35px;
+  margin-bottom: 0;
+  width: 80vw;
+}
+
+.content-gran {
+  display: flex;
+}
+
+.no-right-padding {
+  padding-right: 0;
+}
+
+.menu-label {
+  padding-left: 2em;
+}
+
+.menu-list {
+  li {
+    a {
+      padding-left: 2em;
+
+      &amp;.is-active {
+        border-left: 4px solid $primary;
+      }
+    }
+
+    ul {
+      margin-left: 3em;
+      margin-top: 0;
+      margin-right: 0;
+      border-left: 0px;
+
+      li {
+        a {
+          padding-left: 0.5em;
+
+          &amp;.is-active {
+            border-left: 4px solid $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+.float-right {
+  float: right;
+}
+
+#hamb-menu {
+  display: none;
+
+  .navbar-brand {
+    background-color: $secondary;
+  }
+
+  .navbar-burger {
+    color: white;
+  }
+
+  .navbar-item.is-active {
+    color: $primary;
+  }
+}
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.dropdown-menu {
+  width: 100%;
+  border: 1px solid $secondary-hover;
+}
+
+
+button.is-secondary {
+  border-color: $secondary-hover;
+
+}
+
+.dropdown-content, .dropdown-item {
+  background-color: $secondary;
+  color: white;
+
+  &amp;.is-active {
+    background-color: $secondary-hover;
+  }
+
+  .dropdown-item:hover {
+    background-color: $secondary-hover;
+    color: white;
+  }
+}
+
+@media (max-width: 481px) {
+  #sideMenu {
+    display: none;
+  }
+
+  #content {
+    width: 100%;
+  }
+
+  #hamb-menu {
+    display: inline;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- TODO Quan es crei el component amb l\'enrutador pel menu, cal eliminar el bottom padding de la columna pq no quedin els 0.75em en blanc. --><ng-container *transloco="let t">    <nav id="hamb-menu" class="navbar" role="navigation" aria-label="main navigation">        <div class="navbar-brand">            <a class="navbar-item" [routerLink]="[\'/dashboard\']">                <img src="assets/logo_refoodlution_white.png" alt="Refoodlution">            </a>            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" (click)="onHambClick()">                <span aria-hidden="true"></span>                <span aria-hidden="true"></span>                <span aria-hidden="true"></span>            </a>        </div>        <div class="navbar-menu" [class.is-active]="isHambActive">            <div class="navbar-start">                                <a class="navbar-item">                  <div class="dropdown centered" [class.is-active]="isDropdownActive" (click)="onRestDropdownClick()">                        <div class="dropdown-trigger">                            <button class="button is-primary is-primary-hover is-fullwidth" aria-haspopup="true"                                aria-controls="dropdown-menu">                                <span>{{ getRestaurantName() }}</span>                                <span class="icon is-small">                                    <fa-icon [icon]="faAngleDown"></fa-icon>                                </span>                            </button>                        </div>                        <div class="dropdown-menu" id="dropdown-menu" role="menu">                            <div class="dropdown-content">                                <a *ngFor="let rest of restaurants" class="dropdown-item" (click)="onRestaurantClick(rest.id)"                                    [class.is-active]="getCurrentRestaurant() === rest.id">                                    {{ rest.name }}                                </a>                                <hr class="dropdown-divider">                                <a class="dropdown-item" (click)="onAddRestaurantClick()">                                    <fa-icon [icon]="faAdd" class="m-r-sm"></fa-icon> {{ t(\'restaurant.add\') }}                                </a>                            </div>                        </div>                    </div>                </a>                <a class="navbar-item" [routerLink]="[\'/dashboard\']" routerLinkActive="is-active">                    <span class="icon is-medium">                        <fa-icon [icon]="faHome"></fa-icon>                    </span>                    {{ t(\'sideMenu.home\') }}                </a>                <a class="navbar-item" [routerLink]="[\'/dish\']" routerLinkActive="is-active">                    <span class="icon is-medium">                        <fa-icon [icon]="faDish"></fa-icon>                    </span>                    {{ t(\'sideMenu.dish\') }}                </a>                <a class="navbar-item" [routerLink]="[\'/menu\']" routerLinkActive="is-active">                    <span class="icon is-medium">                        <fa-icon [icon]="faMenu"></fa-icon>                    </span>                    {{ t(\'sideMenu.menu\') }}                </a>                <a class="navbar-item" [routerLink]="[\'/translation\']" routerLinkActive="is-active">                    <span class="icon is-medium">                        <fa-icon [icon]="faGlobe"></fa-icon>                    </span>                    {{ t(\'sideMenu.translations\') }}                </a>                <a class="navbar-item" [routerLink]="[\'/qr-management\']" routerLinkActive="is-active">                    <span class="icon is-medium">                        <fa-icon [icon]="faQr"></fa-icon>                    </span>                    {{ t(\'sideMenu.qr\') }}                </a>                <a class="navbar-item" [routerLink]="[\'/configuration\']" routerLinkActive="is-active">                    <span class="icon is-medium">                        <fa-icon [icon]="faConfig"></fa-icon>                    </span>                    {{ t(\'sideMenu.settings\') }}                </a>                <a class="navbar-item" (click)="logout()">                    <span class="icon is-medium">                        <fa-icon [icon]="faExit"></fa-icon>                    </span>                    {{ t(\'general.logout\') }}                </a>            </div>        </div></nav><div class="content-gran">    <div id="sideMenu">        <aside class="menu">            <figure class="image container is-256x256">                <a [routerLink]="[\'/dashboard\']"><img src="assets/logo_refoodlution_white.png"></a>            </figure>            <div class="dropdown centered" [class.is-active]="isDropdownActive" (click)="onRestDropdownClick()">                <div class="dropdown-trigger">                    <button class="button is-primary is-primary-hover is-fullwidth" aria-haspopup="true"                        aria-controls="dropdown-menu">                        <span>{{ getRestaurantName() }}</span>                        <span class="icon is-small">                            <fa-icon [icon]="faAngleDown"></fa-icon>                        </span>                    </button>                </div>                <div class="dropdown-menu" id="dropdown-menu" role="menu">                    <div class="dropdown-content">                        <a *ngFor="let rest of restaurants" class="dropdown-item" (click)="onRestaurantClick(rest.id)"                            [class.is-active]="getCurrentRestaurant() === rest.id">                            {{ rest.name }}                        </a>                        <hr class="dropdown-divider">                        <a class="dropdown-item" (click)="onAddRestaurantClick()">                            <fa-icon [icon]="faAdd" class="m-r-sm"></fa-icon> {{ t(\'restaurant.add\') }}                        </a>                    </div>                </div>            </div>            <p class="menu-label">               {{ t(\'sideMenu.general\') }}            </p>            <ul class="menu-list m-b-lg">                <li>                    <a [routerLink]="[\'/dashboard\']" routerLinkActive="is-active">                        <span class="icon is-medium">                            <fa-icon [icon]="faHome"></fa-icon>                        </span>                        {{ t(\'sideMenu.home\') }}                    </a>                </li>                <!--li>                    <a [routerLink]="[\'/seasoning\']" routerLinkActive="is-active">                        <span class="icon is-medium">                            <fa-icon [icon]="faSeasoning"></fa-icon>                        </span>                        Salsas y condimentos                    </a>                </li-->                    <li>                        <a [routerLink]="[\'/dish\']" routerLinkActive="is-active">                            <span class="icon is-medium">                                <fa-icon [icon]="faDish"></fa-icon>                            </span>                            {{ t(\'sideMenu.dish\') }}                        </a>                    </li>                    <li>                        <a [routerLink]="[\'/menu\']" routerLinkActive="is-active">                            <span class="icon is-medium">                                <fa-icon [icon]="faMenu"></fa-icon>                            </span>                            {{ t(\'sideMenu.menu\') }}                        </a>                    </li>                    <li>                        <a [routerLink]="[\'/translation\']" routerLinkActive="is-active">                            <span class="icon is-medium">                                <fa-icon [icon]="faGlobe"></fa-icon>                            </span>                            {{ t(\'sideMenu.translations\') }}                        </a>                    </li>                    <!--li (mouseover)="isMouseOver(true)" (mouseout)="isMouseOver(false)">                    <a [routerLink]="[\'/translation\']">                        <span class="icon is-medium">                            <fa-icon [icon]="faGlobe"></fa-icon>                        </span>                        Traducciones                        <fa-icon [icon]="traduccionesIcon" class="float-right p-r-md"></fa-icon>                    </a>                    <ul [style.display]="translationDisplay">                        <li>                            <a [routerLink]="[\'/translation/list\']" routerLinkActive="is-active">                                <span class="icon is-medium">                                    <fa-icon [icon]="faLanguage"></fa-icon>                                </span>                                Listado                            </a>                        </li>                        <li>                            <a [routerLink]="[\'/translation/configuration\']" routerLinkActive="is-active">                                <span class="icon is-medium">                                    <fa-icon [icon]="faFlag"></fa-icon>                                </span>                                Configuración                            </a>                        </li>                    </ul>                </li-->                    <li>                        <a [routerLink]="[\'/qr-management\']" routerLinkActive="is-active">                            <span class="icon is-medium">                                <fa-icon [icon]="faQr"></fa-icon>                            </span>                            {{ t(\'sideMenu.qr\') }}                        </a>                    </li>                </ul>                <p class="menu-label">                    {{ t(\'sideMenu.settings_title\') }}                </p>                <ul class="menu-list">                    <li>                        <a [routerLink]="[\'/configuration\']" routerLinkActive="is-active">                            <span class="icon is-medium">                                <fa-icon [icon]="faConfig"></fa-icon>                            </span>                            {{ t(\'sideMenu.settings\') }}                        </a>                    </li>                    <li>                        <a [routerLink]="[\'/admin\']" routerLinkActive="is-active" *ngIf="isAdmin()">                            <span class="icon is-medium">                                <fa-icon [icon]="faConfig"></fa-icon>                            </span>                            {{ t(\'sideMenu.admin\') }}                        </a>                    </li>                    <li>                        <a (click)="logout()">                            <span class="icon is-medium">                                <fa-icon [icon]="faExit"></fa-icon>                            </span>                            {{ t(\'general.logout\') }}                        </a>                    </li>                </ul>            </aside>        </div>        <div id="content">            <router-outlet (activate)="onActivate($event)"></router-outlet>        </div>    </div></ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ckeditorComponent', 'selector': 'app-ckeditor'},{'name': 'ClientCardMenuComponent', 'selector': 'app-client-card-menu'},{'name': 'ClientMenuComponent', 'selector': 'app-client-menu'},{'name': 'ClientMenuItemComponent', 'selector': 'app-client-menu-item'},{'name': 'ClientMenuRowComponent', 'selector': '[app-client-menu-row]'},{'name': 'ConfigurationComponent', 'selector': 'app-configuration'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DaySelectorComponent', 'selector': 'app-day-selector'},{'name': 'DishCreationComponent', 'selector': 'app-dish-creation'},{'name': 'DishItemComponent', 'selector': 'app-dish-item'},{'name': 'DishListComponent', 'selector': 'app-dish-list'},{'name': 'FullPdfViewerComponent', 'selector': 'app-full-pdf-viewer'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageSubComponent', 'selector': 'app-manage-sub'},{'name': 'MenuCreationComponent', 'selector': 'app-menu-creation'},{'name': 'MenuItemComponent', 'selector': 'app-menu-item'},{'name': 'MenuListComponent', 'selector': 'app-menu-list'},{'name': 'MenuPdfComponent', 'selector': 'app-menu-pdf'},{'name': 'PlatformLanguageComponent', 'selector': 'app-platform-language'},{'name': 'PopupinfoComponent', 'selector': 'app-popupinfo'},{'name': 'PricingComponent', 'selector': 'app-pricing'},{'name': 'QrDownloadComponent', 'selector': 'app-qr-download'},{'name': 'QRGeneratorComponent', 'selector': 'qr-generator'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RedsysResponseComponent', 'selector': 'app-redsys-response'},{'name': 'RestaurantComponent', 'selector': 'app-restaurant'},{'name': 'RestaurantsComponent', 'selector': 'app-adminrestaurants'},{'name': 'ScheduleSelectorComponent', 'selector': 'app-schedule-selector'},{'name': 'SeasoningCreationComponent', 'selector': 'app-seasoning-creation'},{'name': 'SeasoningItemComponent', 'selector': 'app-seasoning-item'},{'name': 'SeasoningListComponent', 'selector': 'app-seasoning-list'},{'name': 'SideNavComponent', 'selector': 'app-side-nav'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'TConfigComponent', 'selector': 'app-t-config'},{'name': 'TItemDishComponent', 'selector': 'app-t-item-dish'},{'name': 'TItemStringComponent', 'selector': 'app-t-item-string'},{'name': 'TListComponent', 'selector': 'app-t-list'},{'name': 'UsersComponent', 'selector': 'app-adminusers'}];
+    var DIRECTIVES = [{'name': 'PwdMatchValidatorDirective', 'selector': '[appPwdMatch]'}];
+    var ACTUAL_COMPONENT = {'name': 'SideNavComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SideNavComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

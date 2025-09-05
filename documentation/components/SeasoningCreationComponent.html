@@ -1,0 +1,1371 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend-rest documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend-rest documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  SeasoningCreationComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-seasoning-creation</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./seasoning-creation.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./seasoning-creation.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allergens" >allergens</a>
+                            </li>
+                            <li>
+                                <a href="#faCheck" >faCheck</a>
+                            </li>
+                            <li>
+                                <a href="#faCross" >faCross</a>
+                            </li>
+                            <li>
+                                <a href="#faSave" >faSave</a>
+                            </li>
+                            <li>
+                                <a href="#faWarning" >faWarning</a>
+                            </li>
+                            <li>
+                                <a href="#isEditing" >isEditing</a>
+                            </li>
+                            <li>
+                                <a href="#isSaving" >isSaving</a>
+                            </li>
+                            <li>
+                                <a href="#result" >result</a>
+                            </li>
+                            <li>
+                                <a href="#seasoning" >seasoning</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#deleteIngredient" >deleteIngredient</a>
+                            </li>
+                            <li>
+                                <a href="#getAllergenName" >getAllergenName</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onCardClick" >onCardClick</a>
+                            </li>
+                            <li>
+                                <a href="#onCommaPressInput" >onCommaPressInput</a>
+                            </li>
+                            <li>
+                                <a href="#onEnterInput" >onEnterInput</a>
+                            </li>
+                            <li>
+                                <a href="#onSaveClick" >onSaveClick</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(seasoningService: <a href="../injectables/SeasoningService.html" target="_self">SeasoningService</a>, route: ActivatedRoute, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>seasoningService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SeasoningService.html" target="_self" >SeasoningService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteIngredient"></a>
+                    <span class="name">
+                        <span ><b>deleteIngredient</b></span>
+                        <a href="#deleteIngredient"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>deleteIngredient(ingredient)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ingredient</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getAllergenName"></a>
+                    <span class="name">
+                        <span ><b>getAllergenName</b></span>
+                        <a href="#getAllergenName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getAllergenName(acronym)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>acronym</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCardClick"></a>
+                    <span class="name">
+                        <span ><b>onCardClick</b></span>
+                        <a href="#onCardClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCardClick(allergenAcr)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>allergenAcr</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCommaPressInput"></a>
+                    <span class="name">
+                        <span ><b>onCommaPressInput</b></span>
+                        <a href="#onCommaPressInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onCommaPressInput(event, input)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>input</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEnterInput"></a>
+                    <span class="name">
+                        <span ><b>onEnterInput</b></span>
+                        <a href="#onEnterInput"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onEnterInput(ingredient)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ingredient</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSaveClick"></a>
+                    <span class="name">
+                        <span ><b>onSaveClick</b></span>
+                        <a href="#onSaveClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSaveClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allergens"></a>
+                    <span class="name">
+                        <span ><b>allergens</b></span>
+                        <a href="#allergens"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    &#x27;NL&#x27;,
+    &#x27;BC&#x27;,
+    &#x27;AP&#x27;,
+    &#x27;AC&#x27;,
+    &#x27;AN&#x27;,
+    &#x27;AW&#x27;,
+    &#x27;AE&#x27;,
+    &#x27;AM&#x27;,
+    &#x27;ML&#x27;,
+    &#x27;UM&#x27;,
+    &#x27;BM&#x27;,
+    &#x27;AF&#x27;,
+    &#x27;AS&#x27;,
+    &#x27;AY&#x27;,
+    &#x27;AU&#x27;
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faCheck"></a>
+                    <span class="name">
+                        <span ><b>faCheck</b></span>
+                        <a href="#faCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faCheck</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faCross"></a>
+                    <span class="name">
+                        <span ><b>faCross</b></span>
+                        <a href="#faCross"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faTimesCircle</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faSave"></a>
+                    <span class="name">
+                        <span ><b>faSave</b></span>
+                        <a href="#faSave"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faSave</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faWarning"></a>
+                    <span class="name">
+                        <span ><b>faWarning</b></span>
+                        <a href="#faWarning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faExclamationTriangle</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEditing"></a>
+                    <span class="name">
+                        <span ><b>isEditing</b></span>
+                        <a href="#isEditing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSaving"></a>
+                    <span class="name">
+                        <span ><b>isSaving</b></span>
+                        <a href="#isSaving"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="result"></a>
+                    <span class="name">
+                        <span ><b>result</b></span>
+                        <a href="#result"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ message: &#x27;&#x27;, status: &#x27;hidden&#x27; }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="seasoning"></a>
+                    <span class="name">
+                        <span ><b>seasoning</b></span>
+                        <a href="#seasoning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Seasoning.html" target="_self" >Seasoning</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/logged/seasonings/seasoning-creation/seasoning-creation.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Allergen } from &#x27;./../../../classes/allergen&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Seasoning } from &#x27;./../../../classes/seasoning&#x27;;
+import { SeasoningService } from &#x27;./../../../services/seasoning.service&#x27;;
+import { faSave, faExclamationTriangle, faCheck, faTimesCircle } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-seasoning-creation&#x27;,
+  templateUrl: &#x27;./seasoning-creation.component.html&#x27;,
+  styleUrls: [&#x27;./seasoning-creation.component.scss&#x27;]
+})
+export class SeasoningCreationComponent implements OnInit {
+
+  constructor(private seasoningService: SeasoningService, private route: ActivatedRoute, private router: Router) { }
+  faSave &#x3D; faSave;
+  faWarning &#x3D; faExclamationTriangle;
+  faCheck &#x3D; faCheck;
+  isSaving &#x3D; false;
+  isEditing &#x3D; false;
+  faCross &#x3D; faTimesCircle;
+
+  seasoning: Seasoning;
+  result &#x3D; { message: &#x27;&#x27;, status: &#x27;hidden&#x27; };
+
+  allergens &#x3D; [
+    &#x27;NL&#x27;,
+    &#x27;BC&#x27;,
+    &#x27;AP&#x27;,
+    &#x27;AC&#x27;,
+    &#x27;AN&#x27;,
+    &#x27;AW&#x27;,
+    &#x27;AE&#x27;,
+    &#x27;AM&#x27;,
+    &#x27;ML&#x27;,
+    &#x27;UM&#x27;,
+    &#x27;BM&#x27;,
+    &#x27;AF&#x27;,
+    &#x27;AS&#x27;,
+    &#x27;AY&#x27;,
+    &#x27;AU&#x27;
+  ];
+
+  ngOnInit() {
+    this.seasoning &#x3D; new Seasoning();
+    this.isEditing &#x3D; false;
+    this.route.url.subscribe(params &#x3D;&gt; {
+      if (params[1].path &#x3D;&#x3D;&#x3D; &#x27;edit&#x27;) {
+        // tslint:disable-next-line: new-parens
+        this.seasoningService.getSeasoning(this.route.snapshot.paramMap.get(&#x27;id&#x27;))
+          .subscribe(
+            seasoning &#x3D;&gt; this.seasoning &#x3D; (new Seasoning()).fromJSON(seasoning),
+            error &#x3D;&gt; this.router.navigate([&#x27;seasoning&#x27;])
+          );
+        this.isEditing &#x3D; true;
+      }
+    });
+  }
+
+  onSaveClick() {
+    if (this.seasoning.name.length &#x3D;&#x3D;&#x3D; 0) {
+      this.result.message &#x3D; &#x27;Se necesita un nombre de plato&#x27;;
+      this.result.status &#x3D; &#x27;danger&#x27;;
+    } else {
+      if (!this.isEditing) {
+        this.seasoningService.addSeasoning(this.seasoning).subscribe(() &#x3D;&gt; {
+          this.result.message &#x3D; &#x27;Condimento creado correctamente.&#x27;;
+          this.result.status &#x3D; &#x27;success&#x27;;
+          this.isSaving &#x3D; false;
+          setTimeout(() &#x3D;&gt; this.router.navigate([&#x27;seasoning&#x27;]), 2000);
+        },
+        error &#x3D;&gt; {
+          this.result.message &#x3D; &#x27;Ha habido un error al guardar los datos&#x27;;
+          this.result.status &#x3D; &#x27;danger&#x27;;
+          this.isSaving &#x3D; false;
+        });
+      } else {
+        this.seasoningService.updateSeasoning(this.seasoning).subscribe(() &#x3D;&gt; {
+          this.result.message &#x3D; &#x27;Plato modificado correctamente.&#x27;;
+          this.result.status &#x3D; &#x27;success&#x27;;
+          setTimeout(() &#x3D;&gt; this.result.status &#x3D; &#x27;hidden&#x27;, 2000);
+        }, error &#x3D;&gt; {
+          this.result.message &#x3D; &#x27;Ha habido un error al guardar los datos&#x27;;
+          this.result.status &#x3D; &#x27;danger&#x27;;
+          this.isSaving &#x3D; false;
+        });
+      }
+    }
+  }
+
+  onCardClick(allergenAcr) {
+    const allergen &#x3D; new Allergen(allergenAcr);
+    if (this.seasoning.hasAllergen(allergen.acronym)) {
+      this.seasoning.allergens.splice(this.seasoning.allergens.map((all) &#x3D;&gt; all.acronym).indexOf(allergen.acronym), 1);
+    } else {
+      this.seasoning.allergens.push(allergen);
+    }
+  }
+
+  deleteIngredient(ingredient) {
+    this.seasoning.ingredients.splice(this.seasoning.ingredients.indexOf(ingredient), 1);
+  }
+
+  onEnterInput(ingredient) {
+    if (ingredient.trim().length !&#x3D;&#x3D; 0) {
+      this.seasoning.ingredients.push(ingredient.trim());
+    }
+  }
+
+  onCommaPressInput(event, input) {
+    if (event.keyCode &#x3D;&#x3D;&#x3D; 44) {
+      this.onEnterInput(input.value);
+      input.value &#x3D; &#x27;&#x27;;
+      event.preventDefault();
+    }
+  }
+
+  getAllergenName(acronym) {
+    return Allergen.getAllergenName(acronym);
+  }
+
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;h1 class&#x3D;&quot;title&quot;&gt;{{ isEditing ? &#x27;Editar condimento&#x27; : &#x27;Nuevo condimento&#x27; }}&lt;/h1&gt;
+
+
+
+&lt;div class&#x3D;&quot;columns&quot;&gt;
+    &lt;div class&#x3D;&quot;column is-5&quot;&gt;
+        &lt;div class&#x3D;&quot;field&quot;&gt;
+            &lt;label class&#x3D;&quot;label&quot;&gt;Nombre&lt;/label&gt;
+            &lt;div class&#x3D;&quot;control&quot;&gt;
+                &lt;input class&#x3D;&quot;input&quot; type&#x3D;&quot;text&quot; placeholder&#x3D;&quot;Nombre del condimento&quot; [(ngModel)]&#x3D;&quot;seasoning.name&quot;&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;field is-5 m-t-lg&quot;&gt;
+            &lt;label class&#x3D;&quot;label&quot;&gt;Ingredientes (opcional)&lt;/label&gt;
+            &lt;div class&#x3D;&quot;control&quot;&gt;
+                &lt;input class&#x3D;&quot;input m-b-md&quot; type&#x3D;&quot;tags&quot; placeholder&#x3D;&quot;Ingrediente&quot; #ingredientsInput
+                    (keyup.enter)&#x3D;&quot;onEnterInput(ingredientsInput.value); ingredientsInput.value&#x3D;&#x27;&#x27;&quot;
+                    (blur)&#x3D;&quot;onEnterInput(ingredientsInput.value); ingredientsInput.value&#x3D;&#x27;&#x27;&quot;
+                    (keypress)&#x3D;&quot;onCommaPressInput($event, ingredientsInput)&quot;&gt;
+                &lt;span *ngFor&#x3D;&quot;let ingredient of seasoning.ingredients&quot;
+                    class&#x3D;&quot;tag m-l-sm m-t-sm is-medium is-secondary is-light&quot;&gt;{{ ingredient | titleCaseWord}}&lt;button
+                        class&#x3D;&quot;delete is-small&quot; (click)&#x3D;&quot;deleteIngredient(ingredient)&quot;&gt;&lt;/button&gt;&lt;/span&gt;
+                &lt;!--p class&#x3D;&quot;m-t-md&quot; *ngIf&#x3D;&quot;seasoning.ingredients.length &gt; 2&quot;&gt;&lt;b&gt;Sugerencia de alérgenos: &lt;/b&gt;Gluten, Lactosa, Lácteos &lt;/p--&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;div class&#x3D;&quot;m-t-lg m-b-lg&quot;&gt;
+    &lt;label class&#x3D;&quot;label p-b-md&quot;&gt;Selecciona los alérgenos&lt;/label&gt;
+    &lt;div class&#x3D;&quot;columns is-multiline is-variable is-2 p-r-md&quot;&gt;
+        &lt;div class&#x3D;&quot;column is-narrow&quot; *ngFor&#x3D;&quot;let allergen of allergens&quot;&gt;
+            &lt;div class&#x3D;&quot;card hoverable&quot; [class.active]&#x3D;&quot;seasoning.hasAllergen(allergen)&quot;
+                (click)&#x3D;&quot;onCardClick(allergen)&quot;&gt;
+                &lt;div class&#x3D;&quot;card-image is-flex&quot;&gt;
+                    &lt;figure class&#x3D;&quot;image is-80x80&quot;&gt;
+                        &lt;img src&#x3D;&quot;assets/allergens/image_{{ allergen | lowercase }}.png&quot;
+                            alt&#x3D;&quot;{{ getAllergenName(allergen) }}&quot; class&#x3D;&quot;not-dragable&quot;&gt;
+                    &lt;/figure&gt;
+                &lt;/div&gt;
+                &lt;div class&#x3D;&quot;card-content has-text-centered&quot;&gt;
+                    &lt;div class&#x3D;&quot;content&quot;&gt;
+                        {{getAllergenName(allergen)}}
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class&#x3D;&quot;columns&quot;&gt;
+    &lt;div class&#x3D;&quot;column is-narrow&quot;&gt;
+        &lt;button class&#x3D;&quot;button is-primary&quot; [class.is-loading]&#x3D;&quot;isSaving&quot; (click)&#x3D;&quot;onSaveClick()&quot;&gt;
+            &lt;span class&#x3D;&quot;icon is-small&quot;&gt;
+                &lt;fa-icon [icon]&#x3D;&quot;faSave&quot;&gt;&lt;/fa-icon&gt;
+            &lt;/span&gt;
+            &lt;span&gt;Guardar&lt;/span&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;column m-t-sm&quot; [class]&#x3D;&quot;&#x27;has-text-&#x27;+result.status&quot; *ngIf&#x3D;&quot;result.status !&#x3D;&#x3D; &#x27;hidden&#x27;&quot;&gt;
+        &lt;fa-icon [icon]&#x3D;&quot;result.status &#x3D;&#x3D; &#x27;success&#x27; ? faCheck : faCross&quot;&gt;&lt;/fa-icon&gt; {{ result.message }}
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./seasoning-creation.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;~src/variables&#x27;;
+
+.card {
+    padding-right: .7em;
+     padding-left: .7em;
+    &amp;.hoverable {
+        border-radius: .3em;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        &amp;:hover {
+            box-shadow: 0 0.5em 1em -0.125em rgba(hsl(0, 0%, 4%), 0.25), 0 0px 0 1px rgba(hsl(0, 0%, 4%), 0.02);
+            cursor: pointer;
+        }
+
+        &amp;.active {
+           background-color: $primary;
+           //color: white;
+        }
+    }
+    
+}
+
+.card-image {
+    justify-content: center;
+}
+
+.card-content {
+    padding-top: 0;
+    padding-bottom: .6em;
+    padding-left: .6em;
+    padding-right: .6em;
+}
+
+.content {
+    font-size: 13px;
+}
+
+.is-80x80 {
+     width: 80px;
+    height: 80px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><h1 class="title">{{ isEditing ? \'Editar condimento\' : \'Nuevo condimento\' }}</h1><div class="columns">    <div class="column is-5">        <div class="field">            <label class="label">Nombre</label>            <div class="control">                <input class="input" type="text" placeholder="Nombre del condimento" [(ngModel)]="seasoning.name">            </div>        </div>        <div class="field is-5 m-t-lg">            <label class="label">Ingredientes (opcional)</label>            <div class="control">                <input class="input m-b-md" type="tags" placeholder="Ingrediente" #ingredientsInput                    (keyup.enter)="onEnterInput(ingredientsInput.value); ingredientsInput.value=\'\'"                    (blur)="onEnterInput(ingredientsInput.value); ingredientsInput.value=\'\'"                    (keypress)="onCommaPressInput($event, ingredientsInput)">                <span *ngFor="let ingredient of seasoning.ingredients"                    class="tag m-l-sm m-t-sm is-medium is-secondary is-light">{{ ingredient | titleCaseWord}}<button                        class="delete is-small" (click)="deleteIngredient(ingredient)"></button></span>                <!--p class="m-t-md" *ngIf="seasoning.ingredients.length > 2"><b>Sugerencia de alérgenos: </b>Gluten, Lactosa, Lácteos </p-->            </div>        </div>    </div></div><div class="m-t-lg m-b-lg">    <label class="label p-b-md">Selecciona los alérgenos</label>    <div class="columns is-multiline is-variable is-2 p-r-md">        <div class="column is-narrow" *ngFor="let allergen of allergens">            <div class="card hoverable" [class.active]="seasoning.hasAllergen(allergen)"                (click)="onCardClick(allergen)">                <div class="card-image is-flex">                    <figure class="image is-80x80">                        <img src="assets/allergens/image_{{ allergen | lowercase }}.png"                            alt="{{ getAllergenName(allergen) }}" class="not-dragable">                    </figure>                </div>                <div class="card-content has-text-centered">                    <div class="content">                        {{getAllergenName(allergen)}}                    </div>                </div>            </div>        </div>    </div></div><div class="columns">    <div class="column is-narrow">        <button class="button is-primary" [class.is-loading]="isSaving" (click)="onSaveClick()">            <span class="icon is-small">                <fa-icon [icon]="faSave"></fa-icon>            </span>            <span>Guardar</span>        </button>    </div>    <div class="column m-t-sm" [class]="\'has-text-\'+result.status" *ngIf="result.status !== \'hidden\'">        <fa-icon [icon]="result.status == \'success\' ? faCheck : faCross"></fa-icon> {{ result.message }}    </div></div></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ckeditorComponent', 'selector': 'app-ckeditor'},{'name': 'ClientCardMenuComponent', 'selector': 'app-client-card-menu'},{'name': 'ClientMenuComponent', 'selector': 'app-client-menu'},{'name': 'ClientMenuItemComponent', 'selector': 'app-client-menu-item'},{'name': 'ClientMenuRowComponent', 'selector': '[app-client-menu-row]'},{'name': 'ConfigurationComponent', 'selector': 'app-configuration'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DaySelectorComponent', 'selector': 'app-day-selector'},{'name': 'DishCreationComponent', 'selector': 'app-dish-creation'},{'name': 'DishItemComponent', 'selector': 'app-dish-item'},{'name': 'DishListComponent', 'selector': 'app-dish-list'},{'name': 'FullPdfViewerComponent', 'selector': 'app-full-pdf-viewer'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageSubComponent', 'selector': 'app-manage-sub'},{'name': 'MenuCreationComponent', 'selector': 'app-menu-creation'},{'name': 'MenuItemComponent', 'selector': 'app-menu-item'},{'name': 'MenuListComponent', 'selector': 'app-menu-list'},{'name': 'MenuPdfComponent', 'selector': 'app-menu-pdf'},{'name': 'PlatformLanguageComponent', 'selector': 'app-platform-language'},{'name': 'PopupinfoComponent', 'selector': 'app-popupinfo'},{'name': 'PricingComponent', 'selector': 'app-pricing'},{'name': 'QrDownloadComponent', 'selector': 'app-qr-download'},{'name': 'QRGeneratorComponent', 'selector': 'qr-generator'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RedsysResponseComponent', 'selector': 'app-redsys-response'},{'name': 'RestaurantComponent', 'selector': 'app-restaurant'},{'name': 'RestaurantsComponent', 'selector': 'app-adminrestaurants'},{'name': 'ScheduleSelectorComponent', 'selector': 'app-schedule-selector'},{'name': 'SeasoningCreationComponent', 'selector': 'app-seasoning-creation'},{'name': 'SeasoningItemComponent', 'selector': 'app-seasoning-item'},{'name': 'SeasoningListComponent', 'selector': 'app-seasoning-list'},{'name': 'SideNavComponent', 'selector': 'app-side-nav'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'TConfigComponent', 'selector': 'app-t-config'},{'name': 'TItemDishComponent', 'selector': 'app-t-item-dish'},{'name': 'TItemStringComponent', 'selector': 'app-t-item-string'},{'name': 'TListComponent', 'selector': 'app-t-list'},{'name': 'UsersComponent', 'selector': 'app-adminusers'}];
+    var DIRECTIVES = [{'name': 'PwdMatchValidatorDirective', 'selector': '[appPwdMatch]'}];
+    var ACTUAL_COMPONENT = {'name': 'SeasoningCreationComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'SeasoningCreationComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

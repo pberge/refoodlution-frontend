@@ -1,0 +1,2117 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend-rest documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend-rest documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AdminComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/logged/admin/admin.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-admin</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./admin.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./admin.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#faAllergy" >faAllergy</a>
+                            </li>
+                            <li>
+                                <a href="#faCarrot" >faCarrot</a>
+                            </li>
+                            <li>
+                                <a href="#faDish" >faDish</a>
+                            </li>
+                            <li>
+                                <a href="#faMail" >faMail</a>
+                            </li>
+                            <li>
+                                <a href="#faQR" >faQR</a>
+                            </li>
+                            <li>
+                                <a href="#faRestaurants" >faRestaurants</a>
+                            </li>
+                            <li>
+                                <a href="#restName" >restName</a>
+                            </li>
+                            <li>
+                                <a href="#tabs" >tabs</a>
+                            </li>
+                            <li>
+                                <a href="#users" >users</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getRestName" >getRestName</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#sendEmails" >sendEmails</a>
+                            </li>
+                            <li>
+                                <a href="#sendEmailToOldRestaurants" >sendEmailToOldRestaurants</a>
+                            </li>
+                            <li>
+                                <a href="#vistaPrevia" >vistaPrevia</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, restaurantService: <a href="../injectables/RestaurantService.html" target="_self">RestaurantService</a>, translocoService: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/logged/admin/admin.component.ts:24</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AuthService.html" target="_self" >AuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>restaurantService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RestaurantService.html" target="_self" >RestaurantService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRestName"></a>
+                    <span class="name">
+                        <span ><b>getRestName</b></span>
+                        <a href="#getRestName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRestName()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/logged/admin/admin.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="29"
+                                    class="link-to-prism">src/app/logged/admin/admin.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendEmails"></a>
+                    <span class="name">
+                        <span ><b>sendEmails</b></span>
+                        <a href="#sendEmails"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendEmails(emails, i, fncallback)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/logged/admin/admin.component.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>emails</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>i</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>fncallback</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sendEmailToOldRestaurants"></a>
+                    <span class="name">
+                        <span ><b>sendEmailToOldRestaurants</b></span>
+                        <a href="#sendEmailToOldRestaurants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>sendEmailToOldRestaurants()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/app/logged/admin/admin.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="vistaPrevia"></a>
+                    <span class="name">
+                        <span ><b>vistaPrevia</b></span>
+                        <a href="#vistaPrevia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>vistaPrevia()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/logged/admin/admin.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faAllergy"></a>
+                    <span class="name">
+                        <span ><b>faAllergy</b></span>
+                        <a href="#faAllergy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faCheese</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/logged/admin/admin.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faCarrot"></a>
+                    <span class="name">
+                        <span ><b>faCarrot</b></span>
+                        <a href="#faCarrot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faCarrot</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/logged/admin/admin.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faDish"></a>
+                    <span class="name">
+                        <span ><b>faDish</b></span>
+                        <a href="#faDish"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faUtensils</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/logged/admin/admin.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faMail"></a>
+                    <span class="name">
+                        <span ><b>faMail</b></span>
+                        <a href="#faMail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faEnvelope</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/logged/admin/admin.component.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faQR"></a>
+                    <span class="name">
+                        <span ><b>faQR</b></span>
+                        <a href="#faQR"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faQrcode</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/logged/admin/admin.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faRestaurants"></a>
+                    <span class="name">
+                        <span ><b>faRestaurants</b></span>
+                        <a href="#faRestaurants"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faMapMarkerAlt</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/logged/admin/admin.component.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="restName"></a>
+                    <span class="name">
+                        <span ><b>restName</b></span>
+                        <a href="#restName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/logged/admin/admin.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tabs"></a>
+                    <span class="name">
+                        <span ><b>tabs</b></span>
+                        <a href="#tabs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/logged/admin/admin.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="users"></a>
+                    <span class="name">
+                        <span ><b>users</b></span>
+                        <a href="#users"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/logged/admin/admin.component.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { RestaurantService } from &#x27;../../services/restaurant.service&#x27;;
+import { AuthService } from &#x27;../../services/auth.service&#x27;;
+import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { faQrcode, faUtensils, faCarrot, faCheese, faEnvelope, faMapMarkerAlt  } from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+import { TranslocoService } from &#x27;@ngneat/transloco&#x27;;
+
+@Component({
+  selector: &#x27;app-admin&#x27;,
+  templateUrl: &#x27;./admin.component.html&#x27;,
+  styleUrls: [&#x27;./admin.component.scss&#x27;]
+})
+export class AdminComponent implements OnInit {
+
+  faQR &#x3D; faQrcode;
+  faDish &#x3D; faUtensils;
+  faCarrot &#x3D; faCarrot;
+  faAllergy &#x3D; faCheese;
+  faRestaurants &#x3D; faMapMarkerAlt;
+  faMail &#x3D; faEnvelope;
+
+  tabs &#x3D; []
+  users &#x3D; []
+
+  restName &#x3D; &#x27;&#x27;;
+
+  constructor(private authService: AuthService, private restaurantService: RestaurantService,
+              private translocoService: TranslocoService) { }
+
+  ngOnInit() {}
+
+  vistaPrevia() {
+    const restId &#x3D; this.authService.getIdRestaurant();
+    if ([554,555,556,557,558].includes(restId)) {
+      window.open(&#x27;/selector/&#x27; + restId, &#x27;_blank&#x27;);
+    } else {
+      window.open(&#x27;/preview/&#x27; + restId, &#x27;_blank&#x27;);
+    }
+  }
+
+  getRestName() {
+    return this.restaurantService.get().name;
+  }
+
+  sendEmailToOldRestaurants() {
+    this.restaurantService.getOldRestaurantsPendingSendingMail().subscribe(result &#x3D;&gt; {
+      this.users &#x3D; result
+      console.log(result)
+      //this.users &#x3D; [{email:&quot;pereberge@gmail.com&quot;}]
+      var i &#x3D; 0
+      this.sendEmails(this.users, i, function(){
+        console.log(&quot;Emails enviats&quot;)
+      })
+      
+    })
+  }
+
+  sendEmails(emails, i, fncallback) {
+    console.log(&quot;emails&quot;, emails[i])
+    this.authService.sendConfirmationEmailOldRestaurant(emails[i].email).subscribe(result &#x3D;&gt;{
+      if(i &lt; this.users.length - 1) {
+        console.log(&quot;Enviat &quot;, i, emails[i].email)
+        i &#x3D; i + 1
+        this.sendEmails(emails, i, fncallback)
+      }
+      else fncallback()
+    }, error &#x3D;&gt; {
+      console.log(&quot;Error&quot;, error, i, emails[i].email)
+      if(i &lt; this.users.length - 1) {
+        console.log(&quot;Enviat &quot;, i, emails[i].email)
+        i &#x3D; i + 1
+        this.sendEmails(emails, i, fncallback)
+      }
+      else fncallback()
+    })
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *transloco&#x3D;&quot;let t&quot;&gt;
+    &lt;div class&#x3D;&quot;columns&quot;&gt;
+        &lt;div class&#x3D;&quot;column&quot;&gt;
+            &lt;h1 class&#x3D;&quot;title&quot;&gt;{{ t(&#x27;admin.title&#x27;) }}&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;column has-text-right m-r-md&quot;&gt;
+
+            &lt;span class&#x3D;&quot;icon m-r-sm&quot;&gt;
+                &lt;fa-icon [icon]&#x3D;&quot;faMail&quot; size&#x3D;&quot;lg&quot; class&#x3D;&quot;m-l-md&quot;&gt;&lt;/fa-icon&gt;
+            &lt;/span&gt;
+
+            &lt;a href&#x3D;&quot;mailto:info@refoodlution.com&quot; class&#x3D;&quot;has-text-dark&quot;&gt;
+                {{ t(&#x27;dashboard.contact&#x27;) }}&lt;br&gt;
+                info@refoodlution.com&lt;/a&gt;
+
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div style&#x3D;&quot;margin-bottom:1em;display: none;&quot;&gt;
+        &lt;button class&#x3D;&quot;button is-primary is-primary-hover &quot; style&#x3D;&quot;padding:1em;&quot; (click)&#x3D;&quot;sendEmailToOldRestaurants()&quot;&gt;Mails confirmación&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- tabs --&gt;
+    &lt;div class&#x3D;&quot;pcss3t pcss3t-effect-scale pcss3t-theme-1&quot;&gt;
+        
+        &lt;!--&lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;pcss3t&quot; checked  id&#x3D;&quot;tab1&quot;class&#x3D;&quot;tab-content-first&quot;&gt;
+        &lt;label for&#x3D;&quot;tab1&quot;&gt;&lt;i class&#x3D;&quot;icon-bolt&quot;&gt;&lt;/i&gt;Clientes&lt;/label&gt;
+        --&gt;
+        &lt;input type&#x3D;&quot;radio&quot; name&#x3D;&quot;pcss3t&quot; checked id&#x3D;&quot;tab1&quot;class&#x3D;&quot;tab-content-first&quot;&gt;
+        &lt;label for&#x3D;&quot;tab2&quot;&gt;&lt;i class&#x3D;&quot;icon-bolt&quot;&gt;&lt;/i&gt;Restaurantes&lt;/label&gt;
+        
+        &lt;ul style&#x3D;&quot;height: calc(100vh - 200px);&quot;&gt;
+            &lt;!--&lt;li class&#x3D;&quot;tab-content tab-content-first typography&quot;&gt;
+                &lt;app-adminusers&gt;&lt;/app-adminusers&gt;
+            &lt;/li&gt;
+        --&gt;
+            &lt;li class&#x3D;&quot;tab-content tab-content-first typography&quot; style&#x3D;&quot;height:100%;&quot;&gt;
+                &lt;app-adminrestaurants&gt;&lt;/app-adminrestaurants&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;!--/ tabs --&gt;
+    
+
+&lt;/ng-container&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./admin.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &quot;~src/variables.scss&quot;;
+
+a {
+	color: #000;
+}
+
+.btn button {
+	background-color: #ffffff;
+	border: solid 1px #fed03d;
+	border-radius: 5px;
+	box-sizing: border-box;
+	color: #fed03d;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	margin: 0;
+	padding: 12px 25px;
+	text-decoration: none;
+	text-transform: capitalize; 
+}
+
+#previewImage {
+    max-width: 50%;
+    display:block;
+    margin:auto;
+}
+
+.bm--card-equal-height {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+ }
+
+ .bm--card-equal-height .card-footer {
+    margin-top: auto;
+ }
+
+ .center {
+    text-align: center;
+}
+
+.header-image {
+    max-width: 7em;
+    max-height: 7em;
+}
+
+.header-blau {
+    color:#90a9c3;
+}
+
+.header-border {
+    border: .075em solid $secondary-hover;
+    border-radius: .9em;
+    margin: 0;
+}
+
+.big-box {
+   padding-top: 2em;
+   padding-bottom: 2em;
+   text-align: center;  
+   vertical-align: middle;
+    &amp;.hoverable {
+        border-radius: .3em;
+        transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+        &amp;:hover {
+            box-shadow: 0 0.5em 1em -0.125em rgba(hsl(0, 0%, 4%), 0.25), 0 0px 0 1px rgba(hsl(0, 0%, 4%), 0.02);
+            cursor: pointer;
+        }
+
+    }
+    
+}
+
+.pcss3t {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	font-size: 0;
+	text-align: left;
+}
+.pcss3t &gt; input {
+	position: absolute;
+	left: -9999px;
+}
+.pcss3t &gt; label {
+	position: relative;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	cursor: pointer;
+	transition: all 0.1s;
+	-o-transition: all 0.1s;	
+	-ms-transition: all 0.1s;	
+	-moz-transition: all 0.1s;	
+	-webkit-transition: all 0.1s;
+}
+.pcss3t &gt; label i {
+	display: block;
+	float: left;
+	margin: 16px 8px 0 -2px;
+	padding: 0;
+	border: 0;
+	outline: none;
+	//font-family: FontAwesome;
+	font-style: normal;
+	font-size: 17px;
+}
+.pcss3t &gt; input:checked + label {
+	cursor: default;
+}
+.pcss3t &gt; ul {
+	list-style: none;
+	position: relative;
+	display: block;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	font-size: 13px;
+}
+.pcss3t &gt; ul &gt; li {
+	position: absolute;
+	width: 100%;
+	overflow: auto;
+	padding: 30px 40px 40px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	opacity: 0;
+	transition: all 0.5s;
+	-o-transition: all 0.5s;	
+	-ms-transition: all 0.5s;	
+	-moz-transition: all 0.5s;	
+	-webkit-transition: all 0.5s;
+}
+.pcss3t &gt; .tab-content-first:checked ~ ul .tab-content-first,
+.pcss3t &gt; .tab-content-2:checked ~ ul .tab-content-2,
+.pcss3t &gt; .tab-content-3:checked ~ ul .tab-content-3,
+.pcss3t &gt; .tab-content-4:checked ~ ul .tab-content-4,
+.pcss3t &gt; .tab-content-5:checked ~ ul .tab-content-5,
+.pcss3t &gt; .tab-content-6:checked ~ ul .tab-content-6,
+.pcss3t &gt; .tab-content-7:checked ~ ul .tab-content-7,
+.pcss3t &gt; .tab-content-8:checked ~ ul .tab-content-8,
+.pcss3t &gt; .tab-content-9:checked ~ ul .tab-content-9,
+.pcss3t &gt; .tab-content-last:checked ~ ul .tab-content-last {
+	z-index: 1;
+	top: 0;
+	left: 0;
+	opacity: 1;
+	-webkit-transform: scale(1,1);
+	-webkit-transform: rotate(0deg);
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*                                 EXTENSIONS                                 */
+/*----------------------------------------------------------------------------*/
+
+/**/
+/* auto height */
+/**/
+.pcss3t-height-auto &gt; ul {
+	height: auto !important;
+}
+.pcss3t-height-auto &gt; ul &gt; li {
+	position: static;
+	display: none;
+	height: auto !important;
+}
+.pcss3t-height-auto &gt; .tab-content-first:checked ~ ul .tab-content-first,
+.pcss3t-height-auto &gt; .tab-content-2:checked ~ ul .tab-content-2,
+.pcss3t-height-auto &gt; .tab-content-3:checked ~ ul .tab-content-3,
+.pcss3t-height-auto &gt; .tab-content-4:checked ~ ul .tab-content-4,
+.pcss3t-height-auto &gt; .tab-content-5:checked ~ ul .tab-content-5,
+.pcss3t-height-auto &gt; .tab-content-last:checked ~ ul .tab-content-last {
+	display: block;
+}
+
+
+/**/
+/* grid */
+/**/
+.pcss3t .grid-row {
+	margin-top: 20px;
+}
+.pcss3t .grid-row:after {
+	content: &#x27;&#x27;;
+	display: table;
+	clear: both;
+}
+.pcss3t .grid-row:first-child {
+	margin-top: 0;
+}
+.pcss3t .grid-col {
+	display: block;
+	float: left;
+	margin-left: 2%;
+}
+.pcss3t .grid-col:first-child {
+	margin-left: 0;
+}
+.pcss3t .grid-col .inner {
+	padding: 10px 0;
+	border-radius: 5px;
+	background: #f2f2f2;
+	text-align: center;
+}
+.pcss3t .grid-col-1 {
+	width: 15%;
+}
+.pcss3t .grid-col-2 {
+	width: 32%;
+}
+.pcss3t .grid-col-3 {
+	width: 49%;
+}
+.pcss3t .grid-col-4 {
+	width: 66%;
+}
+.pcss3t .grid-col-5 {
+	width: 83%;
+}
+.pcss3t .grid-col-offset-1 {
+	margin-left: 19%;
+}
+.pcss3t .grid-col-offset-1:first-child  {
+	margin-left: 17%;
+}
+.pcss3t .grid-col-offset-2 {
+	margin-left: 36%;	
+}
+.pcss3t .grid-col-offset-2:first-child {
+	margin-left: 34%;
+}
+.pcss3t .grid-col-offset-3 {
+	margin-left: 53%;
+}
+.pcss3t .grid-col-offset-3:first-child {
+	margin-left: 51%;
+}
+.pcss3t .grid-col-offset-4 {
+	margin-left: 70%;
+}
+.pcss3t .grid-col-offset-4:first-child {
+	margin-left: 68%;
+}
+.pcss3t .grid-col-offset-5:first-child {
+	margin-left: 85%;
+}
+
+
+/**/
+/* typography */
+/**/
+.pcss3t .typography {
+	color: #666;
+}
+.pcss3t .typography h1,
+.pcss3t .typography h2,
+.pcss3t .typography h3,
+.pcss3t .typography h4,
+.pcss3t .typography h5,
+.pcss3t .typography h6 {
+	margin: 40px 0 0 0;
+	padding: 0;
+	font-family: Gabriela, Georgia, serif;
+	text-align: left;
+	color: #333;
+}
+.pcss3t .typography h1 {
+	font-size: 40px;
+	line-height: 60px;
+	text-shadow: 3px 3px rgba(0,0,0,0.1);
+}
+.pcss3t .typography h2 {
+	font-size: 32px;
+	line-height: 48px;
+	text-shadow: 2px 2px rgba(0,0,0,0.1);
+}
+.pcss3t .typography h3 {
+	font-size: 26px;
+	line-height: 38px;
+	text-shadow: 1px 1px rgba(0,0,0,0.1);
+}
+.pcss3t .typography h4 {
+	font-size: 20px;
+	line-height: 30px;
+}
+.pcss3t .typography h5 {
+	font-size: 15px;
+	line-height: 23px;
+	text-transform: uppercase;
+}
+.pcss3t .typography h6 {
+	font-size: 13px;
+	line-height: 20px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.pcss3t .typography p {
+	margin: 20px 0 0 0;
+	padding: 0;
+	line-height: 20px;
+	text-align: left;
+}
+.pcss3t .typography ul,
+.pcss3t .typography ol {
+	list-style: none;
+	margin: 20px 0 0 0;
+	padding: 0;
+}
+.pcss3t .typography li {
+	position: relative;
+	margin-top: 5px;
+	padding-left: 20px;
+}
+.pcss3t .typography li ul,
+.pcss3t .typography li ol {
+	margin-top: 5px;
+}
+.pcss3t .typography ul li:before {
+	content: &#x27;&#x27;;
+	position: absolute;
+	top: 8px;
+	left: 0;
+	width: 6px;
+	height: 4px;
+	background: #404040;
+}
+.pcss3t .typography ol {
+	counter-reset: list1;
+}
+.pcss3t .typography ol &gt; li:before {
+	counter-increment:list1;
+	content: counter(list1)&#x27;.&#x27;;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.pcss3t .typography a {
+	text-decoration: underline;
+	color: #1889e6;
+}
+.pcss3t .typography a:hover {
+	text-decoration: none;
+}
+.pcss3t .typography .pic {
+	padding: 4px;
+	border: 1px dotted #ccc;
+}
+.pcss3t .typography .pic img {
+	display: block;
+}
+.pcss3t .typography .pic-right {
+	float: right;
+	margin: 0 0 10px 20px;
+}
+.pcss3t .typography .link {
+	text-decoration: underline;
+	color: #1889e6;
+	cursor: pointer;
+}
+.pcss3t .typography .link:hover {
+	text-decoration: none;
+}
+.pcss3t .typography h1:first-child,
+.pcss3t .typography h2:first-child,
+.pcss3t .typography h3:first-child,
+.pcss3t .typography h4:first-child,
+.pcss3t .typography h5:first-child,
+.pcss3t .typography h6:first-child,
+.pcss3t .typography p:first-child {
+	margin-top: 0;
+}
+.pcss3t .typography .text-center {
+	text-align: center;
+}
+.pcss3t .typography .text-right {
+	text-align: right;
+}
+
+
+/**/
+/* steps */
+/**/
+.pcss3t-steps &gt; label {
+	cursor: default;
+}
+
+
+/**/
+/* animation effects */
+/**/
+.pcss3t-effect-scale &gt; ul &gt; li {
+	-webkit-transform: scale(0.1,0.1);
+}
+.pcss3t-effect-rotate  &gt; ul &gt; li {
+	-webkit-transform: rotate(180deg);
+}
+.pcss3t-effect-slide-top &gt; ul &gt; li {
+	top: -40px;
+}
+.pcss3t-effect-slide-right &gt; ul &gt; li {
+	left: 80px;
+}
+.pcss3t-effect-slide-bottom &gt; ul &gt; li {
+	top: 40px;
+}
+.pcss3t-effect-slide-left &gt; ul &gt; li {
+	left: -80px;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*                                   LAYOUTS                                  */
+/*----------------------------------------------------------------------------*/
+
+/**/
+/* top right */
+/**/
+.pcss3t-layout-top-right {
+	text-align: right;
+}
+
+
+/**/
+/* top center */
+/**/
+.pcss3t-layout-top-center {
+	text-align: center;
+}
+
+
+/**/
+/* top combi */
+/**/
+.pcss3t &gt; .right {
+	float: right;
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*                                    ICONS                                   */
+/*----------------------------------------------------------------------------*/
+
+/**/
+/* icons positions */
+/**/
+.pcss3t-icons-top &gt; label {
+	text-align: center;
+}
+.pcss3t-icons-top &gt; label i {
+	float: none;
+	margin: 0 auto -10px;
+	padding-top: 17px;
+	font-size: 23px;
+	line-height: 23px;
+	text-align: center;
+}
+.pcss3t-icons-right &gt; label i {
+	float: right;
+	margin: 0 -2px 0 8px;
+}
+.pcss3t-icons-bottom &gt; label {
+	text-align: center;
+}
+.pcss3t-icons-bottom &gt; label i {
+	float: none;
+	margin: -10px auto 0;
+	padding-bottom: 17px;
+	font-size: 23px;
+	line-height: 23px;
+	text-align: center;
+}
+.pcss3t-icons-only &gt; label i {
+	float: none;
+	margin: 0 auto;
+	font-size: 23px;
+}
+
+
+/**/
+/* font awesome */
+/**/
+/*@font-face
+{
+	font-family: &#x27;FontAwesome&#x27;;
+	src: url(&#x27;../fonts/fontawesome-webfont.eot?v&#x3D;3.0.1&#x27;);
+	src: url(&#x27;../fonts/fontawesome-webfont.eot?#iefix&amp;v&#x3D;3.0.1&#x27;) format(&#x27;embedded-opentype&#x27;),
+	url(&#x27;../fonts/fontawesome-webfont.woff?v&#x3D;3.0.1&#x27;) format(&#x27;woff&#x27;),
+	url(&#x27;../fonts/fontawesome-webfont.ttf?v&#x3D;3.0.1&#x27;) format(&#x27;truetype&#x27;);
+	font-weight: normal;
+	font-style: normal;
+}
+.icon-glass:before {content: &#x27;\f000&#x27;;}
+.icon-music:before {content: &#x27;\f001&#x27;;}
+.icon-search:before {content: &#x27;\f002&#x27;;}
+.icon-envelope:before {content: &#x27;\f003&#x27;;}
+.icon-heart:before {content: &#x27;\f004&#x27;;}
+.icon-star:before {content: &#x27;\f005&#x27;;}
+.icon-star-empty:before {content: &#x27;\f006&#x27;;}
+.icon-user:before {content: &#x27;\f007&#x27;;}
+.icon-film:before {content: &#x27;\f008&#x27;;}
+.icon-th-large:before {content: &#x27;\f009&#x27;;}
+.icon-th:before {content: &#x27;\f00a&#x27;;}
+.icon-th-list:before {content: &#x27;\f00b&#x27;;}
+.icon-ok:before {content: &#x27;\f00c&#x27;;}
+.icon-remove:before {content: &#x27;\f00d&#x27;;}
+.icon-zoom-in:before {content: &#x27;\f00e&#x27;;}
+.icon-zoom-out:before {content: &#x27;\f010&#x27;;}
+.icon-off:before {content: &#x27;\f011&#x27;;}
+.icon-signal:before {content: &#x27;\f012&#x27;;}
+.icon-cog:before {content: &#x27;\f013&#x27;;}
+.icon-trash:before {content: &#x27;\f014&#x27;;}
+.icon-home:before {content: &#x27;\f015&#x27;;}
+.icon-file:before {content: &#x27;\f016&#x27;;}
+.icon-time:before {content: &#x27;\f017&#x27;;}
+.icon-road:before {content: &#x27;\f018&#x27;;}
+.icon-download-alt:before {content: &#x27;\f019&#x27;;}
+.icon-download:before {content: &#x27;\f01a&#x27;;}
+.icon-upload:before {content: &#x27;\f01b&#x27;;}
+.icon-inbox:before {content: &#x27;\f01c&#x27;;}
+.icon-play-circle:before {content: &#x27;\f01d&#x27;;}
+.icon-repeat:before {content: &#x27;\f01e&#x27;;}
+.icon-refresh:before {content: &#x27;\f021&#x27;;}
+.icon-list-alt:before {content: &#x27;\f022&#x27;;}
+.icon-lock:before {content: &#x27;\f023&#x27;;}
+.icon-flag:before {content: &#x27;\f024&#x27;;}
+.icon-headphones:before {content: &#x27;\f025&#x27;;}
+.icon-volume-off:before {content: &#x27;\f026&#x27;;}
+.icon-volume-down:before {content: &#x27;\f027&#x27;;}
+.icon-volume-up:before {content: &#x27;\f028&#x27;;}
+.icon-qrcode:before {content: &#x27;\f029&#x27;;}
+.icon-barcode:before {content: &#x27;\f02a&#x27;;}
+.icon-tag:before {content: &#x27;\f02b&#x27;;}
+.icon-tags:before {content: &#x27;\f02c&#x27;;}
+.icon-book:before {content: &#x27;\f02d&#x27;;}
+.icon-bookmark:before {content: &#x27;\f02e&#x27;;}
+.icon-print:before {content: &#x27;\f02f&#x27;;}
+.icon-camera:before {content: &#x27;\f030&#x27;;}
+.icon-font:before {content: &#x27;\f031&#x27;;}
+.icon-bold:before {content: &#x27;\f032&#x27;;}
+.icon-italic:before {content: &#x27;\f033&#x27;;}
+.icon-text-height:before {content: &#x27;\f034&#x27;;}
+.icon-text-width:before {content: &#x27;\f035&#x27;;}
+.icon-align-left:before {content: &#x27;\f036&#x27;;}
+.icon-align-center:before {content: &#x27;\f037&#x27;;}
+.icon-align-right:before {content: &#x27;\f038&#x27;;}
+.icon-align-justify:before {content: &#x27;\f039&#x27;;}
+.icon-list:before {content: &#x27;\f03a&#x27;;}
+.icon-indent-left:before {content: &#x27;\f03b&#x27;;}
+.icon-indent-right:before {content: &#x27;\f03c&#x27;;}
+.icon-facetime-video:before  {content: &#x27;\f03d&#x27;;}
+.icon-picture:before {content: &#x27;\f03e&#x27;;}
+.icon-pencil:before {content: &#x27;\f040&#x27;;}
+.icon-map-marker:before {content: &#x27;\f041&#x27;;}
+.icon-adjust:before {content: &#x27;\f042&#x27;;}
+.icon-tint:before {content: &#x27;\f043&#x27;;}
+.icon-edit:before {content: &#x27;\f044&#x27;;}
+.icon-share:before {content: &#x27;\f045&#x27;;}
+.icon-check:before {content: &#x27;\f046&#x27;;}
+.icon-move:before {content: &#x27;\f047&#x27;;}
+.icon-step-backward:before {content: &#x27;\f048&#x27;;}
+.icon-fast-backward:before {content: &#x27;\f049&#x27;;}
+.icon-backward:before {content: &#x27;\f04a&#x27;; position: relative;	left: -2px;}
+.icon-play:before {content: &#x27;\f04b&#x27;; position: relative; left: 1px;}
+.icon-pause:before {content: &#x27;\f04c&#x27;;}
+.icon-stop:before {content: &#x27;\f04d&#x27;;}
+.icon-forward:before {content: &#x27;\f04e&#x27;; position: relative;	left: 2px;}
+.icon-fast-forward:before {content: &#x27;\f050&#x27;;}
+.icon-step-forward:before {content: &#x27;\f051&#x27;;}
+.icon-eject:before {content: &#x27;\f052&#x27;;}
+.icon-chevron-left:before {content: &#x27;\f053&#x27;;}
+.icon-chevron-right:before {content: &#x27;\f054&#x27;;}
+.icon-plus-sign:before {content: &#x27;\f055&#x27;;}
+.icon-minus-sign:before {content: &#x27;\f056&#x27;;}
+.icon-remove-sign:before {content: &#x27;\f057&#x27;;}
+.icon-ok-sign:before {content: &#x27;\f058&#x27;;}
+.icon-question-sign:before {content: &#x27;\f059&#x27;;}
+.icon-info-sign:before {content: &#x27;\f05a&#x27;;}
+.icon-screenshot:before {content: &#x27;\f05b&#x27;;}
+.icon-remove-circle:before {content: &#x27;\f05c&#x27;;}
+.icon-ok-circle:before {content: &#x27;\f05d&#x27;;}
+.icon-ban-circle:before {content: &#x27;\f05e&#x27;;}
+.icon-arrow-left:before {content: &#x27;\f060&#x27;;}
+.icon-arrow-right:before {content: &#x27;\f061&#x27;;}
+.icon-arrow-up:before {content: &#x27;\f062&#x27;;}
+.icon-arrow-down:before {content: &#x27;\f063&#x27;;}
+.icon-share-alt:before {content: &#x27;\f064&#x27;;}
+.icon-resize-full:before {content: &#x27;\f065&#x27;;}
+.icon-resize-small:before {content: &#x27;\f066&#x27;;}
+.icon-plus:before {content: &#x27;\f067&#x27;;}
+.icon-minus:before {content: &#x27;\f068&#x27;;}
+.icon-asterisk:before {content: &#x27;\f069&#x27;;}
+.icon-exclamation-sign:before {content: &#x27;\f06a&#x27;;}
+.icon-gift:before {content: &#x27;\f06b&#x27;;}
+.icon-leaf:before {content: &#x27;\f06c&#x27;;}
+.icon-fire:before {content: &#x27;\f06d&#x27;;}
+.icon-eye-open:before {content: &#x27;\f06e&#x27;;}
+.icon-eye-close:before {content: &#x27;\f070&#x27;;}
+.icon-warning-sign:before {content: &#x27;\f071&#x27;;}
+.icon-plane:before {content: &#x27;\f072&#x27;;}
+.icon-calendar:before {content: &#x27;\f073&#x27;;}
+.icon-random:before {content: &#x27;\f074&#x27;;}
+.icon-comment:before {content: &#x27;\f075&#x27;;}
+.icon-magnet:before {content: &#x27;\f076&#x27;;}
+.icon-chevron-up:before {content: &#x27;\f077&#x27;;}
+.icon-chevron-down:before {content: &#x27;\f078&#x27;;}
+.icon-retweet:before {content: &#x27;\f079&#x27;;}
+.icon-shopping-cart:before {content: &#x27;\f07a&#x27;;}
+.icon-folder-close:before {content: &#x27;\f07b&#x27;;}
+.icon-folder-open:before {content: &#x27;\f07c&#x27;;}
+.icon-resize-vertical:before {content: &#x27;\f07d&#x27;;}
+.icon-resize-horizontal:before {content: &#x27;\f07e&#x27;;}
+.icon-bar-chart:before {content: &#x27;\f080&#x27;;}
+.icon-twitter-sign:before {content: &#x27;\f081&#x27;;}
+.icon-facebook-sign:before {content: &#x27;\f082&#x27;;}
+.icon-camera-retro:before {content: &#x27;\f083&#x27;;}
+.icon-key:before {content: &#x27;\f084&#x27;;}
+.icon-cogs:before {content: &#x27;\f085&#x27;;}
+.icon-comments:before {content: &#x27;\f086&#x27;;}
+.icon-thumbs-up:before {content: &#x27;\f087&#x27;;}
+.icon-thumbs-down:before {content: &#x27;\f088&#x27;;}
+.icon-star-half:before {content: &#x27;\f089&#x27;;}
+.icon-heart-empty:before {content: &#x27;\f08a&#x27;;}
+.icon-signout:before {content: &#x27;\f08b&#x27;;}
+.icon-linkedin-sign:before {content: &#x27;\f08c&#x27;;}
+.icon-pushpin:before {content: &#x27;\f08d&#x27;;}
+.icon-external-link:before {content: &#x27;\f08e&#x27;;}
+.icon-signin:before {content: &#x27;\f090&#x27;;}
+.icon-trophy:before {content: &#x27;\f091&#x27;;}
+.icon-github-sign:before {content: &#x27;\f092&#x27;;}
+.icon-upload-alt:before {content: &#x27;\f093&#x27;;}
+.icon-lemon:before {content: &#x27;\f094&#x27;;}
+.icon-phone:before {content: &#x27;\f095&#x27;;}
+.icon-check-empty:before {content: &#x27;\f096&#x27;;}
+.icon-bookmark-empty:before {content: &#x27;\f097&#x27;;}
+.icon-phone-sign:before {content: &#x27;\f098&#x27;;}
+.icon-twitter:before {content: &#x27;\f099&#x27;;}
+.icon-facebook:before {content: &#x27;\f09a&#x27;;}
+.icon-github:before {content: &#x27;\f09b&#x27;;}
+.icon-unlock:before {content: &#x27;\f09c&#x27;;}
+.icon-credit-card:before {content: &#x27;\f09d&#x27;;}
+.icon-rss:before {content: &#x27;\f09e&#x27;;}
+.icon-hdd:before {content: &#x27;\f0a0&#x27;;}
+.icon-bullhorn:before {content: &#x27;\f0a1&#x27;;}
+.icon-bell:before {content: &#x27;\f0a2&#x27;;}
+.icon-certificate:before {content: &#x27;\f0a3&#x27;;}
+.icon-hand-right:before {content: &#x27;\f0a4&#x27;;}
+.icon-hand-left:before {content: &#x27;\f0a5&#x27;;}
+.icon-hand-up:before {content: &#x27;\f0a6&#x27;;}
+.icon-hand-down:before {content: &#x27;\f0a7&#x27;;}
+.icon-circle-arrow-left:before {content: &#x27;\f0a8&#x27;;}
+.icon-circle-arrow-right:before {content: &#x27;\f0a9&#x27;;}
+.icon-circle-arrow-up:before {content: &#x27;\f0aa&#x27;;}
+.icon-circle-arrow-down:before {content: &#x27;\f0ab&#x27;;}
+.icon-globe:before {content: &#x27;\f0ac&#x27;;}
+.icon-wrench:before {content: &#x27;\f0ad&#x27;;}
+.icon-tasks:before {content: &#x27;\f0ae&#x27;;}
+.icon-filter:before {content: &#x27;\f0b0&#x27;;}
+.icon-briefcase:before {content: &#x27;\f0b1&#x27;;}
+.icon-fullscreen:before {content: &#x27;\f0b2&#x27;;}
+.icon-group:before {content: &#x27;\f0c0&#x27;;}
+.icon-link:before {content: &#x27;\f0c1&#x27;;}
+.icon-cloud:before {content: &#x27;\f0c2&#x27;;}
+.icon-beaker:before {content: &#x27;\f0c3&#x27;;}
+.icon-cut:before {content: &#x27;\f0c4&#x27;;}
+.icon-copy:before {content: &#x27;\f0c5&#x27;;}
+.icon-paper-clip:before {content: &#x27;\f0c6&#x27;;}
+.icon-save:before {content: &#x27;\f0c7&#x27;;}
+.icon-sign-blank:before {content: &#x27;\f0c8&#x27;;}
+.icon-reorder:before {content: &#x27;\f0c9&#x27;;}
+.icon-list-ul:before {content: &#x27;\f0ca&#x27;;}
+.icon-list-ol:before {content: &#x27;\f0cb&#x27;;}
+.icon-strikethrough:before {content: &#x27;\f0cc&#x27;;}
+.icon-underline:before {content: &#x27;\f0cd&#x27;;}
+.icon-table:before {content: &#x27;\f0ce&#x27;;}
+.icon-magic:before {content: &#x27;\f0d0&#x27;;}
+.icon-truck:before {content: &#x27;\f0d1&#x27;;}
+.icon-pinterest:before {content: &#x27;\f0d2&#x27;;}
+.icon-pinterest-sign:before {content: &#x27;\f0d3&#x27;;}
+.icon-google-plus-sign:before {content: &#x27;\f0d4&#x27;;}
+.icon-google-plus:before {content: &#x27;\f0d5&#x27;;}
+.icon-money:before {content: &#x27;\f0d6&#x27;;}
+.icon-caret-down:before {content: &#x27;\f0d7&#x27;;}
+.icon-caret-up:before {content: &#x27;\f0d8&#x27;;}
+.icon-caret-left:before {content: &#x27;\f0d9&#x27;;}
+.icon-caret-right:before {content: &#x27;\f0da&#x27;;}
+.icon-columns:before {content: &#x27;\f0db&#x27;;}
+.icon-sort:before {content: &#x27;\f0dc&#x27;;}
+.icon-sort-down:before {content: &#x27;\f0dd&#x27;;}
+.icon-sort-up:before {content: &#x27;\f0de&#x27;;}
+.icon-envelope-alt:before {content: &#x27;\f0e0&#x27;;}
+.icon-linkedin:before {content: &#x27;\f0e1&#x27;;}
+.icon-undo:before {content: &#x27;\f0e2&#x27;;}
+.icon-legal:before {content: &#x27;\f0e3&#x27;;}
+.icon-dashboard:before {content: &#x27;\f0e4&#x27;;}
+.icon-comment-alt:before {content: &#x27;\f0e5&#x27;;}
+.icon-comments-alt:before {content: &#x27;\f0e6&#x27;;}
+.icon-bolt:before {content: &#x27;\f0e7&#x27;;}
+.icon-sitemap:before {content: &#x27;\f0e8&#x27;;}
+.icon-umbrella:before {content: &#x27;\f0e9&#x27;;}
+.icon-paste:before {content: &#x27;\f0ea&#x27;;}
+.icon-lightbulb:before {content: &#x27;\f0eb&#x27;;}
+.icon-exchange:before {content: &#x27;\f0ec&#x27;;}
+.icon-cloud-download:before {content: &#x27;\f0ed&#x27;;}
+.icon-cloud-upload:before {content: &#x27;\f0ee&#x27;;}
+.icon-user-md:before {content: &#x27;\f0f0&#x27;;}
+.icon-stethoscope:before {content: &#x27;\f0f1&#x27;;}
+.icon-suitcase:before {content: &#x27;\f0f2&#x27;;}
+.icon-bell-alt:before {content: &#x27;\f0f3&#x27;;}
+.icon-coffee:before {content: &#x27;\f0f4&#x27;;}
+.icon-food:before {content: &#x27;\f0f5&#x27;;}
+.icon-file-alt:before {content: &#x27;\f0f6&#x27;;}
+.icon-building:before {content: &#x27;\f0f7&#x27;;}
+.icon-hospital:before {content: &#x27;\f0f8&#x27;;}
+.icon-ambulance:before {content: &#x27;\f0f9&#x27;;}
+.icon-medkit:before {content: &#x27;\f0fa&#x27;;}
+.icon-fighter-jet:before {content: &#x27;\f0fb&#x27;;}
+.icon-beer:before {content: &#x27;\f0fc&#x27;;}
+.icon-h-sign:before {content: &#x27;\f0fd&#x27;;}
+.icon-plus-sign-alt:before {content: &#x27;\f0fe&#x27;;}
+.icon-double-angle-left:before {content: &#x27;\f100&#x27;;}
+.icon-double-angle-right:before {content: &#x27;\f101&#x27;;}
+.icon-double-angle-up:before {content: &#x27;\f102&#x27;;}
+.icon-double-angle-down:before {content: &#x27;\f103&#x27;;}
+.icon-angle-left:before {content: &#x27;\f104&#x27;;}
+.icon-angle-right:before {content: &#x27;\f105&#x27;;}
+.icon-angle-up:before {content: &#x27;\f106&#x27;;}
+.icon-angle-down:before {content: &#x27;\f107&#x27;;}
+.icon-desktop:before {content: &#x27;\f108&#x27;;}
+.icon-laptop:before {content: &#x27;\f109&#x27;;}
+.icon-tablet:before {content: &#x27;\f10a&#x27;;}
+.icon-mobile-phone:before {content: &#x27;\f10b&#x27;;}
+.icon-circle-blank:before {content: &#x27;\f10c&#x27;;}
+.icon-quote-left:before {content: &#x27;\f10d&#x27;;}
+.icon-quote-right:before {content: &#x27;\f10e&#x27;;}
+.icon-spinner:before {content: &#x27;\f110&#x27;;}
+.icon-circle:before {content: &#x27;\f111&#x27;;}
+.icon-reply:before {content: &#x27;\f112&#x27;;}
+.icon-github-alt:before {content: &#x27;\f113&#x27;;}
+.icon-folder-close-alt:before {content: &#x27;\f114&#x27;;}
+.icon-folder-open-alt:before {content: &#x27;\f115&#x27;;}
+
+*/
+
+/*----------------------------------------------------------------------------*/
+/*                               RESPONSIVENESS                               */
+/*----------------------------------------------------------------------------*/
+
+/**/
+/* pad */
+/**/
+@media screen and (max-width: 980px) {
+	
+}
+
+
+/**/
+/* phone */
+/**/
+@media screen and (max-width: 767px) {
+	.pcss3t &gt; label {
+		display: block;
+	}
+	.pcss3t &gt; .right {
+		float: none;
+	}
+}
+
+
+
+/*----------------------------------------------------------------------------*/
+/*                                   THEMES                                   */
+/*----------------------------------------------------------------------------*/
+
+/**/
+/* default */
+/**/
+.pcss3t &gt; label {	
+	padding: 0 20px;
+	background: #e5e5e5;
+	font-size: 13px;
+	line-height: 49px;
+}
+.pcss3t &gt; label:hover {
+	background: #f2f2f2;
+}
+.pcss3t &gt; input:checked + label {
+	background: #fff;
+}
+.pcss3t &gt; ul {
+	background: #fff;
+	text-align: left;
+}
+.pcss3t-steps &gt; label:hover {
+	background: #e5e5e5;	
+}
+
+
+/**/
+/* theme 1 */
+/**/
+.pcss3t-theme-1 &gt; label {
+	margin: 0 5px 5px 0;
+	border-radius: 5px;
+	background: #fff;
+	box-shadow: 0 2px rgba(0,0,0,0.2);
+	color: #808080;
+	opacity: 0.8;
+}
+.pcss3t-theme-1 &gt; label:hover {
+	background: #fff;
+	opacity: 1;
+}
+.pcss3t-theme-1 &gt; input:checked + label {
+	margin-bottom: 0;
+	padding-bottom: 5px;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+	color: #2b82d9;
+	opacity: 1;
+}
+.pcss3t-theme-1 &gt; ul {
+	border-radius: 5px;
+	box-shadow: 0 3px rgba(0,0,0,0.2);
+}
+.pcss3t-theme-1 &gt; .tab-content-first:checked ~ ul {
+	border-top-left-radius: 0;
+}
+@media screen and (max-width: 767px) {
+	.pcss3t-theme-1 &gt; label {
+		margin-right: 0;
+	}
+	.pcss3t-theme-1 &gt; input:checked + label {
+		margin-bottom: 5px;
+		padding-bottom: 0;
+		border-radius: 5px;
+	}
+	.pcss3t-theme-1 &gt; .tab-content-first:checked ~ ul {
+		border-top-left-radius: 5px;
+	}
+}
+
+
+/**/
+/* theme 2 */
+/**/
+.pcss3t-theme-2 {
+	padding: 5px;
+	background: rgba(0,0,0,0.2);
+}
+.pcss3t-theme-2 &gt; label {
+	margin-right: 0;
+	margin-bottom: 0;
+	background: none;
+	border-radius: 0;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	color: #fff;
+	opacity: 1;
+}
+.pcss3t-theme-2 &gt; label:hover {
+	background: rgba(255,255,255,0.2);
+}
+.pcss3t-theme-2 &gt; input:checked + label {
+	padding-bottom: 0;
+	background: #fff;
+	background: linear-gradient(to bottom, #e5e5e5 0%, #ffffff 100%);
+	background: -o-linear-gradient(top, #e5e5e5 0%, #ffffff 100%);
+	background: -ms-linear-gradient(top, #e5e5e5 0%, #ffffff 100%);
+	background: -moz-linear-gradient(top, #e5e5e5 0%, #ffffff 100%);
+	background: -webkit-linear-gradient(top, #e5e5e5 0%, #ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr&#x3D;&#x27;#e5e5e5&#x27;, endColorstr&#x3D;&#x27;#ffffff&#x27;, GradientType&#x3D;0);
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.5);
+	color: #822bd9;
+}
+.pcss3t-theme-2 &gt; ul {
+	margin: 0 -5px -5px;
+	border-radius: 0;
+	box-shadow: none;
+}
+@media screen and (max-width: 767px) {
+	.pcss3t-theme-2 &gt; ul {
+		margin-top: 5px;
+	}
+}
+
+
+/**/
+/* theme 3 */
+/**/
+.pcss3t-theme-3 {
+	background: rgba(0,0,0,0.8);	
+}
+.pcss3t-theme-3 &gt; label {
+	background: none;
+	border-right: 1px dotted rgba(255,255,255,0.5);
+	text-align: center;
+	color: #fff;
+	opacity: 0.6;
+}
+.pcss3t-theme-3 &gt; label:hover {
+	background: none;
+	color: #d9d92b;
+	opacity: 0.8;
+}
+.pcss3t-theme-3 &gt; input:checked + label {
+	background: #d9d92b;
+	color: #000;
+	opacity: 1;
+}
+.pcss3t-theme-3 &gt; ul {
+	border-top: 4px solid #d9d92b;
+	border-bottom: 4px solid #d9d92b;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+
+/**/
+/* theme 4 */
+/**/
+.pcss3t-theme-4 &gt; label {
+	margin: 0 10px 10px 0;
+	border-radius: 5px;
+	background: #78c5fd;
+	background: linear-gradient(to bottom, #78c5fd 0%, #2c8fdd 100%);
+	background: -o-linear-gradient(top, #78c5fd 0%, #2c8fdd 100%);
+	background: -ms-linear-gradient(top, #78c5fd 0%, #2c8fdd 100%);
+	background: -moz-linear-gradient(top, #78c5fd 0%, #2c8fdd 100%);
+	background: -webkit-linear-gradient(top, #78c5fd 0%, #2c8fdd 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr&#x3D;&#x27;#78c5fd&#x27;, endColorstr&#x3D;&#x27;#2c8fdd&#x27;, GradientType&#x3D;0);
+	box-shadow: inset 0 1px rgba(255,255,255,0.5), 0 1px rgba(0,0,0,0.5);
+	line-height: 39px;
+	text-shadow: 0 1px rgba(0,0,0,0.5);
+	color: #fff;
+}
+.pcss3t-theme-4 &gt; label:hover {
+	background: #90cffc;
+	background: linear-gradient(to bottom, #90cffc 0%, #439bde 100%);
+	background: -o-linear-gradient(top, #90cffc 0%, #439bde 100%);
+	background: -ms-linear-gradient(top, #90cffc 0%, #439bde 100%);
+	background: -moz-linear-gradient(top, #90cffc 0%, #439bde 100%);
+	background: -webkit-linear-gradient(top, #90cffc 0%, #439bde 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr&#x3D;&#x27;#90cffc&#x27;, endColorstr&#x3D;&#x27;#439bde&#x27;, GradientType&#x3D;0);
+}
+.pcss3t-theme-4 &gt; input:checked + label {
+	top: 1px;
+	background: #5f9dc9;
+	background: linear-gradient(to bottom, #5f9dc9 0%, #2270ab 100%);
+	background: -o-linear-gradient(top, #5f9dc9 0%, #2270ab 100%);
+	background: -ms-linear-gradient(top, #5f9dc9 0%, #2270ab 100%);
+	background: -moz-linear-gradient(top, #5f9dc9 0%, #2270ab 100%);
+	background: -webkit-linear-gradient(top, #5f9dc9 0%, #2270ab 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr&#x3D;&#x27;#5f9dc9&#x27;, endColorstr&#x3D;&#x27;#2270ab&#x27;, GradientType&#x3D;0);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.5), 0 1px rgba(255,255,255,0.5);
+	text-shadow: none;
+}
+.pcss3t-theme-4 &gt; ul {
+	border-radius: 5px;
+	box-shadow: 0 2px 2px rgba(0,0,0,0.3);
+}
+@media screen and (max-width: 767px) {
+	.pcss3t-theme-4 &gt; label {
+		margin-right: 0;
+	}
+}
+
+
+/**/
+/* theme 5 */
+/**/
+.pcss3t-theme-5 {
+	padding: 15px;
+	border-radius: 5px;
+	background: #ad6395;
+	background: linear-gradient(to right, #ad6395 0%, #a163ad 100%);
+	background: -o-linear-gradient(left, #ad6395 0%, #a163ad 100%);
+	background: -ms-linear-gradient(left, #ad6395 0%, #a163ad 100%);
+	background: -moz-linear-gradient(left, #ad6395 0%, #a163ad 100%);
+	background: -webkit-linear-gradient(left, #ad6395 0%, #a163ad 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr&#x3D;&#x27;#5f9dc9&#x27;, endColorstr&#x3D;&#x27;#a163ad&#x27;, GradientType&#x3D;1);
+}
+.pcss3t-theme-5 &gt; label {
+	margin-right: 10px;
+	margin-bottom: 15px;
+	background: none;
+	border-radius: 5px;
+	text-align: center;
+	color: #fff;
+	opacity: 1;
+}
+.pcss3t-theme-5 &gt; label:hover {
+	background: rgba(255,255,255,0.15);
+}
+.pcss3t-theme-5 &gt; input:checked + label {
+	background: rgba(255,255,255,0.3);
+	color: #000;
+}
+.pcss3t-theme-5 &gt; input:checked + label:after {
+	content: &#x27;&#x27;;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-top: 10px;
+	margin-left: -6px;
+	border-right: 6px solid transparent;
+	border-bottom: 6px solid #fff;
+	border-left: 6px solid transparent;
+}
+.pcss3t-theme-5 &gt; ul {
+	margin: 0 -15px -15px;
+	border-radius: 0 0 5px 5px;
+	box-shadow: none;
+}
+@media screen and (max-width: 767px) {
+	.pcss3t-theme-5 &gt; input:checked + label:after {
+		display: none;
+	}
+}
+
+
+/*----------------------------------------------------------------------------*/
+/*                               CUSTOMIZATION                                */
+/*----------------------------------------------------------------------------*/
+
+/**/
+/* height */
+/**/
+.pcss3t &gt; ul,
+.pcss3t &gt; ul &gt; li {
+	height: 370px;
+}</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *transloco="let t">    <div class="columns">        <div class="column">            <h1 class="title">{{ t(\'admin.title\') }}</h1>        </div>        <div class="column has-text-right m-r-md">            <span class="icon m-r-sm">                <fa-icon [icon]="faMail" size="lg" class="m-l-md"></fa-icon>            </span>            <a href="mailto:info@refoodlution.com" class="has-text-dark">                {{ t(\'dashboard.contact\') }}<br>                info@refoodlution.com</a>        </div>    </div>    <div style="margin-bottom:1em;display: none;">        <button class="button is-primary is-primary-hover " style="padding:1em;" (click)="sendEmailToOldRestaurants()">Mails confirmación</button>    </div>    <!-- tabs -->    <div class="pcss3t pcss3t-effect-scale pcss3t-theme-1">                <!--<input type="radio" name="pcss3t" checked  id="tab1"class="tab-content-first">        <label for="tab1"><i class="icon-bolt"></i>Clientes</label>        -->        <input type="radio" name="pcss3t" checked id="tab1"class="tab-content-first">        <label for="tab2"><i class="icon-bolt"></i>Restaurantes</label>                <ul style="height: calc(100vh - 200px);">            <!--<li class="tab-content tab-content-first typography">                <app-adminusers></app-adminusers>            </li>        -->            <li class="tab-content tab-content-first typography" style="height:100%;">                <app-adminrestaurants></app-adminrestaurants>            </li>        </ul>    </div>    <!--/ tabs -->    </ng-container></div>'
+    var COMPONENTS = [{'name': 'AdminComponent', 'selector': 'app-admin'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CheckoutComponent', 'selector': 'app-checkout'},{'name': 'ckeditorComponent', 'selector': 'app-ckeditor'},{'name': 'ClientCardMenuComponent', 'selector': 'app-client-card-menu'},{'name': 'ClientMenuComponent', 'selector': 'app-client-menu'},{'name': 'ClientMenuItemComponent', 'selector': 'app-client-menu-item'},{'name': 'ClientMenuRowComponent', 'selector': '[app-client-menu-row]'},{'name': 'ConfigurationComponent', 'selector': 'app-configuration'},{'name': 'ConfirmEmailComponent', 'selector': 'app-confirm-email'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DaySelectorComponent', 'selector': 'app-day-selector'},{'name': 'DishCreationComponent', 'selector': 'app-dish-creation'},{'name': 'DishItemComponent', 'selector': 'app-dish-item'},{'name': 'DishListComponent', 'selector': 'app-dish-list'},{'name': 'FullPdfViewerComponent', 'selector': 'app-full-pdf-viewer'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'ManageSubComponent', 'selector': 'app-manage-sub'},{'name': 'MenuCreationComponent', 'selector': 'app-menu-creation'},{'name': 'MenuItemComponent', 'selector': 'app-menu-item'},{'name': 'MenuListComponent', 'selector': 'app-menu-list'},{'name': 'MenuPdfComponent', 'selector': 'app-menu-pdf'},{'name': 'PlatformLanguageComponent', 'selector': 'app-platform-language'},{'name': 'PopupinfoComponent', 'selector': 'app-popupinfo'},{'name': 'PricingComponent', 'selector': 'app-pricing'},{'name': 'QrDownloadComponent', 'selector': 'app-qr-download'},{'name': 'QRGeneratorComponent', 'selector': 'qr-generator'},{'name': 'RecoverComponent', 'selector': 'app-recover'},{'name': 'RedsysResponseComponent', 'selector': 'app-redsys-response'},{'name': 'RestaurantComponent', 'selector': 'app-restaurant'},{'name': 'RestaurantsComponent', 'selector': 'app-adminrestaurants'},{'name': 'ScheduleSelectorComponent', 'selector': 'app-schedule-selector'},{'name': 'SeasoningCreationComponent', 'selector': 'app-seasoning-creation'},{'name': 'SeasoningItemComponent', 'selector': 'app-seasoning-item'},{'name': 'SeasoningListComponent', 'selector': 'app-seasoning-list'},{'name': 'SideNavComponent', 'selector': 'app-side-nav'},{'name': 'SignUpComponent', 'selector': 'app-sign-up'},{'name': 'SubscriptionComponent', 'selector': 'app-subscription'},{'name': 'TConfigComponent', 'selector': 'app-t-config'},{'name': 'TItemDishComponent', 'selector': 'app-t-item-dish'},{'name': 'TItemStringComponent', 'selector': 'app-t-item-string'},{'name': 'TListComponent', 'selector': 'app-t-list'},{'name': 'UsersComponent', 'selector': 'app-adminusers'}];
+    var DIRECTIVES = [{'name': 'PwdMatchValidatorDirective', 'selector': '[appPwdMatch]'}];
+    var ACTUAL_COMPONENT = {'name': 'AdminComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AdminComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
